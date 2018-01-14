@@ -1,0 +1,9 @@
+[submodule ".themes/Arc-yuune"]
+	path = .themes/Arc-yuune
+	url = https://github.com/yuune/Arc-yuune
+[submodule ".scripts/Stick-xfwm4-builder"]
+	path = .scripts/Stick-xfwm4-builder
+	url = https://github.com/yuune/Stick-xfwm4
+[submodule ".scripts/xres-tmTheme"]
+	path = .scripts/xres-tmTheme
+	url = https://github.com/yuune/xres-tmtheme
