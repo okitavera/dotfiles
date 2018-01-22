@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=conky
+Exec=/home/ruka/.scripts/my-conky.sh
+StartupNotify=false
+Terminal=false

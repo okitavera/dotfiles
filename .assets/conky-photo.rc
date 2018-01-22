@@ -1,0 +1,29 @@
+conky.config = {
+	alignment = 'middle_middle',
+	background = true,
+	default_color = '777777',
+	draw_borders = false,
+	draw_outline = false,
+	draw_shades = false,
+	gap_x = 280,
+	gap_y = 15,
+	minimum_height = 240,
+	minimum_width = 240,
+	maximum_width = 240,
+	double_buffer = true,
+	out_to_console = false,
+	out_to_stderr = false,
+	own_window = true,
+	own_window_transparent = false,
+	own_window_argb_visual = true,
+	own_window_class = 'normal',
+	own_window_colour = 'ff5d73',
+	own_window_type = 'desktop',
+	own_window_hints = 'undecorated,skip_taskbar,skip_pager,below',
+	uppercase = true,
+	color1 = '#ff5d73'
+	}
+
+conky.text = [[
+${image ~/.assets/me.jpg -s 240x240}
+]]
