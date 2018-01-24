@@ -1,0 +1,106 @@
+/*
+Because we are modifying Ant theme,
+We need import them first.
+*/
+@import url("/home/ruka/.themes/Ant/gnome-shell/gnome-shell.css");
+
+/*
+Then start altering them
+*/
+
+#panel {
+  height: 2.5em;
+  min-height: 30px;
+  background-color: #EAEAEA;
+}
+
+#panel #panelLeft, #panel #panelCenter {
+  spacing: 0px; 
+}
+
+.panel-button {
+  background-color: #cc4a5c;
+}
+
+.panel-button StLabel {
+  font-family: Bebas Neue Regular, Bebas Neue, Futura Bk bt, Cantarell, Sans-Serif;
+  font-size: 11pt;
+}
+
+/*
+How to adding style for Places menu extension
+---------------------------------------------
+Edit ~/.local/share/gnome-shell/extensions/places-menu@gnome-shell-extensions.gcampax.github.com/extension.js
+add this whitout quotes : "this.actor.add_style_class_name('panel-places-button');"
+after : "this.parent(0.0, _("Places"));"
+*/
+
+.panel-places-button,
+.clock-display {
+  background-color: #e65467;
+}
+
+#appMenu,
+.panel-status-button,
+.mpris /*for modified Media Player Indicator*/ {
+  /*background: rgba(186,126,225,0.6);*/
+  /*background-color: #874BAE;*/
+  background-color: #ff5d73;
+}
+
+.panel-status-button StIcon {
+  width: 0;
+}
+
+#appMenu {
+  padding: 0px 10px; 
+}
+
+#panel * {
+  color: #FFFFFF;
+  text-shadow: none;
+  icon-shadow: none;
+  border: none;
+  text-transform: uppercase;
+}
+
+#panel .panel-button {
+  padding: 0;
+  border-bottom-width: 0px;
+  border-color: transparent; 
+}
+
+#panel .panel-button:hover,
+#panel .panel-button:active, 
+#panel .panel-button:checked {
+   box-shadow: inset 0 0 50px rgba(0,0,0, 0.4);
+}
+
+.notification-banner *,
+.message-content * {
+  color: #365ca6;
+}
+
+/* uncomment if you're using bottom-panel
+.overview-controls ,.app-view-controls {
+  padding-bottom: 80px; 
+}
+*/
+
+.workspace-thumbnails, .workspace-thumbnails:rtl,
+.workspace-thumbnails-left,
+.workspace-thumbnails-left:rtl {
+  visible-width: 40px;
+  spacing: 11px;
+  padding: 12px;
+  border-image: none;
+  background: #EAEAEA;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+
+#dash {
+  background-color: #EAEAEA;
+  border: none;
+}

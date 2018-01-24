@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Ant-yuune
+Comment=Modification of Ant-theme (gnome-shell)
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Ant-yuune
+MetacityTheme=Ant-yuune
+IconTheme=gnome
+CursorTheme=DMZ-Black
+ButtonLayout=menu:minimize,maximize,close
