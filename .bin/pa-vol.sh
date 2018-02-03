@@ -1,0 +1,78 @@
+#!/bin/bash
+# 
+#           ▜     ▌
+# ▛▌▀▌▄▖▌▌▛▌▐   ▛▘▛▌
+# ▙▌█▌  ▚▌▙▌▐▖▗ ▄▌▌▌
+# ▌
+
+#
+# small pulseaudio volume controller
+# pulseaudio is sucks, remember ?
+#
+# @type exec
+# @return void, integers, strings
+# @params --down
+# 		  --up
+# 		  --mute
+# 		  --current-volume
+# 		  --current-card
+# 		  --current-index
+# 		  --mute-status
+# @copyright "Ruka Nanda Vera"
+#
+
+volume_steps=5
+max_volume=100
+
+activesink(){
+	running=`pactl list short sinks | grep RUNNING | awk '{print $NR}'`
+	pacmd list-sinks | grep -E "index:|card_name|used|volume|muted" | sed "/: $running/, /^index/ !d" | sed '$d'
+}
+asink_index=`activesink | grep index | awk -F: '{print $2}' | sed -e 's/^[ \t]*//'`
+asink_name=`activesink | grep name | awk -F= '{print $2}' | sed -e 's/"//g' | sed -e 's/^[ \t]*//'`
+current_volume=`activesink | grep 'volume:' | egrep -v 'base volume:' | awk -F : '{print $3}' | grep -o -P '.{0,3}%'|sed s/.$// | tr -d ' '`
+mute_status=`activesink | awk '/muted/{ print $2}'`
+
+volume_up (){
+	if ((current_volume < max_volume)); then
+		((current_volume + volume_steps > max_volume)) && volume_steps=$((max_volume - current_volume))
+		pactl set-sink-volume ${asink_index} +${volume_steps}%
+	fi
+}
+
+volume_down (){
+	pactl set-sink-volume ${asink_index} -${volume_steps}%
+}
+
+volume_mute (){
+	if [ ${mute_status} = 'yes' ]; then
+		pactl set-sink-mute ${asink_index} 0
+	else
+		pactl set-sink-mute ${asink_index} 1
+	fi
+}
+
+
+case "$@" in
+	--down)
+		volume_down
+	;;
+	--up)
+		volume_up
+	;;
+	--mute)
+		volume_mute
+	;;
+	--current-volume)
+		echo $current_volume
+	;;
+	--current-card)
+		echo $asink_name
+	;;
+	--current-index)
+		echo $asink_index
+	;;
+	--mute-status)
+		echo $mute_status
+	;;
+esac
