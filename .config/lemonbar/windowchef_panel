@@ -1,0 +1,121 @@
+#!/usr/bin/bash
+#
+# ▜          ▌
+# ▐ █▌▛▛▌▛▌▛▌▛▌▀▌▛▘
+# ▐▖▙▖▌▌▌▙▌▌▌▙▌█▌▌
+
+#
+# lemonbar configuration
+# atleast we are not using dzen anymore in <insert-year-here>
+#
+# @type exec
+# @return void
+# @params none
+#
+
+xrdb_get_color(){
+	xrdb -query | grep $1 | awk '{print $NF}' 
+}
+
+# bar options
+font="DejaVu Sans Condensed:bold:size=9"
+font_icon="Wuncon Siji:size=9"
+geometry=1920x35+0+0
+fg="#efefef"
+bg="#2e2e2e"
+
+ba="%{B#ff5d74}"
+br="%{B$bg}"
+wlan="wlp1s0"
+dac="FiiO Q1"
+dac_alias="FiiO Q1 MkII"
+battery="BAT0"
+separator_symbols="//"
+
+title(){
+	value=$(xdotool getwindowfocus getwindowname)
+	echo -n "$value"
+}
+
+group(){
+    desk=$(xdotool get_desktop)
+	ic="    █    "
+	greetings="%{F$bg}Welcome Home, $USER%{F$fg}"
+	desktop=4
+	for (( i = 0; i < $desktop; i++ )); do
+		ws=$((i+1))
+		if [[ "$desk" == "$ws" ]]; then
+			echo -n "${ba}${ic}${br}"
+		else
+			echo -n "%{A:cookers switch_workspace $ws:}${ic}%{A}"
+		fi
+	done
+}
+
+wlan(){
+    value=`iwconfig $wlan |grep ESSID| cut -d \" -f 2`
+	case $value in
+		"A E S T H E T I C")
+				value="Home"
+		;;
+		"Art Floor 2")
+				value="Work"
+		;;
+		*)
+				value="Public"
+		;;
+	esac
+    [ ! -z `echo $value | grep off` ] && value="off"
+    echo -n "WLAN: $value"
+}
+
+battery() {
+    value=$(cat /sys/class/power_supply/$battery/capacity)
+    echo -n "Battery: $value%"
+}
+
+
+audio(){
+	value=$(pa-vol.sh --current-volume | awk '{print $NR}')
+	device=$(pa-vol.sh --current-card)
+	value="$value%"
+
+	[[ "$value" = "0%" ]] && value="silent"
+	[[ "$value" = "100%" && "$device" == "$dac" ]] && value="Controlled by $dac_alias";	
+	echo -n "Audio: $value"
+}
+
+clock(){
+	value=$(date "+%I:%M %p")
+	echo -n "$value"
+}
+
+dates(){
+	value=$(date "+%d %B %Y")
+	echo -n "$value"
+}
+
+spaces(){
+	spaces=1
+	until [ $spaces -gt $1 ]
+	do
+		echo -n " "
+		((spaces++))
+	done
+}
+
+# send output
+send_nudes(){
+while true; do
+	sep="$(spaces 2)$separator_symbols$(spaces 2)"
+	echo -n " %{l}$(spaces 5)"
+	echo -n " $(group)$(spaces 5)"
+	echo -n " $(title)"  | tr '[:lower:]' '[:upper:]'
+	echo -n " %{r}"
+	echo -n " $(wlan) ${sep} $(audio) ${sep} $(battery) ${sep} $(dates) ${sep} $(clock)" | tr '[:lower:]' '[:upper:]'
+	echo "$(spaces 5)"
+	sleep 1
+done
+}
+
+(send_nudes | lemonbar -p -g ${geometry} -F ${fg} -B ${bg} -f "${font}" -f "${font_icon}" | sh)
