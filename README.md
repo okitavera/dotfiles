@@ -11,5 +11,10 @@ or download the zip files:
     https://github.com/yuune/dotfiles/archive/master.zip
 ## Themes preview
 
+* windowchef
+
+![Ant-yuune](https://github.com/yuune/dotfiles/raw/master/previews/windowchef.png)
+
 * GNOME-Shell : Custom Ant Themes (~/.themes/Ant-yuune)
+
 ![Ant-yuune](https://github.com/yuune/dotfiles/raw/master/.themes/Ant-yuune/preview.png)

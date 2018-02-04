@@ -1,0 +1,13 @@
+xrdb_get_color(){
+	case $1 in 
+		fg)
+			xrdb -query | grep foreground: | awk '{print $NF}' 
+		;;
+		bg)
+			xrdb -query | grep background: | awk '{print $NF}' 
+		;;
+		*) 
+			xrdb -query | grep color$1: | awk '{print $NF}'
+		;;
+	esac
+}
