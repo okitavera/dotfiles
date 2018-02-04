@@ -30,7 +30,7 @@ activesink(){
 }
 asink_index=`activesink | grep index | awk -F: '{print $2}' | sed -e 's/^[ \t]*//'`
 asink_name=`activesink | grep name | awk -F= '{print $2}' | sed -e 's/"//g' | sed -e 's/^[ \t]*//'`
-current_volume=`activesink | grep 'volume:' | egrep -v 'base volume:' | awk -F : '{print $3}' | grep -o -P '.{0,3}%'|sed s/.$// | tr -d ' '`
+current_volume=`activesink | grep 'volume:' | egrep -v 'base volume:' | awk -F : '{print $3}' | grep -o -P '.{0,3}%'|sed s/.$// | tr -d ' ' | awk '{print $NR}'`
 mute_status=`activesink | awk '/muted/{ print $2}'`
 
 volume_up (){
@@ -64,7 +64,7 @@ case "$@" in
 		volume_mute
 	;;
 	--current-volume)
-		echo $current_volume
+		echo $current_volume 
 	;;
 	--current-card)
 		echo $asink_name
