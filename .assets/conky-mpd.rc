@@ -6,7 +6,7 @@ conky.config = {
 	draw_outline = false,
 	draw_shades = false,
 	use_xft = true,
-	font = 'Roboto:bold:size=9',
+	font = 'Noto Sans:bold:size=9',
 	update_interval = 1,
 	gap_x = 100,
 	gap_y = 80,
@@ -23,11 +23,26 @@ conky.config = {
 	own_window_colour = 'b9b4b9',
 	own_window_type = 'desktop',
 	own_window_hints = 'undecorated,skip_taskbar,skip_pager,below',
+	color1=efefef
 	}
 
+
 conky.text = [[
-${image /tmp/mpd-coverbg.png -s 190x235}
-${image /tmp/mpd-track-cover -s 190x190 -n}
-${exec /home/ruka/.assets/conky-mpd.sh}
-${voffset 145}${alignc}${mpd_artist 20}
-${alignc}${mpd_title 21}]]
+${exec convert -size 1x1 xc:#404040 jpg:/tmp/coverbg}\
+${if_running mpd}\
+	${exec exiftool -b -Picture "${HOME}/Music/$(mpc --format "%file%" current)" > /tmp/cover}\
+	${exec convert -size 1x1 xc:#EFEFEF jpg:/tmp/container}\
+${endif}\
+${image /tmp/container -s 190x235}\
+${image /tmp/coverbg -s 190x190 -n}
+${if_running mpd}${image /tmp/cover -s 190x190 -n}${endif}
+${if_running mpd}${else}${voffset -20}${alignc}${color1}${font Noto Sans:size=72}♫${font}${color}${voffset -72}${endif}
+${voffset 145}${alignc}\
+${if_running mpd}\
+	${alignc}${mpd_artist 20}
+	${alignc}${mpd_title 20}\
+${else}\
+	${alignc}Music Player Daemon
+	${alignc}Not Running${voffset -72}\
+${endif}
+]]
