@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 #
 # ▜          ▌
 # ▐ █▌▛▛▌▛▌▛▌▛▌▀▌▛▘
@@ -15,20 +15,24 @@
 source ~/.wmrc
 
 # bar options
-font="Noto Sans:bold:size=9"
-font_fallback="Ohruri:bold:size=9"
-font_icon="Wuncon Siji:size=9"
 geometry=1920x35+0+0
 fg=$(xrdb_get_color fg)
 bg=$(xrdb_get_color bg)
+fonts=("Noto Sans:bold:size=9"
+	"Ohruri:bold:size=9"
+	"Wuncon Siji:size=9")
 
+# devices
 wlan="wlp1s0"
 dac="FiiO Q1"
 dac_alias="FiiO Q1 MkII"
 battery="BAT0"
-separator_sym="«"
-inactive_sym=""
-active_sym=""
+
+# symbols
+separator="«"
+inactive=""
+active=""
+
 spaces(){
 	spaces=1
 	until [ $spaces -gt $1 ]
@@ -44,17 +48,14 @@ title(){
 }
 
 group(){
-	SELF_PATH="$(readlink -f $0 | xargs dirname)/$(basename $0)"
     desk=$(xdotool get_desktop)
     wsname=("ターミナル" "ミュージック" "ウェブ" "コード")
-	desktop=4
-	dekstop=$((desktop+1))
 	for i in {1..4}; do
 		echo -n "%{A:waitron group_activate_specific $i:}"
 		if [[ "$((desk+1))" == "$i" ]]; then
-			echo -n "$(sep $inactive_sym $i)"
+			echo -n "$(sep $inactive $i)"
 		else
-			echo -n "$(sep $active_sym $i)"
+			echo -n "$(sep $active $i)"
 		fi
 		echo -n "$(spaces 4)"
 		echo -n "${wsname[$((i-1))]}"
@@ -65,7 +66,7 @@ group(){
 
 wlan(){
     value=`iwgetid -r`
-    if [ -z $value ]; then
+    if [[ -z "$value" ]]; then
     	value="off"
     else
 		case $value in
@@ -113,10 +114,11 @@ sep() {
  col=`xrdb_get_color $2`
  echo "%{F$col}$1%{F-}"
 }
-# send output
+
+# setup output
 send_nudes(){
 while true; do
-	i=$(spaces 2)$separator_sym$(spaces 2)
+	i=$(spaces 2)$separator$(spaces 2)
 	echo -n " %{l}$(spaces 10)"
 	echo -n " $(group)$(spaces 5)"
 	echo -n " $(title)"  | tr '[:lower:]' '[:upper:]'
@@ -127,4 +129,4 @@ while true; do
 done
 }
 
-(send_nudes | lemonbar -p -g ${geometry} -F ${fg} -B ${bg} -U ${uc} -f "${font}" -f "${font_icon}" -u 5 -f "${font_fallback}" | sh)
+(send_nudes | lemonbar -p -g "${geometry}" -F "${fg}" -B "${bg}" -f "${fonts[0]}" -f "${fonts[1]}" -f "${fonts[2]}" | sh)
