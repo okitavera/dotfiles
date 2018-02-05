@@ -12,7 +12,8 @@ or download the zip files:
 
 ## Showcases
 * conky-mpd
-![Conky-mpd](https://github.com/yuune/dotfiles/raw/master/previews/conky-mpd.png)
+
+![conky-mpd](https://github.com/yuune/dotfiles/raw/master/previews/conky-mpd.png)
 
 * windowchef
 
@@ -20,4 +21,4 @@ or download the zip files:
 
 * GNOME-Shell : Custom Ant Themes (~/.themes/Ant-yuune)
 
-![Ant-yuune](https://github.com/yuune/dotfiles/raw/master/.themes/Ant-yuune/preview.png)
+![ant-yuune](https://github.com/yuune/dotfiles/raw/master/.themes/Ant-yuune/preview.png)
