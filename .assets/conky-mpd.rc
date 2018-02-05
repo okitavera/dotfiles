@@ -1,0 +1,33 @@
+conky.config = {
+	alignment = 'top_right',
+	background = false,
+	default_color = '66666f',
+	draw_borders = false,
+	draw_outline = false,
+	draw_shades = false,
+	use_xft = true,
+	font = 'Roboto:bold:size=9',
+	update_interval = 1,
+	gap_x = 100,
+	gap_y = 80,
+	minimum_height = 235,
+	minimum_width = 190,
+	maximum_width = 190,
+	double_buffer = true,
+	out_to_console = false,
+	out_to_stderr = false,
+	own_window = true,
+	own_window_transparent = false,
+	own_window_argb_visual = true,
+	own_window_class = 'normal',
+	own_window_colour = 'b9b4b9',
+	own_window_type = 'desktop',
+	own_window_hints = 'undecorated,skip_taskbar,skip_pager,below',
+	}
+
+conky.text = [[
+${image /tmp/mpd-coverbg.png -s 190x235}
+${image /tmp/mpd-track-cover -s 190x190 -n}
+${exec /home/ruka/.assets/conky-mpd.sh}
+${voffset 145}${alignc}${mpd_artist 20}
+${alignc}${mpd_title 21}]]
