@@ -32,3 +32,6 @@ export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
 # load my personal .profile file
 source ~/.profile
+
+# setup the rofi colors based on Xresources
+$HOME/.bin/rofi-painter.sh & 
