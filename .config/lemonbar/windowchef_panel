@@ -16,8 +16,8 @@ source ~/.wmrc
 
 # bar options
 geometry=1920x35+0+0
-fg=$(xrdb_get_color fg)
-bg=$(xrdb_get_color bg)
+fg=$(xrgc fg)
+bg=$(xrgc bg)
 fonts=("Noto Sans:bold:size=9"
 	"Ohruri:bold:size=9"
 	"Wuncon Siji:size=9")
@@ -111,7 +111,7 @@ dates(){
 }
 
 sep() {
- col=`xrdb_get_color $2`
+ col=`xrgc $2`
  echo "%{F$col}$1%{F-}"
 }
 

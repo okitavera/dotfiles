@@ -46,7 +46,7 @@ $XDG_CONFIG_HOME/lemonbar/windowchef_panel &
 conky -c ~/.assets/conky-mpd.rc &
 
 get_color(){
-	xrdb_get_color $1 | sed -e 's/#//g'
+	xrgc $1 | sed -e 's/#//g'
 }
 # wm configuration
 border=5

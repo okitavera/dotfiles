@@ -1,4 +1,4 @@
-xrdb_get_color(){
+xrgc(){
 	case $1 in 
 		fg)
 			xrdb -query | grep foreground: | awk '{print $NF}' 
