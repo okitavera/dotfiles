@@ -13,6 +13,7 @@
 # @param none
 #
 PRESET="noir"
+BAR_PRESET="noir"
 
 export WM=windowchef
 
@@ -41,7 +42,7 @@ ruler &
 compton &
 
 # panel
-$XDG_CONFIG_HOME/lemonbar/$PRESET &
+$XDG_CONFIG_HOME/lemonbar/$BAR_PRESET &
 
 # conky
 conky -c ~/.assets/conky-mpd.rc &
