@@ -1,7 +1,0 @@
-#!/bin/sh
-bg=`xrgc bg`
-fg=`xrgc fg`
-fr=`xrgc 0`
-dunst -lb "$bg" -nb "$bg" -cb "$bg" \
-    -lf "$fg" -bf "$fg" -cf "$fg" -nf "$fg" \
-    -lfr "$fr" -bfr "$fr" -cfr "$fr" -nfr "$fr"
