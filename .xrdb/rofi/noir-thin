@@ -15,8 +15,8 @@ rofi.padding:           0
 rofi.line-margin:       0
 rofi.line-padding:      5
 rofi.location:          1
-rofi.xoffset:           50
-rofi.yoffset:           70
+rofi.xoffset:           100
+rofi.yoffset:           80
 rofi.separator-style:   none
 rofi.hide-scrollbar:    true
 rofi.sidebar-mode:      false
