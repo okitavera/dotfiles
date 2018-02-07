@@ -14,11 +14,11 @@ or download the zip files:
 
 * windowchef: noir-thin preset with conky-mpd-dark.rc
 
-![windowchef](https://github.com/yuune/dotfiles/raw/master/previews/noir.png)
+![windowchef](https://github.com/yuune/dotfiles/raw/master/previews/noir-thin.png)
 
 * windowchef : noir preset with conky-mpd.rc
 
-![windowchef](https://github.com/yuune/dotfiles/raw/master/previews/noir-thin.png)
+![windowchef](https://github.com/yuune/dotfiles/raw/master/previews/noir.png)
 
 * GNOME-Shell : Custom Ant Themes (~/.themes/Ant-yuune)
 
