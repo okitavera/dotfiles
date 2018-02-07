@@ -28,6 +28,7 @@ source ~/.fehbg
 [ ! -z `pidof ruler` ] && pkill ruler
 [ ! -z `pidof compton` ] && pkill compton
 [ ! -z `pidof lemonbar` ] && pkill lemonbar
+[ ! -z `pidof dunst` ] && pkill dunst
 [ ! -z `pidof conky` ] && pkill conky
 
 sleep 0.1s
@@ -40,6 +41,9 @@ ruler &
 
 # compositor
 compton &
+
+# notification daemon
+dunst-xrdb &
 
 # panel
 $XDG_CONFIG_HOME/lemonbar/${BAR_PRESET} &

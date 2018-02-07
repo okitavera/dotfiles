@@ -1,0 +1,17 @@
+[global]
+    geometry = "400x10-100+980"
+    horizontal_padding = 25
+    padding = 10
+    alignment = left
+    follow = none
+    format = "%s\n%b "
+    indicate_hidden = yes
+    markup = full
+    plain_text = yes
+    separator_height = 0
+    shrink = yes
+    sort = yes
+    word_wrap = yes
+    font = Noto Sans Bold 10
+    frame_width = 3
+    history_length = 0
