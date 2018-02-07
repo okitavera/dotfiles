@@ -11,13 +11,14 @@ or download the zip files:
     https://github.com/yuune/dotfiles/archive/master.zip
 
 ## Showcases
-* conky-mpd
 
-![conky-mpd](https://github.com/yuune/dotfiles/raw/master/previews/conky-mpd.png)
+* windowchef: noir-thin preset with conky-mpd-dark.rc
 
-* windowchef
+![windowchef](https://github.com/yuune/dotfiles/raw/master/previews/noir.png)
 
-![windowchef](https://github.com/yuune/dotfiles/raw/master/previews/windowchef.png)
+* windowchef : noir preset with conky-mpd.rc
+
+![windowchef](https://github.com/yuune/dotfiles/raw/master/previews/noir-thin.png)
 
 * GNOME-Shell : Custom Ant Themes (~/.themes/Ant-yuune)
 
