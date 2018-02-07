@@ -1,24 +1,7 @@
 #!/bin/sh
-# 
-#           ▜     ▌
-# ▛▌▀▌▄▖▌▌▛▌▐   ▛▘▛▌
-# ▙▌█▌  ▚▌▙▌▐▖▗ ▄▌▌▌
-# ▌
-
 #
 # small pulseaudio volume controller
 # pulseaudio is sucks, remember ?
-#
-# @type exec
-# @return void, integers, strings
-# @params --down
-# 		  --up
-# 		  --mute
-# 		  --current-volume
-# 		  --current-card
-# 		  --current-index
-# 		  --mute-status
-# @copyright "Ruka Nanda Vera"
 #
 
 volume_steps=5

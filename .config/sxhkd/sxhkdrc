@@ -1,14 +1,5 @@
 #
-#     ▌ ▌  ▌
-# ▛▘▚▘▛▌▙▘▛▌▛▘▛▘
-# ▄▌▞▖▌▌▛▖▙▌▌ ▙▖
-
-#
-# keybinding in <insert-year-here> :thongking:
-#
-# @type config
-# @return void
-# @param none
+# keybinding in <insert-year-here> y
 #
 
 super + {h,j,k,l}

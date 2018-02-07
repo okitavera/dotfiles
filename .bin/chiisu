@@ -1,3 +1,5 @@
+#!/bin/sh
+
 printf -v date "%(%F)T"
 printf -v time "%(%I-%M-%S)T"
 savedir="${HOME}/Pictures/Chiisu/${date}/chiisu-${date}-${time}"

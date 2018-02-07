@@ -1,17 +1,9 @@
 #!/bin/sh
 #
-#      ▘   ▌       ▌   ▐▘
-#   ▌▌▌▌▛▌▛▌▛▌▌▌▌▛▘▛▌█▌▜▘▛▘▛▘
-# ▗ ▙▙▌▌▌▌▙▌▙▌▙▙▌▙▖▌▌▙▖▐ ▌ ▙▖
-
-#
 # Cooking the window since 2016
 # And you still not noticing me senpai...
 #
-# @type config
-# @return void
-# @param none
-#
+
 PRESET="noir-thin"
 BAR_PRESET="noir"
 

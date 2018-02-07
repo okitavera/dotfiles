@@ -1,16 +1,7 @@
 #!/bin/sh
 #
-#         ▘  ▘▗
-#   ▌▌▌▛▛▌▌▛▌▌▜▘▛▘▛▘
-# ▗ ▙▙▌▌▌▌▌▌▌▌▐▖▌ ▙▖
-
-#
 # start needed programs for various window manager
 # just kidding, i dont want to break my fucking gnome
-#
-# @type exec
-# @return void
-# @params none
 #
 
 xsetroot -cursor_name left_ptr &
