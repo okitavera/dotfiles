@@ -1,0 +1,18 @@
+#!/bin/sh
+
+get_color(){
+	xrgc $1 | sed -e 's/#//g'
+}
+
+# wm configuration
+border=5
+internal_border=0
+focused=$(get_color fg)
+unfocused=$(get_color fg)
+internal_focused=$(get_color 1)
+internal_unfocused=$(get_color 4)
+bar_height=35
+gaps=30
+gaps_top=$((gaps + bar_height))
+gaps_grid=$((gaps / 2))
+group_total=4

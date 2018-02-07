@@ -1,12 +1,7 @@
-#!/bin/bash
-#
-#     ▐▘▘      ▘  ▗         ▌
-# ▛▘▛▌▜▘▌▄▖▛▌▀▌▌▛▌▜▘█▌▛▘  ▛▘▛▌
-# ▌ ▙▌▐ ▌  ▙▌█▌▌▌▌▐▖▙▖▌ ▗ ▄▌▌▌
-#          ▌
-#
+#!/bin/sh
 
-source ${HOME}/.wmrc
+# Colorize the rofi based on xresources
+
 pallete="`xrgc bg`, `xrgc 7`, `xrgc bg`, `xrgc 7`, `xrgc bg`"
 
 cat << EOF > $HOME/.cache/rofi.Xresources

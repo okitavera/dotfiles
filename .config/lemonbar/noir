@@ -1,18 +1,6 @@
-#!/usr/bin/sh
-#
-# ▜          ▌
-# ▐ █▌▛▛▌▛▌▛▌▛▌▀▌▛▘
-# ▐▖▙▖▌▌▌▙▌▌▌▙▌█▌▌
+#!/bin/sh
 
-#
-# lemonbar configuration
-# atleast we are not using dzen anymore in <insert-year-here>
-#
-# @type exec
-# @return void
-# @params none
-#
-source ~/.wmrc
+# lemonbar configuration : Noir
 
 # bar options
 geometry=1920x35+0+0

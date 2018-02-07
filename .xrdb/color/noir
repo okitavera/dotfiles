@@ -1,0 +1,40 @@
+! color preset
+! name : noir
+! generated from : http://terminal.sexy
+
+! special
+*.foreground:   #c9c4d9
+*.background:   #17171d
+*.cursorColor:  #c9c4d9
+
+! black
+*.color0:       #34343a
+*.color8:       #34343a
+
+! red
+*.color1:       #ff5987
+*.color9:       #ff5987
+
+! green
+*.color2:       #49f03d
+*.color10:      #49f03d
+
+! yellow
+*.color3:       #cbd323
+*.color11:      #cbd323
+
+! blue
+*.color4:       #487fe6
+*.color12:      #487fe6
+
+! magenta
+*.color5:       #e625ed
+*.color13:      #e625ed
+
+! cyan
+*.color6:       #31b5c5
+*.color14:      #31b5c5
+
+! white
+*.color7:       #fbf6fd
+*.color15:      #fbf6fd
