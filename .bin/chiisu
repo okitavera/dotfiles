@@ -2,9 +2,19 @@
 
 printf -v date "%(%F)T"
 printf -v time "%(%I-%M-%S)T"
-savedir="${HOME}/Pictures/Chiisu/${date}/chiisu-${date}-${time}"
+savedir="${HOME}/Pictures/Screenshots-chiisu/${date}"
+mkdir -p ${savedir}
 
-mkdir -p "${savedir}/${date}"
-notify-send "📷     Taking screenshot..."
-scrot -cd3 ${savedir}.png
-notify-send "📷     Chiisu! Screenshot saved!"
+FN="Hack:bold:size=9"
+W=300
+H=60
+X=100
+Y=80
+
+X=$((1920 - W - X))
+Y=$((1080 - H - Y))
+{
+echo -e "   ^fn(Wuncon Siji:size=10)\ue1da^fn() Chiisu! Taking screenshot ..."
+sleep 0.5s
+scrot "${savedir}/chiisu-${date}-${time}".png
+} | dzen2 -ta l -bg `xrgc bg` -fg `xrgc fg` -fn "${FN}"  -x ${X} -y ${Y} -w ${W} -h ${H}
