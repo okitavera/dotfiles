@@ -76,3 +76,6 @@ super + Return
 
 super + p
 	rofi -show run
+
+super + Print
+	chiisu

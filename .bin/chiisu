@@ -1,0 +1,8 @@
+printf -v date "%(%F)T"
+printf -v time "%(%I-%M-%S)T"
+savedir="${HOME}/Pictures/Chiisu/${date}/chiisu-${date}-${time}"
+
+mkdir -p "${savedir}/${date}"
+notify-send "📷     Taking screenshot..."
+scrot -cd3 ${savedir}.png
+notify-send "📷     Chiisu! Screenshot saved!"
