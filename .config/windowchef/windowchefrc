@@ -12,7 +12,7 @@
 # @return void
 # @param none
 #
-PRESET="noir"
+PRESET="noir-thin"
 BAR_PRESET="noir"
 
 export WM=windowchef
@@ -42,13 +42,10 @@ ruler &
 compton &
 
 # panel
-$XDG_CONFIG_HOME/lemonbar/$BAR_PRESET &
-
-# conky
-conky -c ~/.assets/conky-mpd.rc &
+$XDG_CONFIG_HOME/lemonbar/${BAR_PRESET} &
 
 # retrieve preset
-source $XDG_CONFIG_HOME/windowchef/preset/$PRESET
+source $XDG_CONFIG_HOME/windowchef/preset/${PRESET}
 
 # apply
 waitron wm_config enable_borders true

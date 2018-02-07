@@ -1,0 +1,22 @@
+! rofi: noir
+
+rofi.color-window: #17171d, #c9c4d9
+rofi.color-active: #17171d, #fbf6fd, #17171d, #fbf6fd, #17171d
+rofi.color-normal: #17171d, #fbf6fd, #17171d, #fbf6fd, #17171d
+rofi.color-urgent: #17171d, #fbf6fd, #17171d, #fbf6fd, #17171d
+
+rofi.font:              Noto Sans Bold 9
+rofi.modi:              run
+rofi.width:             20
+rofi.lines:             4
+rofi.columns:           1
+rofi.bw:                5
+rofi.padding:           0
+rofi.line-margin:       0
+rofi.line-padding:      5
+rofi.location:          1
+rofi.xoffset:           50
+rofi.yoffset:           70
+rofi.separator-style:   none
+rofi.hide-scrollbar:    true
+rofi.sidebar-mode:      false

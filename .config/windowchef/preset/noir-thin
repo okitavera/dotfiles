@@ -1,0 +1,21 @@
+#!/bin/sh
+
+get_color(){
+	xrgc $1 | sed -e 's/#//g'
+}
+
+# wm configuration
+border=10
+internal_border=7
+focused=$(get_color 0)
+unfocused=$(get_color 0)
+internal_focused=$(get_color bg)
+internal_unfocused=$(get_color bg)
+bar_height=35
+gaps=30
+gaps_top=$((gaps + bar_height))
+gaps_grid=$((gaps / 2))
+group_total=4
+
+# conky
+conky -c ~/.assets/conky-mpd-dark.rc &
