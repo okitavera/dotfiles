@@ -1,9 +1,7 @@
 #!/bin/sh
-
-printf -v date "%(%F)T"
-printf -v time "%(%I-%M-%S)T"
-savedir="${HOME}/Pictures/Screenshots-chiisu/${date}"
-mkdir -p ${savedir}
+#
+# chiisu: screenshot with style
+#
 
 FN="Hack:bold:size=9"
 W=300
@@ -11,10 +9,36 @@ H=60
 X=100
 Y=80
 
-X=$((1920 - W - X))
-Y=$((1080 - H - Y))
+take() {
+    printf -v date "%(%F)T"
+    printf -v time "%(%I-%M-%S)T"
+    savedir="${HOME}/Pictures/Screenshots-chiisu/${date}"
+    mkdir -p ${savedir}
+
+    if [ "$SERVER" == "gnome" ]; then
+        gnome-screenshot -f "${savedir}/chiisu-${date}-${time}".png > /dev/null 2>&1
+        sleep 0.5s
+    else
+        sleep 0.5s
+        import -window root "${savedir}/chiisu-${date}-${time}".png
+    fi
+}
+
 {
 echo -e "   ^fn(Wuncon Siji:size=10)\ue1da^fn() Chiisu! Taking screenshot ..."
-sleep 0.5s
-scrot "${savedir}/chiisu-${date}-${time}".png
-} | dzen2 -ta l -bg `xrgc bg` -fg `xrgc fg` -fn "${FN}"  -x ${X} -y ${Y} -w ${W} -h ${H}
+} | dzen2 -ta l -bg $(xrgc bg) -fg $(xrgc fg) -fn "${FN}"  -x ${X} -y ${Y} -w ${W} -h ${H}
+
+case $1 in
+    -tl)
+    ;;
+    -tr)
+        X=$((1920 - W - X))
+    ;;
+    -bl)
+        Y=$((1080 - H - Y))
+    ;;
+    -br|*)
+        X=$((1920 - W - X))
+        Y=$((1080 - H - Y))
+    ;;
+esac

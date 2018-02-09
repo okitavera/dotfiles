@@ -1,22 +1,21 @@
 #include "/home/ruka/.xrdb/color/noir"
 #include "/home/ruka/.xrdb/rofi/noir-thin"
 
-
-Xft.dpi:                    96
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
 
 URxvt.intensityStyles:  false
-URxvt.font:     xft:Hack:bold:pixelsize=12
-URxvt.boldFont:	xft:Hack:bold:pixelsize=12
+URxvt.font:             xft:Hack:bold:pixelsize=12
+URxvt.boldFont:         xft:Hack:bold:pixelsize=12
 URxvt.saveLines:        8192
 
-URxvt*scrollTtyOutput: false
-URxvt*scrollWithBuffer: true
-URxvt*scrollTtyKeypress: true
-URxvt.scrollBar: false
-URxvt.internalBorder: 26
-URxvt.cursorBlink:		false
-URxvt.cursorUnderline:	true
+URxvt*scrollTtyOutput:    false
+URxvt*scrollWithBuffer:   true
+URxvt*scrollTtyKeypress:  true
+URxvt.scrollBar:          false
+URxvt.internalBorder:     26
+URxvt.cursorBlink:        false
+URxvt.cursorUnderline:    true

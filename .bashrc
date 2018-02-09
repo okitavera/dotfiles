@@ -13,6 +13,6 @@ PS1="${color_red}\h${color_reset} ~ "
 export EDITOR="nano"
 
 # aliases
-alias l='ls --color=auto -la'
+alias l="ls --color=auto -la"
 alias lsport="sudo lsof -i"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"

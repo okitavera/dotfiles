@@ -7,8 +7,8 @@ geometry=1920x35+0+0
 fg=$(xrgc fg)
 bg=$(xrgc bg)
 fonts=("Noto Sans:bold:size=9"
-	"Ohruri:bold:size=9"
-	"Wuncon Siji:size=9")
+       "Ohruri:bold:size=9"
+       "Wuncon Siji:size=9")
 
 # devices
 wlan="wlp1s0"
@@ -22,53 +22,53 @@ inactive=""
 active=""
 
 spaces(){
-	spaces=1
-	until [ $spaces -gt $1 ]
-	do
-		echo -n " "
-		((spaces++))
-	done
+    spaces=1
+    until [ $spaces -gt $1 ]
+    do
+        echo -n " "
+        ((spaces++))
+    done
 }
 
 title(){
-	value=$(xdotool getwindowfocus getwindowname)
-	echo -n "$value"
+    value=$(xdotool getwindowfocus getwindowname)
+    echo -n "$value"
 }
 
 group(){
     desk=$(xdotool get_desktop)
     wsname=("ターミナル" "ミュージック" "ウェブ" "コード")
-	for i in {1..4}; do
-		echo -n "%{A:waitron group_activate_specific $i:}"
-		if [[ "$((desk+1))" == "$i" ]]; then
-			echo -n "$(sep $inactive $i)"
-		else
-			echo -n "$(sep $active $i)"
-		fi
-		echo -n "$(spaces 4)"
-		echo -n "${wsname[$((i-1))]}"
-		echo -n "$(spaces 4)"
-		echo -n "%{A}"
-	done
+    for i in {1..4}; do
+        echo -n "%{A:waitron group_activate_specific $i:}"
+        if [[ "$((desk+1))" == "$i" ]]; then
+            echo -n "$(sep $inactive $i)"
+        else
+            echo -n "$(sep $active $i)"
+        fi
+        echo -n "$(spaces 4)"
+        echo -n "${wsname[$((i-1))]}"
+        echo -n "$(spaces 4)"
+        echo -n "%{A}"
+    done
 }
 
 wlan(){
-    value=`iwgetid -r`
+    value=$(iwgetid -r)
     if [[ -z "$value" ]]; then
-    	value="off"
+        value="off"
     else
-		case $value in
-			"A E S T H E T I C")
-					value="Home"
-			;;
-			"Art Floor 2")
-					value="Work"
-			;;
-			*)
-					value="Public"
-			;;
-		esac
-	fi
+        case $value in
+            "A E S T H E T I C")
+                value="Home"
+            ;;
+            "Art Floor 2")
+                value="Work"
+            ;;
+            *)
+                value="Public"
+            ;;
+        esac
+    fi
     echo -n "WLAN: $value"
 }
 
@@ -79,41 +79,41 @@ battery() {
 
 
 audio(){
-	value=$(pa-vol.sh --current-volume)
-	device=$(pa-vol.sh --current-card)
-	value="$value%"
+    value=$(pa-vol.sh --current-volume)
+    device=$(pa-vol.sh --current-card)
+    value="$value%"
 
-	[[ "$value" = "0%" ]] && value="silent"
-	[[ "$value" = "100%" && "$device" == "$dac" ]] && value="Controlled by $dac_alias";	
-	echo -n "Audio: $value"
+    [[ "$value" = "0%" ]] && value="silent"
+    [[ "$value" = "100%" && "$device" == "$dac" ]] && value="Controlled by $dac_alias"; 
+    echo -n "Audio: $value"
 }
 
 clock(){
-	value=$(date "+%I:%M %p")
-	echo -n "$value"
+    value=$(date "+%I:%M %p")
+    echo -n "$value"
 }
 
 dates(){
-	value=$(date "+%d %B %Y")
-	echo -n "$value"
+    value=$(date "+%d %B %Y")
+    echo -n "$value"
 }
 
 sep() {
- col=`xrgc $2`
+ col=$(xrgc $2)
  echo "%{F$col}$1%{F-}"
 }
 
 # setup output
 send_nudes(){
 while true; do
-	i=$(spaces 2)$separator$(spaces 2)
-	echo -n " %{l}$(spaces 10)"
-	echo -n " $(group)$(spaces 5)"
-	echo -n " $(title)"  | tr '[:lower:]' '[:upper:]'
-	echo -n " %{r}"
-	echo -n " $(wlan) $(sep "$i" 4) $(audio) $(sep "$i" 3) $(battery) $(sep "$i" 2) $(dates) $(sep "$i" 1) $(clock)" | tr '[:lower:]' '[:upper:]'
-	echo "$(spaces 15)"
-	sleep 1
+    i=$(spaces 2)$separator$(spaces 2)
+    echo -n " %{l}$(spaces 10)"
+    echo -n " $(group)$(spaces 5)"
+    echo -n " $(title)"  | tr '[:lower:]' '[:upper:]'
+    echo -n " %{r}"
+    echo -n " $(wlan) $(sep "$i" 4) $(audio) $(sep "$i" 3) $(battery) $(sep "$i" 2) $(dates) $(sep "$i" 1) $(clock)" | tr '[:lower:]' '[:upper:]'
+    echo "$(spaces 15)"
+    sleep 1
 done
 }
 

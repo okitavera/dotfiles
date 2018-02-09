@@ -1,4 +1,4 @@
-[[ `echo $PATH | grep $USER | wc -l` -lt 1 ]] && export PATH="${HOME}/.bin:$PATH"
+[ $(echo $PATH | grep $USER | wc -l) -lt 1 ] && export PATH="${HOME}/.bin:$PATH"
 
 export XDG_CONFIG_HOME="${HOME}/.config"
 

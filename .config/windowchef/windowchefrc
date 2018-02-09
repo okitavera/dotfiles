@@ -10,17 +10,16 @@ BAR_PRESET="noir"
 export WM=windowchef
 
 # ensure that wminitrc is not sourced again by checking sxhkd
-[ -z `pidof sxhkd` ] && source ~/.wminitrc
+[ -z "$(pidof sxhkd)" ] && source $HOME/.wminitrc
 
 # apply wallpaper
-source ~/.fehbg
+source $HOME/.fehbg
 
 # check instance
-[ ! -z `pidof sxhkd` ] && pkill sxhkd
-[ ! -z `pidof ruler` ] && pkill ruler
-[ ! -z `pidof compton` ] && pkill compton
-[ ! -z `pidof lemonbar` ] && pkill lemonbar
-[ ! -z `pidof conky` ] && pkill conky
+for i in sxhkd ruler compton lemonbar conky; do
+    pkill $i
+done
+
 
 sleep 0.1s
 
@@ -34,10 +33,10 @@ ruler &
 compton &
 
 # panel
-$XDG_CONFIG_HOME/lemonbar/${BAR_PRESET} &
+$XDG_CONFIG_HOME/lemonbar/$BAR_PRESET &
 
 # retrieve preset
-source $XDG_CONFIG_HOME/windowchef/preset/${PRESET}
+source $XDG_CONFIG_HOME/windowchef/preset/$PRESET
 
 # apply
 waitron wm_config enable_borders true
