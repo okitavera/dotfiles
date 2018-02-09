@@ -24,10 +24,6 @@ take() {
     fi
 }
 
-{
-echo -e "   ^fn(Wuncon Siji:size=10)\ue1da^fn() Chiisu! Taking screenshot ..."
-} | dzen2 -ta l -bg $(xrgc bg) -fg $(xrgc fg) -fn "${FN}"  -x ${X} -y ${Y} -w ${W} -h ${H}
-
 case $1 in
     -tl)
     ;;
@@ -42,3 +38,9 @@ case $1 in
         Y=$((1080 - H - Y))
     ;;
 esac
+
+{
+echo -e "   ^fn(Wuncon Siji:size=10)\ue1da^fn() Chiisu! Taking screenshot ..."
+take
+} | dzen2 -ta l -bg $(xrgc bg) -fg $(xrgc fg) -fn "${FN}"  -x ${X} -y ${Y} -w ${W} -h ${H}
+
