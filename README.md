@@ -25,11 +25,11 @@ And this is the rest of apps that I use:
 - Widgets: `conky`
 
 ## Setups
-* `windowchef` [>img<](https://github.com/yuune/dotfiles/raw/master/previews/noir-thin.png) noir-thin preset with conky-mpd-dark.rc 
+* `windowchef` [noir-thin preset with conky-mpd-dark.rc](https://github.com/yuune/dotfiles/raw/master/previews/noir-thin.png) 
 
-* `windowchef` [>img<](https://github.com/yuune/dotfiles/raw/master/previews/noir.png) noir preset with conky-mpd.rc
+* `windowchef` [noir preset with conky-mpd.rc](https://github.com/yuune/dotfiles/raw/master/previews/noir.png)
 
-* `GNOME-Shell` : [>img<](https://github.com/yuune/dotfiles/raw/master/.themes/Ant-yuune/preview.png) Custom Ant Themes (~/.themes/Ant-yuune) 
+* `gnome-shell` [custom ant themes (~/.themes/Ant-yuune)](https://github.com/yuune/dotfiles/raw/master/.themes/Ant-yuune/preview.png)
 
 ## License
 I am bit confusing about this things, so I don't care.
