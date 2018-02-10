@@ -6,7 +6,7 @@
 geometry=1920x35+0+0
 fg=$(xrgc fg)
 bg=$(xrgc bg)
-fonts=("Noto Sans:bold:size=9"
+fonts=("DejaVu:bold:size=9"
        "Ohruri:bold:size=9"
        "Wuncon Siji:size=9")
 
@@ -21,18 +21,9 @@ separator="«"
 inactive=""
 active=""
 
-spaces(){
-    spaces=1
-    until [ $spaces -gt $1 ]
-    do
-        echo -n " "
-        ((spaces++))
-    done
-}
-
 title(){
     value=$(xdotool getwindowfocus getwindowname)
-    echo -n "$value"
+    echo -n "$value" | tr '[:lower:]' '[:upper:]'
 }
 
 group(){
@@ -45,10 +36,9 @@ group(){
         else
             echo -n "$(sep $active $i)"
         fi
-        echo -n "$(spaces 4)"
-        echo -n "${wsname[$((i-1))]}"
-        echo -n "$(spaces 4)"
-        echo -n "%{A}"
+        echo -n "%{O10}"
+        echo -n "${wsname[$((i-1))]}" | tr '[:lower:]' '[:upper:]'
+        echo -n "%{O10}%{A}"
     done
 }
 
@@ -69,12 +59,12 @@ wlan(){
             ;;
         esac
     fi
-    echo -n "WLAN: $value"
+    echo -n "WLAN: $value" | tr '[:lower:]' '[:upper:]'
 }
 
 battery() {
     value=$(cat /sys/class/power_supply/$battery/capacity)
-    echo -n "Battery: $value%"
+    echo -n "Battery: $value%" | tr '[:lower:]' '[:upper:]'
 }
 
 
@@ -85,17 +75,17 @@ audio(){
 
     [[ "$value" = "0%" ]] && value="silent"
     [[ "$value" = "100%" && "$device" == "$dac" ]] && value="Controlled by $dac_alias"; 
-    echo -n "Audio: $value"
+    echo -n "Audio: $value" | tr '[:lower:]' '[:upper:]'
 }
 
 clock(){
     value=$(date "+%I:%M %p")
-    echo -n "$value"
+    echo -n "$value" | tr '[:lower:]' '[:upper:]'
 }
 
 dates(){
     value=$(date "+%d %B %Y")
-    echo -n "$value"
+    echo -n "$value" | tr '[:lower:]' '[:upper:]'
 }
 
 sep() {
@@ -106,15 +96,15 @@ sep() {
 # setup output
 send_nudes(){
 while true; do
-    i=$(spaces 2)$separator$(spaces 2)
-    echo -n " %{l}$(spaces 10)"
-    echo -n " $(group)$(spaces 5)"
-    echo -n " $(title)"  | tr '[:lower:]' '[:upper:]'
-    echo -n " %{r}"
-    echo -n " $(wlan) $(sep "$i" 4) $(audio) $(sep "$i" 3) $(battery) $(sep "$i" 2) $(dates) $(sep "$i" 1) $(clock)" | tr '[:lower:]' '[:upper:]'
-    echo "$(spaces 15)"
+    i="%{O5} $separator %{O5}"
+    echo -n "%{l}%{O40} $(group) %{O10} $(title)"
+    echo -n "%{r} $(wlan) $(sep "$i" 4) $(audio) $(sep "$i" 3) $(battery) $(sep "$i" 2) $(dates) $(sep "$i" 1) $(clock)"
+    echo "%{O40}"
     sleep 1
 done
 }
 
-(send_nudes | lemonbar -p -g "${geometry}" -F "${fg}" -B "${bg}" -f "${fonts[0]}" -f "${fonts[1]}" -f "${fonts[2]}" | sh)
+(send_nudes | lemonbar -p \
+    -g "${geometry}" \
+    -F "${fg}" -B "${bg}" \
+    -f "${fonts[0]}" -f "${fonts[1]}" -f "${fonts[2]}" | sh)
