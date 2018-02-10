@@ -47,7 +47,7 @@ waitron wm_config internal_border_width $internal_border
 waitron wm_config internal_color_focused 0x$internal_focused
 waitron wm_config internal_color_unfocused 0x$internal_unfocused
 waitron wm_config gap_width all $gaps
-waitron wm_config gap_width top $gaps_top
+waitron wm_config gap_width $bar_location $((gaps + bar_height))
 waitron wm_config grid_gap_width $gaps_grid
 waitron wm_config groups_nr $group_total
 waitron wm_config sticky_windows true
