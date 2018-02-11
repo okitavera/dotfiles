@@ -1,5 +1,5 @@
-#include "/home/ruka/.xrdb/color/noir"
-#include "/home/ruka/.xrdb/rofi/noir-thin"
+#include "/home/ruka/.xrdb/color/yandere"
+#include "/home/ruka/.xrdb/rofi/yandere"
 
 Xft.dpi:        96
 Xft.antialias:  true

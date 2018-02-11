@@ -4,8 +4,8 @@
 # And you still not noticing me senpai...
 #
 
-PRESET="noir-thin"
-BAR_PRESET="noir"
+PRESET="yandere"
+BAR_PRESET="yandere"
 
 export WM=windowchef
 
