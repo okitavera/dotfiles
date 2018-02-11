@@ -1,0 +1,112 @@
+ #!/bin/sh
+
+# lemonbar configuration : Yandere
+
+# bar options
+geometry=1860x40+30+20
+border=6
+fg=$(xrgc fg)
+bg=$(xrgc bg)
+c0=$(xrgc 0)
+c1=$(xrgc 1)
+fonts=("DejaVu:bold:size=9"
+       "Ohruri:bold:size=9"
+       "Wuncon Siji:size=9")
+
+# devices
+wlan="wlp1s0"
+dac="FiiO Q1"
+dac_alias="FiiO Q1 MkII"
+battery="BAT0"
+
+# symbols
+separator="//"
+
+title(){
+    value=$(xdotool getwindowfocus getwindowname)
+    echo -n "$value" | tr '[:lower:]' '[:upper:]'
+}
+
+group(){
+    desk=$(xdotool get_desktop)
+    wsname=("ターミナル" "ミュージック" "ウェブ" "コード")
+    for i in {1..4}; do
+        if [[ "$((desk+1))" == "$i" ]]; then
+	        echo -n "%{B$c1 F$bg}"
+	    else
+	    	echo -n "%{B$c0}"
+        fi
+        echo -n "%{A:waitron group_activate_specific $i:}"
+        echo -n "%{O10}${wsname[$((i-1))]}%{O10}"
+        echo -n "%{A}%{B- F-}%{O6}"
+    done
+}
+
+wlan(){
+    value=$(iwgetid -r)
+    if [[ -z "$value" ]]; then
+        value="off"
+    else
+        case $value in
+            "A E S T H E T I C")
+                value="Home"
+            ;;
+            "Art Floor 2")
+                value="Work"
+            ;;
+            *)
+                value="Public"
+            ;;
+        esac
+    fi
+    echo -n "WLAN: $value" | tr '[:lower:]' '[:upper:]'
+}
+
+battery() {
+    value=$(cat /sys/class/power_supply/$battery/capacity)
+    echo -n "Battery: $value%" | tr '[:lower:]' '[:upper:]'
+}
+
+
+audio(){
+    value=$(pa-vol.sh --current-volume)
+    device=$(pa-vol.sh --current-card)
+    value="$value%"
+
+    [[ "$value" = "0%" ]] && value="silent"
+    [[ "$value" = "100%" && "$device" == "$dac" ]] && value="Controlled by $dac_alias"; 
+    echo -n "Audio: $value" | tr '[:lower:]' '[:upper:]'
+}
+
+clock(){
+    value=$(date "+%I:%M %p")
+    echo -n "$value" | tr '[:lower:]' '[:upper:]'
+}
+
+dates(){
+    value=$(date "+%d %B %Y")
+    echo -n "%{A:dzen2-calendar:}"
+    echo -n "$value" | tr '[:lower:]' '[:upper:]'
+    echo -n "%{A}"
+}
+
+sep() {
+	col=$(xrgc $1)
+	echo -n "%{F$col} $separator %{F-}" 
+}
+
+# setup output
+send_nudes(){
+while true; do
+    echo -n "%{l} %{O40} %{+o +u} $(group) %{-o -u} %{O10} $(title)"
+    echo -n "%{r} $(wlan) $(sep 4) $(audio) $(sep 3) $(battery) $(sep 2) $(dates) %{O10}"
+    echo "%{+o +u}%{B$c0} %{O5} $(clock) %{O40} %{B-}%{-o -u}"
+    sleep 1
+done
+}
+
+(send_nudes | lemonbar -p -b \
+	-g "${geometry}" \
+	-F "${fg}" -B "${bg}" -U "${bg}" \
+	-u "${border}" \
+	-f "${fonts[0]}" -f "${fonts[1]}" -f "${fonts[2]}" | sh)

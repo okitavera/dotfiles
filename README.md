@@ -25,6 +25,8 @@ And this is the rest of apps that I use:
 - Widgets: `conky`
 
 ## Setups
+* `windowchef` [yandere preset with customized-colors conky-mpd-dark.rc](https://github.com/yuune/dotfiles/raw/master/previews/yandere.png) 
+
 * `windowchef` [noir-thin preset with conky-mpd-dark.rc](https://github.com/yuune/dotfiles/raw/master/previews/noir-thin.png) 
 
 * `windowchef` [noir preset with conky-mpd.rc](https://github.com/yuune/dotfiles/raw/master/previews/noir.png)
