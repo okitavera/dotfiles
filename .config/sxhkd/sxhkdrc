@@ -45,7 +45,7 @@ super + {Insert,Prior,Delete,Next,End}
     waitron window_snap {topleft,topright,bottomleft,bottomright,middle}
 
 super + r
-    $HOME/.config/windowchef/windowchefrc
+    sh $HOME/.config/windowchef/windowchefrc
 
 XF86AudioMute
     pa-vol.sh --mute
