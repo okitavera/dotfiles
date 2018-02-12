@@ -18,7 +18,7 @@ Currently, I am using gnome-shell as my main desktop environtment, but sometimes
 And this is the rest of apps that I use:
 - App Launcher: `rofi`
 - Music Player: `mpd` and `ncmpcpp`, sometimes `audacious`
-- Shell: `bash`
+- Shell: `zsh`
 - Terminal Emulator: `rxvt-unicode`
 - Text Editor: `sublime-text-3`
 - Web Browser: `firefox`
