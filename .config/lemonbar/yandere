@@ -3,8 +3,8 @@
 # lemonbar configuration : Yandere
 
 # bar options
-geometry=1860x40+30+20
-border=6
+geometry=1920x40+0+0
+border=8
 fg=$(xrgc fg)
 bg=$(xrgc bg)
 c0=$(xrgc 0)
