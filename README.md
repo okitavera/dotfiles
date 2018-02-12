@@ -34,4 +34,5 @@ And this is the rest of apps that I use:
 * `gnome-shell` [custom ant themes (~/.themes/Ant-yuune)](https://github.com/yuune/dotfiles/raw/master/.themes/Ant-yuune/preview.png)
 
 ## License
-I am bit confusing about this things, so I don't care about that.
+
+The code is available under the [MIT license](LICENSE.txt).
