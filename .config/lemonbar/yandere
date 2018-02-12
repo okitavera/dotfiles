@@ -104,9 +104,8 @@ while true; do
     sleep 1
 done
 }
-
-(send_nudes | lemonbar -p -b \
+(send_nudes | lemonbar -p \
 	-g "${geometry}" \
 	-F "${fg}" -B "${bg}" -U "${bg}" \
 	-u "${border}" \
-	-f "${fonts[0]}" -f "${fonts[1]}" -f "${fonts[2]}" | sh)
+	-f "${fonts[0]}" -f "${fonts[1]}" -f "${fonts[2]}" $@ | sh)

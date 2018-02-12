@@ -6,6 +6,7 @@
 
 PRESET="yandere"
 BAR_PRESET="yandere"
+BAR_LOCATION="bottom" # (bottom/top)
 
 export WM=windowchef
 
@@ -33,10 +34,17 @@ ruler &
 compton &
 
 # panel
-sh $XDG_CONFIG_HOME/lemonbar/$BAR_PRESET &
+if [ "$BAR_LOCATION" == "bottom" ]; then
+	sh $XDG_CONFIG_HOME/lemonbar/$BAR_PRESET -b &
+else
+	sh $XDG_CONFIG_HOME/lemonbar/$BAR_PRESET &
+fi
 
 # retrieve preset
 source $XDG_CONFIG_HOME/windowchef/preset/$PRESET
+
+# calculate bar_height
+BAR_HEIGHT=$(cat $XDG_CONFIG_HOME/lemonbar/$BAR_PRESET | grep -E '[0-9]{3,}x[0-9]{1,}' | awk -F'[=x+]' '{print $3}')
 
 # apply
 waitron wm_config enable_borders true
@@ -47,7 +55,7 @@ waitron wm_config internal_border_width $internal_border
 waitron wm_config internal_color_focused 0x$internal_focused
 waitron wm_config internal_color_unfocused 0x$internal_unfocused
 waitron wm_config gap_width all $gaps
-waitron wm_config gap_width $bar_location $((gaps + bar_height))
+waitron wm_config gap_width $BAR_LOCATION $((gaps + BAR_HEIGHT))
 waitron wm_config grid_gap_width $gaps_grid
 waitron wm_config groups_nr $group_total
 waitron wm_config sticky_windows true

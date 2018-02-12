@@ -107,4 +107,4 @@ done
 (send_nudes | lemonbar -p \
     -g "${geometry}" \
     -F "${fg}" -B "${bg}" \
-    -f "${fonts[0]}" -f "${fonts[1]}" -f "${fonts[2]}" | sh)
+    -f "${fonts[0]}" -f "${fonts[1]}" -f "${fonts[2]}" $@ | sh)
