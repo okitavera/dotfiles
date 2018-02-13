@@ -33,10 +33,10 @@ super + v
     waitron window_ver_maximize
 
 alt + Tab
-    waitron window_cycle
+    [ ! -z "$(pfw)" ] && waitron window_cycle # pfw is from wmutils package
 
 alt + shift + Tab
-    waitron window_rev_cycle
+    [ ! -z "$(pfw)" ] && waitron window_rev_cycle
 
 super + {_, shift +} {1-4}
     waitron {group_activate_specific,group_add_window} {1-4}
