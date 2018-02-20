@@ -1,7 +1,14 @@
 <div align="center">
 	<img src="https://github.com/yuune/dotfiles/raw/master/README-header.png" width="400px">
 	<h3>GitHub <font color="#ff5d74">❤</font> ~/ , Vera's too!</h3>
+	<!-- current desktop -->
+	<img src="https://github.com/yuune/dotfiles/raw/master/previews/solarizd.png">
+
+`current setup` `windowchef and lemonbar preset:yandere` `xresources color:solarizd`
+
 </div>
+
+
 
 ## About
 I love about customizing my Linux. Changing the colors, make some widgets, etcetera. 
@@ -25,6 +32,8 @@ And this is the rest of apps that I use:
 - Widgets: `conky`
 
 ## Setups
+* `windowchef` [yandere preset with solarized Xresources](https://github.com/yuune/dotfiles/raw/master/previews/solarizd.png) 
+
 * `windowchef` [yandere preset with customized-colors conky-mpd-dark.rc](https://github.com/yuune/dotfiles/raw/master/previews/yandere.png) 
 
 * `windowchef` [noir-thin preset with conky-mpd-dark.rc](https://github.com/yuune/dotfiles/raw/master/previews/noir-thin.png) 
