@@ -1,0 +1,47 @@
+! color preset
+! name : solarizd
+! generated from : http://terminal.sexy
+
+! special
+*.foreground:     #adb2c2
+*.background:     #03262b
+*.cursorColor:    #adb2c2
+URxvt*depth:      32
+URxvt.background: [95]#03262b
+
+! black
+*.color0:       #032b31
+*.color8:       #032b31
+
+! red
+*.color1:       #b13041
+*.color9:       #b13041
+
+! green
+*.color2:       #43a142
+*.color10:      #43a142
+
+! yellow
+*.color3:       #ad4b50
+*.color11:      #ad4b50
+
+! blue
+*.color4:       #de5e5e
+*.color12:      #de5e5e
+
+! magenta
+*.color5:       #43a142
+*.color13:      #43a142
+
+! cyan
+*.color6:       #bbad57
+*.color14:      #bbad57
+
+! white
+*.color7:       #adb2c2
+*.color15:      #adb2c2
+
+rofi.color-window: #03262b, #032b31
+rofi.color-normal: #03262b, #adb2c2, #03262b, #adb2c2, #03262b
+rofi.color-active: #03262b, #adb2c2, #03262b, #adb2c2, #03262b
+rofi.color-urgent: #03262b, #adb2c2, #03262b, #adb2c2, #03262b
