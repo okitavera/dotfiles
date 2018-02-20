@@ -3,7 +3,7 @@
 ! generated from : http://terminal.sexy
 
 ! special
-*.foreground:   #c9c4d9
+*.foreground:   #fbf6fd
 *.background:   #17171d
 *.cursorColor:  #c9c4d9
 
@@ -36,5 +36,10 @@
 *.color14:      #31b5c5
 
 ! white
-*.color7:       #c9c4d9
-*.color15:      #c9c4d9
+*.color7:       #fbf6fd
+*.color15:      #fbf6fd
+
+rofi.color-window: #17171d, #c9c4d9
+rofi.color-active: #17171d, #fbf6fd, #17171d, #fbf6fd, #17171d
+rofi.color-normal: #17171d, #fbf6fd, #17171d, #fbf6fd, #17171d
+rofi.color-urgent: #17171d, #fbf6fd, #17171d, #fbf6fd, #17171d

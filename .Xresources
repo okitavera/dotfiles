@@ -1,5 +1,4 @@
-#include "/home/ruka/.xrdb/color/yandere"
-#include "/home/ruka/.xrdb/rofi/yandere"
+#include "/home/ruka/.xrdb/yandere"
 
 Xft.dpi:        96
 Xft.antialias:  true
@@ -19,3 +18,19 @@ URxvt.scrollBar:          false
 URxvt.internalBorder:     26
 URxvt.cursorBlink:        false
 URxvt.cursorUnderline:    true
+
+rofi.font:             Noto Sans Bold 9
+rofi.modi:             run
+rofi.width:            20
+rofi.lines:            4
+rofi.columns:          1
+rofi.bw:               5
+rofi.padding:          0
+rofi.line-margin:      0
+rofi.line-padding:     5
+rofi.location:         7
+rofi.xoffset:          100
+rofi.yoffset:          -100
+rofi.separator-style:  none
+rofi.hide-scrollbar:   true
+rofi.sidebar-mode:     false

@@ -1,5 +1,5 @@
 ! color preset
-! name : noir
+! name : yandere
 ! generated from : http://terminal.sexy
 
 ! special
@@ -38,3 +38,8 @@
 ! white
 *.color7:       #ebe0cb
 *.color15:      #ebe0cb
+
+rofi.color-window: #1d1415, #3f2a2d
+rofi.color-active: #1d1415, #ebe0cb, #1d1415, #3f2a2d, #ebe0cb
+rofi.color-normal: #1d1415, #ebe0cb, #1d1415, #3f2a2d, #ebe0cb
+rofi.color-urgent: #1d1415, #ebe0cb, #1d1415, #3f2a2d, #ebe0cb
