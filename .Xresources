@@ -1,4 +1,4 @@
-#include "/home/ruka/.xrdb/yandere"
+#include "/home/ruka/.xrdb/solarizd"
 
 Xft.dpi:        96
 Xft.antialias:  true
@@ -33,4 +33,4 @@ rofi.xoffset:          100
 rofi.yoffset:          -100
 rofi.separator-style:  none
 rofi.hide-scrollbar:   true
-rofi.sidebar-mode:     false
+rofi.sidebar-mode: false
