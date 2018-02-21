@@ -1,8 +1,8 @@
 <div align="center">
-	<img src="https://github.com/yuune/dotfiles/raw/master/README-header.png" width="400px">
+	<img src="https://user-images.githubusercontent.com/9277632/36462245-cad7a2a2-16f4-11e8-9279-56b6a68d53bf.png" width="400px">
 	<h3>GitHub <font color="#ff5d74">❤</font> ~/ , Vera's too!</h3>
 	<!-- current desktop -->
-	<img src="https://github.com/yuune/dotfiles/raw/master/previews/solarizd.png">
+	<img src="https://user-images.githubusercontent.com/9277632/36462608-f8cec47c-16f6-11e8-90a9-e4304fc63b3e.png">
 
 `current setup` `windowchef and lemonbar preset:yandere` `xresources color:solarizd`
 
@@ -31,16 +31,10 @@ And this is the rest of apps that I use:
 - Web Browser: `firefox`
 - Widgets: `conky`
 
-## Setups
-* `windowchef` [yandere preset with solarized Xresources](https://github.com/yuune/dotfiles/raw/master/previews/solarizd.png) 
+## Config previews
+For my configuration, just open the Issues page and find `readme-preview` labels
 
-* `windowchef` [yandere preset with customized-colors conky-mpd-dark.rc](https://github.com/yuune/dotfiles/raw/master/previews/yandere.png) 
-
-* `windowchef` [noir-thin preset with conky-mpd-dark.rc](https://github.com/yuune/dotfiles/raw/master/previews/noir-thin.png) 
-
-* `windowchef` [noir preset with conky-mpd.rc](https://github.com/yuune/dotfiles/raw/master/previews/noir.png)
-
-* `gnome-shell` [custom ant themes (~/.themes/Ant-yuune)](https://github.com/yuune/dotfiles/raw/master/.themes/Ant-yuune/preview.png)
+https://github.com/yuune/dotfiles/issues?utf8=✓&q=label:readme-preview
 
 ## License
 
