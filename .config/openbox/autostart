@@ -1,0 +1,4 @@
+sh ~/.wminitrc &
+sh ~/.fehbg &
+tint2 &
+compton & 

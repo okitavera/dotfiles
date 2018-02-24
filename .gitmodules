@@ -7,3 +7,6 @@
 [submodule ".scripts/xres-tmTheme"]
 	path = .bin/xres-tmTheme
 	url = https://github.com/yuune/xres-tmtheme
+[submodule ".config/tint2"]
+	path = .config/tint2
+	url = https://github.com/yuune/yuune-tint2-themes.git
