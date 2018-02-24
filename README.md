@@ -2,9 +2,9 @@
 	<img src="https://user-images.githubusercontent.com/9277632/36462245-cad7a2a2-16f4-11e8-9279-56b6a68d53bf.png" width="400px">
 	<h3>GitHub <font color="#ff5d74">❤</font> ~/ , Vera's too!</h3>
 	<!-- current desktop -->
-	<img src="https://user-images.githubusercontent.com/9277632/36462608-f8cec47c-16f6-11e8-90a9-e4304fc63b3e.png">
+	<img src="https://user-images.githubusercontent.com/9277632/36633798-f60a1f46-19cd-11e8-92e0-076a5ce13aad.png">
 
-`current setup` `windowchef and lemonbar preset:yandere` `xresources color:solarizd`
+`current setup` `openbox and tint2 theme: sendiki` `xresources color:sendiki`
 
 </div>
 
@@ -21,7 +21,7 @@ That was a simple thing to do, but it fun. So I think GitHub is the best place t
 * Last but not least, Your dotfiles are how you personalize your system. Stay awesome.
  
 ## Overview
-Currently, I am using gnome-shell as my main desktop environtment, but sometimes I am using [windowchef](https://github.com/tudurom/windowchef) as well.
+Currently, I am using gnome-shell as my main desktop environtment, but sometimes I am using [windowchef](https://github.com/tudurom/windowchef) and [openbox (patched)](https://github.com/dylanaraps/openbox-patched) as well.
 And this is the rest of apps that I use:
 - App Launcher: `rofi`
 - Music Player: `mpd` and `ncmpcpp`, sometimes `audacious`
