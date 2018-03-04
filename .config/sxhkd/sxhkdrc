@@ -48,13 +48,13 @@ super + r
     sh $HOME/.config/windowchef/windowchefrc
 
 XF86AudioMute
-    pa-vol.sh --mute
+    pulsevol --mute
 
 XF86AudioRaiseVolume
-    pa-vol.sh --up
+    pulsevol --up
 
 XF86AudioLowerVolume
-    pa-vol.sh --down
+    pulsevol --down
 
 super + Return
     urxvt

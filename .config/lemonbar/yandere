@@ -69,8 +69,8 @@ battery() {
 
 
 audio(){
-    value=$(pa-vol.sh --current-volume)
-    device=$(pa-vol.sh --current-card)
+    value=$(pulsevol --current-volume)
+    device=$(pulsevol --current-card)
     value="$value%"
 
     [[ "$value" = "0%" ]] && value="silent"
