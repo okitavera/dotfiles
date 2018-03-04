@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://user-images.githubusercontent.com/9277632/36462245-cad7a2a2-16f4-11e8-9279-56b6a68d53bf.png" width="400px">
+	<img src="https://user-images.githubusercontent.com/9277632/36943758-510cade8-1fc1-11e8-8167-c0b7d221b385.png" width="400px">
 	<h3>GitHub <font color="#ff5d74">❤</font> ~/ , Vera's too!</h3>
 	<!-- current desktop -->
 	<img src="https://user-images.githubusercontent.com/9277632/36633798-f60a1f46-19cd-11e8-92e0-076a5ce13aad.png">
