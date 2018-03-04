@@ -1,13 +1,19 @@
 #!/bin/sh
 #
 # chiisu: screenshot with style
+# usage:
+#    -tl    display dzen on top-left 
+#    -tr    display dzen on top-right 
+#    -bl    display dzen on bottom-left 
+#    -br    display dzen on bottom-right 
+#    -n     display notification using notify-osd insteads
 #
 
-FN="Hack:bold:size=9"
+FN="DejaVu:bold:size=9"
 W=300
 H=60
 X=100
-Y=80
+Y=70
 
 take() {
     printf -v date "%(%F)T"
@@ -24,7 +30,11 @@ take() {
     fi
 }
 
+
 case $1 in
+    -n)
+        NOTIFY="true"
+    ;;
     -tl)
     ;;
     -tr)
@@ -39,8 +49,12 @@ case $1 in
     ;;
 esac
 
+if [[ -n $NOTIFY ]]; then
+    notify-send "Chiisu! Taking screenshot ..."
+    take
+    exit
+fi
 {
-echo -e "   ^fn(Wuncon Siji:size=10)\ue1da^fn() Chiisu! Taking screenshot ..."
-take
+    echo -e "      ^fn(Wuncon Siji:size=10)\ue1da^fn() Chiisu! Taking screenshot ..."; take 
 } | dzen2 -ta l -bg $(xrgc bg) -fg $(xrgc fg) -fn "${FN}"  -x ${X} -y ${Y} -w ${W} -h ${H}
 
