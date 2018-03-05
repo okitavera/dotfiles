@@ -1,5 +1,4 @@
 #!/bin/sh
-RESOURCES="$HOME/.cache/wal/colors.Xresources"
 sudo sleep 0.1s || exit 10
 
 if [[ -z $1 ]]; then
@@ -7,117 +6,107 @@ if [[ -z $1 ]]; then
 	exit 10
 fi
 
-gc(){
-case $1 in 
-    fg)
-        cat $RESOURCES | egrep -m1 "*\.?foreground:" | awk '{print $NF}' 
-    ;;
-    bg)
-        cat $RESOURCES | egrep -m1 "*\.?background:" | awk '{print $NF}' 
-    ;;
-    *) 
-        cat $RESOURCES | egrep -m1 "^\*\.?color$1:" | awk '{print $NF}'
-    ;;
-esac
-}
-
-writ(){
+_write_xrdb(){
 cat <<EOF
-! color preset
+! colorpreset
 ! name : $1
 ! generated from : pywal
 
 ! special
-*.foreground:   $(gc fg)
-*.background:   $(gc bg)
-*.cursorColor:  $(gc fg)
+*.foreground:   ${foreground}
+*.background:   ${background}
+*.cursorColor:  ${cursor}
 
 ! black
-*.color0:       $(gc 0)
-*.color8:       $(gc 8)
+*.color0:       ${color0}
+*.color8:       ${color8}
 
 ! red
-*.color1:       $(gc 1)
-*.color9:       $(gc 9)
+*.color1:       ${color1}
+*.color9:       ${color9}
 
 ! green
-*.color2:       $(gc 2)
-*.color10:      $(gc 10)
+*.color2:       ${color2}
+*.color10:      ${color10}
 
 ! yellow
-*.color3:       $(gc 3)
-*.color11:      $(gc 11)
+*.color3:       ${color3}
+*.color11:      ${color11}
 
 ! blue
-*.color4:       $(gc 4)
-*.color12:      $(gc 12)
+*.color4:       ${color4}
+*.color12:      ${color12}
 
 ! magenta
-*.color5:       $(gc 5)
-*.color13:      $(gc 13)
+*.color5:       ${color5}
+*.color13:      ${color13}
 
 ! cyan
-*.color6:       $(gc 6)
-*.color14:      $(gc 14)
+*.color6:       ${color6}
+*.color14:      ${color14}
 
 ! white
-*.color7:       $(gc 7)
-*.color15:      $(gc 15)
+*.color7:       ${color7}
+*.color15:      ${color15}
 
-rofi.color-window: $(gc bg), $(gc bg)
-rofi.color-active: $(gc bg), $(gc fg), $(gc bg), $(gc 4), $(gc fg)
-rofi.color-normal: $(gc bg), $(gc fg), $(gc bg), $(gc 4), $(gc fg)
-rofi.color-urgent: $(gc bg), $(gc fg), $(gc bg), $(gc 4), $(gc fg)
+rofi.color-window: ${background}, ${background}
+rofi.color-active: ${background}, ${foreground}, ${background}, ${color4}, ${foreground}
+rofi.color-normal: ${background}, ${foreground}, ${background}, ${color4}, ${foreground}
+rofi.color-urgent: ${background}, ${foreground}, ${background}, ${color4}, ${foreground}
 EOF
 }
 
-writ_lightdm(){
+_write_lightdm(){
 cat <<EOF
-@define-color bg $(gc bg);
-@define-color bg_darken $(gc bg);
-@define-color clear rgba(0, 0, 0, 0);
-@define-color bg_alt $(gc 1);
-@define-color fg $(gc fg);
+@define-colorbg ${background};
+@define-colorbg_darken ${background};
+@define-colorclear rgba(0, 0, 0, 0);
+@define-colorbg_alt ${color1};
+@define-colorfg ${foreground};
 EOF
 }
 
-WALPAPER=$(cat $HOME/.fehbg | awk -F\' '{print $6}' | grep .)
+
 
 echo Cleaning pywal cache.
 wal -cq
 
 echo Generating colors.
-wal -qensi "${WALPAPER}"
+wal -qensi "$(cat $HOME/.fehbg | awk -F\' '{print $6}' | grep .)"
+
+source $HOME/.cache/wal/colors.sh
+colordb="$HOME/.xrdb/$1"
+
 
 echo Exporting colors.
-mkdir -p $HOME/.xrdb/pywal/
-writ $(echo $WALPAPER | awk -F\/ '{print $NF}') > $HOME/.xrdb/pywal/$(echo $WALPAPER | awk -F\/ '{print $NF}').rc
-mv $HOME/.xrdb/pywal/$(echo $WALPAPER | awk -F\/ '{print $NF}').rc $HOME/.xrdb/$1
-cat $HOME/.Xresources | sed -e 's/#include\(.*\)//g' > /tmp/.Xresources
-echo -n "#include <$HOME/.xrdb/$1>" > $HOME/.Xresources
-cat /tmp/.Xresources >> $HOME/.Xresources
+mkdir -p $HOME/.xrdb/
+_write_xrdb $1 > $colordb
+sed -i -e "s;#include\(.*\);#include <$colordb>;g" $HOME/.Xresources
+
 
 echo Reload Xresources Databases.
 xrdb $HOME/.Xresources
 xrdb -merge $HOME/.Xresources
 
+
 echo Generating Tint2 preset.
 cat $HOME/.cache/.tintyesterday | xargs tintyourday -p 
 
+
 echo Generating Lightdm themes.
-sudo cp "${WALPAPER}" "/etc/lightdm/bg.jpg"
-writ_lightdm > /tmp/colors.css
-sudo mv /tmp/colors.css /usr/share/themes/Yuune-lightdm/gtk-3.0/colors.css
+sudo cp "${wallpaper}" "/etc/lightdm/bg.jpg"
+_write_lightdm | sudo tee /usr/share/themes/Yuune-lightdm/gtk-3.0/colors.css >/dev/null
 
 
-echo Generating Dunst color config.
-cat $HOME/.config/dunst/dunstrc | sed -e 's/background\(.*\)=\(.*\)"\(.*\)"/background\1=\2"'$(gc bg)'"/g' > $HOME/.config/dunst/dunstrc
-cat $HOME/.config/dunst/dunstrc | sed -e 's/foreground\(.*\)=\(.*\)"\(.*\)"/foreground\1=\2"'$(gc 4)'"/g' > $HOME/.config/dunst/dunstrc
+echo Generating Dunst colorconfig.
+sed -i -e "s;kground = \"\(.*\)\";kground = \"${background}\";g" $HOME/.config/dunst/dunstrc
+sed -i -e "s;eground = \"\(.*\)\";eground = \"${color4}\";g" $HOME/.config/dunst/dunstrc
 
 echo Reloading instance.
 openbox --reconfigure
 killall dunst
 dunst -config $HOME/.config/dunst/dunstrc &
+
 if [[ -z $(pidof tint2) ]]; then
 	tint2 &
 else
