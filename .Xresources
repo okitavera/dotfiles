@@ -1,4 +1,4 @@
-#include "/home/ruka/.xrdb/sendiki"
+#include </home/yuune/.xrdb/vionoir>
 
 Xft.dpi:        96
 Xft.antialias:  true
@@ -7,8 +7,8 @@ Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
 URxvt.intensityStyles:  false
-URxvt.font:             xft:Hack:bold:pixelsize=12
-URxvt.boldFont:         xft:Hack:bold:pixelsize=12
+URxvt.font:             xft:Hack:bold:size=8
+URxvt.boldFont:         xft:Hack:bold:size=8
 URxvt.saveLines:        8192
 
 URxvt*scrollTtyOutput:    false
@@ -19,7 +19,7 @@ URxvt.internalBorder:     26
 URxvt.cursorBlink:        false
 URxvt.cursorUnderline:    true
 
-rofi.font:             Noto Sans Bold 9
+rofi.font:             Noto Sans Bold 8
 rofi.modi:             run
 rofi.width:            20
 rofi.lines:            4
@@ -33,4 +33,4 @@ rofi.xoffset:          100
 rofi.yoffset:          -100
 rofi.separator-style:  none
 rofi.hide-scrollbar:   true
-rofi.sidebar-mode: false
+rofi.sidebar-mode:     false
