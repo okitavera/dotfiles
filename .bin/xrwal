@@ -94,7 +94,7 @@ mkdir -p $HOME/.xrdb/pywal/
 writ $(echo $WALPAPER | awk -F\/ '{print $NF}') > $HOME/.xrdb/pywal/$(echo $WALPAPER | awk -F\/ '{print $NF}').rc
 mv $HOME/.xrdb/pywal/$(echo $WALPAPER | awk -F\/ '{print $NF}').rc $HOME/.xrdb/$1
 cat $HOME/.Xresources | sed -e 's/#include\(.*\)//g' > /tmp/.Xresources
-echo "#include <$HOME/.xrdb/$1>" > $HOME/.Xresources
+echo -n "#include <$HOME/.xrdb/$1>" > $HOME/.Xresources
 cat /tmp/.Xresources >> $HOME/.Xresources
 
 echo Reload Xresources Databases.
@@ -105,7 +105,7 @@ echo Generating Tint2 preset.
 cat $HOME/.cache/.tintyesterday | xargs tintyourday -p 
 
 echo Generating Lightdm themes.
-sudo cp "$HOME/${WALPAPER}" "/etc/lightdm/bg.jpg"
+sudo cp "${WALPAPER}" "/etc/lightdm/bg.jpg"
 writ_lightdm > /tmp/colors.css
 sudo mv /tmp/colors.css /usr/share/themes/Yuune-lightdm/gtk-3.0/colors.css
 
