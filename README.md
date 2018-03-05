@@ -2,9 +2,9 @@
 	<img src="https://user-images.githubusercontent.com/9277632/36943758-510cade8-1fc1-11e8-8167-c0b7d221b385.png" width="400px">
 	<h3>GitHub <font color="#ff5d74">❤</font> ~/ , Vera's too!</h3>
 	<!-- current desktop -->
-	<img src="https://user-images.githubusercontent.com/9277632/36633798-f60a1f46-19cd-11e8-92e0-076a5ce13aad.png">
+	<img src="https://user-images.githubusercontent.com/9277632/36959666-cae37d72-2075-11e8-9cb3-59c5c9fb245f.png">
 
-`current setup` `openbox and tint2 theme: sendiki` `xresources color:sendiki`
+`current setup` `openbox theme: obtgen` `tint2 theme: vionoir` `xresources color:vionoir`
 
 </div>
 
