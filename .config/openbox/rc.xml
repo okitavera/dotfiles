@@ -299,6 +299,21 @@
         <keybind key="W-S-q">
             <action name="Exit"/>
         </keybind>
+        <keybind key="XF86AudioRaiseVolume">
+            <action name="Execute"> 
+                <command>ponymix increase 5</command>
+            </action>
+        </keybind>
+        <keybind key="XF86AudioLowerVolume">
+            <action name="Execute">
+                <command>ponymix decrease 5</command>
+            </action>
+        </keybind>
+        <keybind key="XF86AudioMute">
+            <action name="Execute"> 
+                <command>ponymix toggle</command>
+            </action>
+        </keybind>
     </keyboard>
     <mouse>
         <dragThreshold>1</dragThreshold>
