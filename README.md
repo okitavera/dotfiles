@@ -31,6 +31,15 @@ And this is the rest of apps that I use:
 - Web Browser: `firefox`
 - Widgets: `conky`
 
+## Additional Repository
+
+##### tint2 theme collections
+https://github.com/yuune/yuune-tint2-themes
+
+##### openbox theme collections
+https://github.com/yuune/yuune-ob-themes
+
+
 ## Config previews
 For my configuration, just open the Issues page and find `readme-preview` labels
 
