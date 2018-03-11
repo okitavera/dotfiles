@@ -47,4 +47,4 @@ https://github.com/yuune/dotfiles/issues?utf8=✓&q=label:readme-preview
 
 ## License
 
-The code is available under the [MIT license](LICENSE.txt).
+The code is available under the [MIT license](LICENSE).
