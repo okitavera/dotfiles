@@ -42,9 +42,9 @@ set number
 set cursorline
 
 colorscheme base16-default-dark
-hi EndOfBuffer ctermfg=black ctermbg=black
-hi LineNr term=bold cterm=NONE ctermfg=grey ctermbg=NONE gui=NONE guifg=grey guibg=NONE
+hi EndOfBuffer ctermfg=BG
+hi LineNr term=bold cterm=NONE ctermfg=FG ctermbg=NONE
 hi CursorLine cterm=NONE ctermbg=235
-hi CursorLineNR cterm=NONE ctermbg=235
+hi CursorLineNR cterm=NONE ctermbg=235 ctermfg=FG
 let &t_SI = "\<Esc>[5 q"
 
