@@ -1,0 +1,45 @@
+! colorpreset
+! name : forest
+! generated from : pywal
+
+! special
+*.foreground:   #c7c4b9
+*.background:   #060908
+*.cursorColor:  #c7c4b9
+
+! black
+*.color0:       #060908
+*.color8:       #8b8981
+
+! red
+*.color1:       #5F6053
+*.color9:       #5F6053
+
+! green
+*.color2:       #686959
+*.color10:      #686959
+
+! yellow
+*.color3:       #787664
+*.color11:      #787664
+
+! blue
+*.color4:       #817E6B
+*.color12:      #817E6B
+
+! magenta
+*.color5:       #8F8A75
+*.color13:      #8F8A75
+
+! cyan
+*.color6:       #7D8281
+*.color14:      #7D8281
+
+! white
+*.color7:       #c7c4b9
+*.color15:      #c7c4b9
+
+rofi.color-window: argb:C00e1514, argb:800e1514
+rofi.color-active: argb:000e1514, #c7c4b9, argb:000e1514, #817E6B, #0e1514
+rofi.color-normal: argb:000e1514, #c7c4b9, argb:000e1514, #817E6B, #0e1514
+rofi.color-urgent: argb:000e1514, #c7c4b9, argb:000e1514, #817E6B, #0e1514
