@@ -1,4 +1,4 @@
-#include </home/yuune/.xrdb/vionoir>
+#include </home/yuune/.xrdb/forest>
 
 Xft.dpi:        96
 Xft.antialias:  true
@@ -15,22 +15,27 @@ URxvt*scrollTtyOutput:    false
 URxvt*scrollWithBuffer:   true
 URxvt*scrollTtyKeypress:  true
 URxvt.scrollBar:          false
-URxvt.internalBorder:     26
+URxvt.internalBorder:     30
 URxvt.cursorBlink:        false
 URxvt.cursorUnderline:    true
+URxvt*skipBuiltinGlyphs:    true
 
-rofi.font:             Noto Sans Bold 8
-rofi.modi:             run
-rofi.width:            20
-rofi.lines:            4
-rofi.columns:          1
-rofi.bw:               5
-rofi.padding:          0
-rofi.line-margin:      0
-rofi.line-padding:     5
-rofi.location:         7
-rofi.xoffset:          100
-rofi.yoffset:          -100
-rofi.separator-style:  none
-rofi.hide-scrollbar:   true
-rofi.sidebar-mode:     false
+URxvt.perl-ext-common:  resize-font
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-equal:     resize-font:bigger
+URxvt.keysym.C-0:      	  resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
+rofi.font:              Noto Sans Bold 8
+rofi.modi:              run
+rofi.lines:             1
+rofi.columns:           4
+rofi.line-margin:       5
+rofi.line-padding:      10
+rofi.separator-style:   none
+rofi.hide-scrollbar:    false
+rofi.sidebar-mode:      false
+rofi.fullscreen:        true
+rofi.padding:           400
