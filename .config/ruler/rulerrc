@@ -1,2 +1,5 @@
+name="clearine"
+    waitron window_maximize
+
 name=".*"
     waitron window_snap middle
