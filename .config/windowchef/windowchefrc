@@ -4,8 +4,9 @@
 # And you still not noticing me senpai...
 #
 
-PRESET="yandere"
-BAR_PRESET="yandere"
+PRESET="forest"
+BAR="polybar"
+BAR_PRESET="yuubar"
 BAR_LOCATION="bottom" # (bottom/top)
 
 export WM=windowchef
@@ -17,10 +18,9 @@ export WM=windowchef
 source $HOME/.fehbg
 
 # check instance
-for i in sxhkd ruler compton lemonbar conky; do
+for i in sxhkd ruler compton lemonbar conky polybar; do
     pkill $i
 done
-
 
 sleep 0.1s
 
@@ -34,17 +34,27 @@ ruler &
 compton &
 
 # panel
-if [ "$BAR_LOCATION" == "bottom" ]; then
-	sh $XDG_CONFIG_HOME/lemonbar/$BAR_PRESET -b &
-else
-	sh $XDG_CONFIG_HOME/lemonbar/$BAR_PRESET &
+if [[ "$BAR" == "lemonbar" ]]; then
+	BAR_HEIGHT=$(cat $XDG_CONFIG_HOME/lemonbar/$BAR_PRESET | grep -E '[0-9]{3,}x[0-9]{1,}' | awk -F'[=x+]' '{print $3}')
+	if [ "$BAR_LOCATION" == "bottom" ]; then
+		sh $XDG_CONFIG_HOME/windowchef/$BAR_PRESET -b &
+	else
+		sh $XDG_CONFIG_HOME/windowchef/$BAR_PRESET &
+	fi
+
+elif [[ "$BAR" == "polybar" ]]; then
+	BAR_HEIGHT=$(cat $XDG_CONFIG_HOME/polybar/config | grep height | awk '{print $NF}')
+	if [ "$BAR_LOCATION" == "bottom" ]; then
+		sed -i -e 's|bottom = \(.*\)|bottom = true|g' $XDG_CONFIG_HOME/polybar/config
+	else
+		sed -i -e 's|bottom = \(.*\)|bottom = false|g' $XDG_CONFIG_HOME/polybar/config
+	fi
+	polybar $BAR_PRESET &
+
 fi
 
 # retrieve preset
 source $XDG_CONFIG_HOME/windowchef/preset/$PRESET
-
-# calculate bar_height
-BAR_HEIGHT=$(cat $XDG_CONFIG_HOME/lemonbar/$BAR_PRESET | grep -E '[0-9]{3,}x[0-9]{1,}' | awk -F'[=x+]' '{print $3}')
 
 # apply
 waitron wm_config enable_borders true
