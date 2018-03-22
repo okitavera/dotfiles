@@ -62,5 +62,8 @@ super + Return
 super + p
     rofi -show run
 
+super + space
+    mygtkmenu-wrapper
+
 Print
     chiisu
