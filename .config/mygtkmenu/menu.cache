@@ -1,0 +1,427 @@
+item = WINDOWCHEF
+cmd = false
+icon = NULL
+SEPARATOR
+Submenu = Development
+	icon = NULL
+
+	item = Android Studio
+	cmd = android-studio
+	icon = NULL
+
+	item = GDB
+	cmd = urxvt -e gdb
+	icon = NULL
+
+	item = IDLE
+	cmd = idle
+	icon = NULL
+
+	item = Python
+	cmd = urxvt -e python
+	icon = NULL
+
+	item = Qt Assistant
+	cmd = assistant
+	icon = NULL
+
+	item = Qt Designer
+	cmd = designer
+	icon = NULL
+
+	item = Qt Linguist
+	cmd = linguist
+	icon = NULL
+
+	item = Qt QDbusViewer
+	cmd = qdbusviewer
+	icon = NULL
+
+	item = Qt4 Assistant
+	cmd = assistant-qt4
+	icon = NULL
+
+	item = Qt4 Designer
+	cmd = designer-qt4
+	icon = NULL
+
+	item = Qt4 Linguist
+	cmd = linguist-qt4
+	icon = NULL
+
+	item = Qt4 QDbusViewer
+	cmd = qdbusviewer-qt4
+	icon = NULL
+
+	item = Sublime Text 3 Dev
+	cmd = subl3
+	icon = NULL
+
+Submenu = Editors
+	icon = NULL
+
+	item = AA Fire
+	cmd = urxvt -e aafire -driver slang
+	icon = NULL
+
+	item = Nano
+	cmd = urxvt -e nano
+	icon = NULL
+
+	item = Vi
+	cmd = urxvt -e vi
+	icon = NULL
+
+	item = Vim
+	cmd = urxvt -e vim
+	icon = NULL
+
+Submenu = Games
+	icon = NULL
+
+	Submenu = Adventure
+		icon = NULL
+
+		item = Sclient
+		cmd = sclient
+		icon = NULL
+
+	Submenu = Arcade
+		icon = NULL
+
+		item = PacMan
+		cmd = pacman
+		icon = NULL
+
+Submenu = Graphics
+	icon = NULL
+
+	item = Bitmap
+	cmd = bitmap
+	icon = NULL
+
+	item = GNU Image Manipulation Program
+	cmd = gimp-2.8
+	icon = NULL
+
+	item = Inkscape
+	cmd = inkscape
+	icon = NULL
+
+	item = Peek
+	cmd = peek
+	icon = NULL
+
+	item = The GIMP
+	cmd = gimp
+	icon = NULL
+
+	item = Viewnior
+	cmd = viewnior
+	icon = NULL
+
+Submenu = Multimedia
+	icon = NULL
+
+	item = Audacious
+	cmd = audacious
+	icon = NULL
+
+	item = Cheese
+	cmd = cheese
+	icon = NULL
+
+	item = FFADO Mixer
+	cmd = ffado-mixer
+	icon = NULL
+
+	item = mpv Media Player
+	cmd = mpv
+	icon = NULL
+
+	item = PulseAudio Volume Control
+	cmd = pavucontrol
+	icon = NULL
+
+	item = SimpleScreenRecorder
+	cmd = simplescreenrecorder --logfile
+	icon = NULL
+
+Submenu = Network
+	icon = NULL
+
+	item = Avahi SSH Server Browser
+	cmd = bssh
+	icon = NULL
+
+	item = Avahi VNC Server Browser
+	cmd = bvnc
+	icon = NULL
+
+	item = Chromium
+	cmd = chromium
+	icon = NULL
+
+	item = Deluge
+	cmd = deluge-gtk
+	icon = NULL
+
+	item = FireFox
+	cmd = firefox
+	icon = NULL
+
+	item = FTP
+	cmd = urxvt -e ftp
+	icon = NULL
+
+	item = Mail
+	cmd = urxvt -e mail
+	icon = NULL
+
+	item = Net Activity Viewer
+	cmd = netactview
+	icon = NULL
+
+	item = Talk
+	cmd = urxvt -e talk
+	icon = NULL
+
+	item = Telegram Desktop
+	cmd = telegram-desktop
+	icon = NULL
+
+	item = Telnet
+	cmd = urxvt -e telnet
+	icon = NULL
+
+	item = TkVNC
+	cmd = xterm -e tkvnc
+	icon = NULL
+
+	item = W3m
+	cmd = urxvt -e w3m
+	icon = NULL
+
+	item = w3m
+	cmd = urxvt -e w3m /usr/share/doc/w3m/MANUAL.html
+	icon = NULL
+
+Submenu = Office
+	icon = NULL
+
+	item = LibreOffice Impress
+	cmd = libreoffice
+	icon = NULL
+
+Submenu = Other
+	icon = NULL
+
+	item = compton
+	cmd = compton
+	icon = NULL
+
+	item = OpenJDK Java 9 Policy Tool
+	cmd = policytool
+	icon = NULL
+
+	item = Plank
+	cmd = plank
+	icon = NULL
+
+	item = Qt V4L2 test Utility
+	cmd = qv4l2
+	icon = NULL
+
+	item = Time Settings
+	cmd = gksudo timeset-gui
+	icon = NULL
+
+	item = Tint2
+	cmd = tint2
+	icon = NULL
+
+Submenu = Science
+	icon = NULL
+
+	item = bc
+	cmd = urxvt -e bc
+	icon = NULL
+
+	item = dc
+	cmd = urxvt -e dc
+	icon = NULL
+
+Submenu = Shells
+	icon = NULL
+
+	item = Dash
+	cmd = urxvt -e dash -i
+	icon = NULL
+
+	item = File Manager PCManFM
+	cmd = pcmanfm
+	icon = NULL
+
+	item = Files
+	cmd = nautilus
+	icon = NULL
+
+	item = GIT
+	cmd = urxvt -e git
+	icon = NULL
+
+	item = ranger
+	cmd = urxvt -e ranger
+	icon = NULL
+
+	item = Rxvt
+	cmd = urxvt
+	icon = NULL
+
+	item = urxvt (client)
+	cmd = urxvtc
+	icon = NULL
+
+	item = urxvt (tabbed)
+	cmd = urxvt-tabbed
+	icon = NULL
+
+	item = UXTerm
+	cmd = uxterm
+	icon = NULL
+
+	item = Xterm
+	cmd = xterm
+	icon = NULL
+
+Submenu = System
+	icon = NULL
+
+	Submenu = Settings
+		icon = NULL
+
+		Submenu = GNOME
+			icon = NULL
+
+			item = Adobe Flash Player
+			cmd = flash-player-properties
+			icon = NULL
+
+			item = LightDM GTK+ Greeter settings
+			cmd = lightdm-gtk-greeter-settings-pkexec
+			icon = NULL
+
+			item = Network Connections
+			cmd = nm-connection-editor
+			icon = NULL
+
+			item = Privilege granting
+			cmd = gksu-properties
+			icon = NULL
+
+		item = Default applications for LXSession
+		cmd = lxsession-default-apps
+		icon = NULL
+
+		item = Desktop Preferences
+		cmd = pcmanfm --desktop-pref
+		icon = NULL
+
+		item = Desktop Session Settings
+		cmd = lxsession-edit
+		icon = NULL
+
+		item = nitrogen
+		cmd = nitrogen
+		icon = NULL
+
+		item = Openbox Configuration Manager
+		cmd = obconf
+		icon = NULL
+
+		item = Preferred Applications
+		cmd = libfm-pref-apps
+		icon = NULL
+
+		item = Tint2 Settings
+		cmd = tint2conf
+		icon = NULL
+
+	item = Avahi Zeroconf Browser
+	cmd = avahi-discover
+	icon = NULL
+
+	item = Color Profile Viewer
+	cmd = gcm-viewer
+	icon = NULL
+
+	item = GDM Setup
+	cmd = gksu gdmsetup
+	icon = NULL
+
+	item = GParted
+	cmd = gparted
+	icon = NULL
+
+	item = Htop
+	cmd = urxvt -e htop
+	icon = NULL
+
+	item = LSHW
+	cmd = gtk-lshw
+	icon = NULL
+
+	item = OpenJDK Java 9 Console
+	cmd = jconsole
+	icon = NULL
+
+	item = pstree
+	cmd = urxvt -e pstree.x11
+	icon = NULL
+
+	item = pstree
+	cmd = urxvt -e pstree
+	icon = NULL
+
+	item = pstree
+	cmd = xterm -e /usr/bin/pstree.x11
+	icon = NULL
+
+	item = Settings
+	cmd = gnome-control-center --overview
+	icon = NULL
+
+	item = Top
+	cmd = urxvt -e top
+	icon = NULL
+
+Submenu = Utilities
+	icon = NULL
+
+	item = Character Map
+	cmd = gucharmap
+	icon = NULL
+
+	item = ClipIt
+	cmd = clipit
+	icon = NULL
+
+	item = Info
+	cmd = urxvt -e info
+	icon = NULL
+
+	item = Tweaks
+	cmd = gnome-tweak-tool
+	icon = NULL
+
+	item = Xarchiver
+	cmd = xarchiver
+	icon = NULL
+
+	item = Xsetroot
+	cmd = xsetroot
+	icon = NULL
+SEPARATOR
+item = Log Out
+cmd = clearine
+icon = NULL

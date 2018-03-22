@@ -1,0 +1,9 @@
+item = WINDOWCHEF
+cmd = false
+icon = NULL
+SEPARATOR
+MENUINDEX
+SEPARATOR
+item = Log Out
+cmd = clearine
+icon = NULL

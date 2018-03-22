@@ -1,0 +1,8 @@
+MYGTKMENU=$HOME/.config/mygtkmenu
+
+CONF=$HOME/.config/mygtkmenu/config
+MENU=$HOME/.config/mygtkmenu/menu.index
+GENMENU=$HOME/.config/mygtkmenu/menu.cache
+cp -f $CONF $GENMENU
+sed -e "/MENUINDEX/r $MENU" -e '/MENUINDEX/d' $CONF > $GENMENU
+GTK2_RC_FILES=$MYGTKMENU/gtkrc mygtkmenu $GENMENU

@@ -1,0 +1,48 @@
+gtk-color-scheme = "fg_color: #c7c4b9"
+gtk-color-scheme = "bg_color: #060908"
+
+gtk-font-name = "San Francisco Display SemiBold 9"
+gtk-auto-mnemonics = 1
+
+style "default" {
+
+  GtkMenu::horizontal-padding = 10
+  GtkMenu::vertical-padding = 10
+  GtkMenu::horizontal-offset = 0
+
+  bg[NORMAL] = @bg_color
+  bg[INSENSITIVE] = @bg_color
+  bg[PRELIGHT] = @fg_color
+  bg[SELECTED] = @fg_color
+  bg[ACTIVE] = @fg_color
+
+  fg[NORMAL] = @fg_color
+  fg[INSENSITIVE] = @fg_color
+  fg[PRELIGHT] = @bg_color
+  fg[SELECTED] = @bg_color
+  fg[ACTIVE] = @bg_color
+
+  text[NORMAL] = @fg_color
+  text[INSENSITIVE] = @fg_color
+  text[PRELIGHT] = @bg_color
+  text[SELECTED] = @bg_color
+  text[ACTIVE] = @bg_color
+
+  base[NORMAL] = @bg_color
+  base[PRELIGHT] = @bg_color
+  base[SELECTED] = @fg_color
+  base[INSENSITIVE] = @fg_color
+  base[ACTIVE] = @fg_color
+
+}
+
+style "menu_item" {
+  xthickness = 0
+  ythickness = 4
+  GtkMenuItem::arrow-scaling = 0
+
+}
+
+
+class "GtkWidget"                                                   style "default"
+widget_class "*<GtkMenuItem>*"                                      style "menu_item"
