@@ -1,0 +1,155 @@
+[colors]
+background = ${xrdb:background:#222}
+background-alt = ${xrdb:color0:222}
+foreground = ${xrdb:foreground:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+
+
+[bar/yuubar]
+bottom = true
+width = 100%
+height = 40
+offset-x = 0%
+offset-y = 0%
+radius = 0
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 7
+line-color = #f00
+border-size = 0
+border-color = #00000000
+padding-left = 15
+padding-right = 15
+module-margin-left = 2
+module-margin-right = 2
+font-0 = San Francisco Display:bold:size=9
+font-1 = Ohruri:bold:size=9
+font-2 = Wuncon Siji:size=9
+font-3 = DejaVu:size=10
+modules-left = windowchef-listen xwindow
+modules-center = 
+modules-right = mpd filesystem memory cpu wlan battery date
+;wm-restack = bspwm
+;wm-restack = i3
+;override-redirect = true
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:128:...%
+label-inactive = Windowchef
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted =  Root %percentage_used%%
+
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label = CPU %percentage:2%%
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label = Mem %percentage_used%%
+
+
+[module/wlan]
+type = internal/network
+interface = wlp1s0
+interval = 3.0
+format-connected = <ramp-signal> WLAN : <label-connected>
+label-connected = Connected
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+
+[module/date]
+type = internal/date
+interval = 5
+date =
+date-alt = " %A, %d %B %Y - "
+time = %I.%M %p
+time-alt = %I.%M %p
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+label = %date% %time%
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC0
+full-at = 98
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+
+[module/windowchef-listen]
+type = custom/script
+exec = ~/.config/polybar/windowchef-listen
+tail = false
+interval = 0.25
+click-left = kill -USR1 %pid%
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+
+[global/wm]
+margin-top = 0
+margin-bottom = true

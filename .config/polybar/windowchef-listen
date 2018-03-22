@@ -1,0 +1,17 @@
+fg=$(xrgc fg)
+bg=$(xrgc bg)
+c0=$(xrgc 0)
+c1=$(xrgc 1)
+
+desk=$(xdotool get_desktop)
+wsname=("ターミナル" "ミュージック" "ウェブ" "コード")
+echo -n "%{o$bg +o}%{u$bg  +u}"
+for i in {1..4}; do
+    if [[ "$((desk+1))" == "$i" ]]; then
+        echo -n "%{F$c1}"
+    fi
+    echo -n "  %{A:waitron group_activate_specific $i:}"
+    echo -n "%{T4}●%{T-}"
+    echo -n "%{A}  %{F-}"
+done
+echo "%{+o}%{+u}%{O10}"
