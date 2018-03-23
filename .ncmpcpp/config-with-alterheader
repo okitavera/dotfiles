@@ -1,0 +1,27 @@
+mpd_music_dir = "~/Music"
+
+message_delay_time = 1
+playlist_display_mode = classic
+display_bitrate = yes
+header_visibility = no
+user_interface = alternative
+alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
+alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
+
+alternative_ui_separator_color = 240:b
+main_window_color = 240
+statusbar_time_color = cyan
+statusbar_color = white
+progressbar_elapsed_color = cyan
+progressbar_color = 240
+progressbar_look = "▬▬▬"
+
+now_playing_prefix = $(cyan)
+now_playing_suffix = $/r$(end)
+current_item_prefix = $(cyan)$r
+current_item_suffix = $/r$(end)
+
+song_list_format = "● $4%a$(end) $(240)-$9 $(white)%t$9 $R{$7%b$9}{ ($4%y$9)}$(white)%l $(end)"
+
+song_status_format = "%a - %t"
+song_window_title_format = "{%a} - {%t} - ncmpcpp"
