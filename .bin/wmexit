@@ -1,0 +1,11 @@
+#!/bin/sh
+WM_NAME=$(wmctrl -m | awk '/Name: / {printf "%s\n", $NF}')
+
+case $WM_NAME in
+	"windowchef")
+		waitron wm_quit 0
+	;;
+	"openbox")
+		openbox --exit
+	;;	
+esac
