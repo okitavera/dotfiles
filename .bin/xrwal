@@ -1,15 +1,36 @@
 #!/bin/sh
-sudo sleep 0.1s || exit 10
+#
+# My PyWal Exporter
+#
+# Applied to :
+#   - xrdb
+#   - tint2
+#   - lightdm
+#   - dunst
+#
 
-if [[ -z $1 ]]; then
-	echo "you must add a name for your xrdb preset.  exiting."
-	exit 10
-fi
+pre_exec () {
+	sudo sleep 0.1s || exit 1
+	if [[ -z $1 ]]; then
+		echo "you must add a name for your xrdb preset.  exiting."
+		exit 1
+	fi
+	PRESETNAME=$1
+}
 
-_write_xrdb(){
+post_exec(){
+	echo Reloading instance.
+	[[ -n $(pidof windowchef) ]] && xdotool key super+r
+	[[ -n $(pidof openbox) ]] && openbox --reconfigure
+	[[ -n $(pidof dunst) ]] && killall dunst
+	[[ -n $(pidof dunst) ]] && (dunst -config $HOME/.config/dunst/dunstrc & disown)
+	[[ -n $(pidof tint2) ]] && pkill -USR1 -x tint2
+}
+
+xresources(){
 cat <<EOF
 ! colorpreset
-! name : $1
+! name : $PRESETNAME
 ! generated from : pywal
 
 ! special
@@ -49,14 +70,14 @@ cat <<EOF
 *.color7:       ${color7}
 *.color15:      ${color15}
 
-rofi.color-window: ${background}, ${background}
-rofi.color-active: ${background}, ${foreground}, ${background}, ${color4}, ${foreground}
-rofi.color-normal: ${background}, ${foreground}, ${background}, ${color4}, ${foreground}
-rofi.color-urgent: ${background}, ${foreground}, ${background}, ${color4}, ${foreground}
+rofi.color-window: argb:C0${background//#/}, argb:80${background//#/}
+rofi.color-active: argb:00${background//#/}, ${foreground}, argb:00${background//#/}, ${color4}, ${background}
+rofi.color-normal: argb:00${background//#/}, ${foreground}, argb:00${background//#/}, ${color4}, ${background}
+rofi.color-urgent: argb:00${background//#/}, ${foreground}, argb:00${background//#/}, ${color4}, ${background}
 EOF
 }
 
-_write_lightdm(){
+lightdm(){
 cat <<EOF
 @define-colorbg ${background};
 @define-colorbg_darken ${background};
@@ -67,7 +88,7 @@ EOF
 }
 
 
-
+main() {
 echo Cleaning pywal cache.
 wal -cq
 
@@ -75,12 +96,12 @@ echo Generating colors.
 wal -qensi "$(cat $HOME/.fehbg | awk -F\' '{print $6}' | grep .)"
 
 source $HOME/.cache/wal/colors.sh
-colordb="$HOME/.xrdb/$1"
+colordb="$HOME/.xrdb/$PRESETNAME"
 
 
 echo Exporting colors.
 mkdir -p $HOME/.xrdb/
-_write_xrdb $1 > $colordb
+xresources $PRESETNAME > $colordb
 sed -i -e "s;#include\(.*\);#include <$colordb>;g" $HOME/.Xresources
 
 
@@ -90,27 +111,23 @@ xrdb -merge $HOME/.Xresources
 
 
 echo Generating Tint2 preset.
-cat $HOME/.cache/.tintyesterday | xargs tintyourday -p 
+tintyourday -p $(cat $HOME/.cache/.tintyesterday) --replace
 
 
 echo Generating Lightdm themes.
 sudo cp "${wallpaper}" "/etc/lightdm/bg.jpg"
-_write_lightdm | sudo tee /usr/share/themes/Yuune-lightdm/gtk-3.0/colors.css >/dev/null
+lightdm | sudo tee /usr/share/themes/Yuune-lightdm/gtk-3.0/colors.css >/dev/null
 
 
 echo Generating Dunst colorconfig.
-sed -i -e "s;kground = \"\(.*\)\";kground = \"${background}\";g" $HOME/.config/dunst/dunstrc
-sed -i -e "s;eground = \"\(.*\)\";eground = \"${color4}\";g" $HOME/.config/dunst/dunstrc
+sed -i -e "s;kground = \"\(.*\)\";kground = \"${foreground}\";g" $HOME/.config/dunst/dunstrc
+sed -i -e "s;eground = \"\(.*\)\";eground = \"${background}\";g" $HOME/.config/dunst/dunstrc
 
-echo Reloading instance.
-openbox --reconfigure
-killall dunst
-dunst -config $HOME/.config/dunst/dunstrc &
+echo Recolor Startpages
+sh $HOME/.startpages/get_color_from_xresources.sh
 
-if [[ -z $(pidof tint2) ]]; then
-	tint2 &
-else
-	pkill -USR1 -x tint2
-fi
+}
 
-disown
+pre_exec $@
+main
+post_exec
