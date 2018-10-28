@@ -7,8 +7,8 @@ Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 
 URxvt.intensityStyles:  false
-URxvt.font:             xft:Hack:bold:size=8
-URxvt.boldFont:         xft:Hack:bold:size=8
+URxvt.font:             xft:Fira Code:bold:size=8, xft:TakaoMincho:bold:size=8:hintstyle=hintnone
+URxvt.boldFont:         xft:Fira Code:bold:size=8, xft:TakaoMincho:bold:size=8:hintstyle=hintnone
 URxvt.saveLines:        8192
 
 URxvt*scrollTtyOutput:    false
@@ -28,7 +28,7 @@ URxvt.keysym.C-equal:     resize-font:bigger
 URxvt.keysym.C-0:      	  resize-font:reset
 URxvt.keysym.C-question:  resize-font:show
 
-rofi.font:              Noto Sans Bold 8
+rofi.font:              Product Sans Bold 8
 rofi.modi:              run
 rofi.lines:             1
 rofi.columns:           4
