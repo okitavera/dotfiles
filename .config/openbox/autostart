@@ -1,6 +1,5 @@
 dunst -config ~/.config/dunst/dunstrc &
 gnome-settings-daemon &
-sh ~/.wminitrc &
 sh ~/.fehbg &
 tint2 &
 compton &

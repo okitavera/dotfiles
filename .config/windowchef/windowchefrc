@@ -11,9 +11,6 @@ BAR_LOCATION="bottom" # (bottom/top)
 
 export WM=windowchef
 
-# ensure that wminitrc is not sourced again by checking sxhkd
-[ -z "$(pidof sxhkd)" ] && source $HOME/.wminitrc
-
 # apply wallpaper
 source $HOME/.fehbg
 

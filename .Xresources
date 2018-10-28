@@ -1,26 +1,25 @@
-#include </home/yuune/.xrdb/forest>
+Xft.autohint:             false
+Xft.antialias:            true
+Xft.hinting:              true
+Xft.hintstyle:            hintslight
+Xft.lcdfilter:            lcddefault
+Xft.rgba:                 rgb
 
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintslight
-Xft.lcdfilter:  lcddefault
-
-URxvt.intensityStyles:  false
-URxvt.font:             xft:Fira Code:bold:size=8, xft:TakaoMincho:bold:size=8:hintstyle=hintnone
-URxvt.boldFont:         xft:Fira Code:bold:size=8, xft:TakaoMincho:bold:size=8:hintstyle=hintnone
-URxvt.saveLines:        8192
+URxvt.geometry:           74x14
+URxvt.intensityStyles:    false
+URxvt.font:               xft:Fira Code:bold:size=8, xft:TakaoMincho:bold:size=8:hintstyle=hintnone
+URxvt.boldFont:           xft:Fira Code:bold:size=8, xft:TakaoMincho:bold:size=8:hintstyle=hintnone
+URxvt.saveLines:          8192
 
 URxvt*scrollTtyOutput:    false
 URxvt*scrollWithBuffer:   true
 URxvt*scrollTtyKeypress:  true
 URxvt.scrollBar:          false
 URxvt.internalBorder:     30
-URxvt.cursorBlink:        false
+URxvt*cursorBlink:        false
 URxvt.cursorUnderline:    true
-URxvt*skipBuiltinGlyphs:    true
 
-URxvt.perl-ext-common:  resize-font,ibeamcursor,leavecursor
+URxvt.perl-ext-common:    resize-font,ibeamcursor,leavecursor
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.keysym.C-minus:     resize-font:smaller
@@ -28,14 +27,14 @@ URxvt.keysym.C-equal:     resize-font:bigger
 URxvt.keysym.C-0:      	  resize-font:reset
 URxvt.keysym.C-question:  resize-font:show
 
-rofi.font:              Product Sans Bold 8
-rofi.modi:              run
-rofi.lines:             1
-rofi.columns:           4
-rofi.line-margin:       5
-rofi.line-padding:      10
-rofi.separator-style:   none
-rofi.hide-scrollbar:    false
-rofi.sidebar-mode:      false
-rofi.fullscreen:        true
-rofi.padding:           400
+rofi.font:                Product Sans Bold 8
+rofi.modi:                run
+rofi.lines:               1
+rofi.columns:             4
+rofi.line-margin:         5
+rofi.line-padding:        10
+rofi.separator-style:     none
+rofi.hide-scrollbar:      false
+rofi.sidebar-mode:        false
+rofi.fullscreen:          true
+rofi.padding:             200

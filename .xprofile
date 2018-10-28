@@ -1,0 +1,4 @@
+[[ -z $(echo $PATH | grep $USER) ]] && export PATH="${HOME}/.bin:$PATH"
+
+export XDG_CONFIG_HOME="${HOME}/.config"
+wal -R &
