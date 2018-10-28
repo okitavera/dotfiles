@@ -25,5 +25,5 @@ conky.config = {
 	}
 
 conky.text = [[
-${image ~/.assets/me.jpg -s 240x240}
+${image ~/.config/conky/me.jpg -s 240x240}
 ]]

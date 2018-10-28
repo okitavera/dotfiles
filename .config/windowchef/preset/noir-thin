@@ -16,4 +16,4 @@ gaps_grid=$((gaps / 2))
 group_total=4
 
 # conky
-conky -c ~/.assets/conky-mpd-dark.rc &
+conky -c ~/.config/conky/conky-mpd-dark.rc &
