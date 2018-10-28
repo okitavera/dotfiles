@@ -35,7 +35,7 @@ cat << EOF
 
  ${redf}█████${reset}${greenf}█████${reset}${yellowf}█████${reset}${bluef}█████${reset}${purplef}█████${reset}${cyanf}█████${reset}${reset}
  ${redf}█████${reset}${greenf}█████${reset}${yellowf}█████${reset}${bluef}█████${reset}${purplef}█████${reset}${cyanf}█████${reset}${reset}
- ${redf}█████${reset}${greenf}█████${reset}${yellowf}█████${reset}${bluef}█████${reset}${purplef}█████${reset}${cyanf}█████${reset}${reset}
+ ${redb}█████${reset}${greenb}█████${reset}${yellowb}█████${reset}${blueb}█████${reset}${purpleb}█████${reset}${cyanb}█████${reset}${reset}
  ${whitef}█████${reset}${whitef}█████${reset}${whitef}█████${reset}${whitef}█████${reset}${whitef}█████${reset}${whitef}█████${reset}${reset}
  ${redf}red  ${reset}${greenf}grn  ${reset}${yellowf}ylw  ${reset}${bluef}blu  ${reset}${purplef}prpl ${reset}${cyanf}cyn  ${reset}${reset}
 

@@ -5,7 +5,10 @@ case $WM_NAME in
 	"windowchef")
 		waitron wm_quit 0
 	;;
-	"openbox")
+	"Openbox")
 		openbox --exit
-	;;	
+	;;
+	"Xfwm4")
+		xfce4-session-logout -l
+	;;
 esac

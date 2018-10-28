@@ -9,9 +9,11 @@
 #    -n     display notification using notify-osd insteads
 #
 
-FN="DejaVu:bold:size=9"
-W=300
-H=60
+SCRW=$(xrandr --current | sed -n 's/.* connected \([0-9]*\)x\([0-9]*\)+.*/\1/p')
+SCRH=$(xrandr --current | sed -n 's/.* connected \([0-9]*\)x\([0-9]*\)+.*/\2/p')
+FN="Product Sans:bold:size=8"
+W=150
+H=40
 X=100
 Y=70
 
@@ -38,14 +40,14 @@ case $1 in
     -tl)
     ;;
     -tr)
-        X=$((1920 - W - X))
+        X=$((SCRW - W - X))
     ;;
     -bl)
-        Y=$((1080 - H - Y))
+        Y=$((SCRH - H - Y))
     ;;
     -br|*)
-        X=$((1920 - W - X))
-        Y=$((1080 - H - Y))
+        X=$((SCRW - W - X))
+        Y=$((SCRH - H - Y))
     ;;
 esac
 
@@ -55,6 +57,6 @@ if [[ -n $NOTIFY ]]; then
     exit
 fi
 {
-    echo -e "      ^fn(Wuncon Siji:size=10)\ue1da^fn() Chiisu! Taking screenshot ..."; take 
+    echo -e "      Taking screenshot ..."; take 
 } | dzen2 -ta l -bg $(xrgc bg) -fg $(xrgc fg) -fn "${FN}"  -x ${X} -y ${Y} -w ${W} -h ${H}
 

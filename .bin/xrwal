@@ -10,7 +10,6 @@
 #
 
 pre_exec () {
-	sudo sleep 0.1s || exit 1
 	if [[ -z $1 ]]; then
 		echo "you must add a name for your xrdb preset.  exiting."
 		exit 1
@@ -90,10 +89,10 @@ EOF
 
 main() {
 echo Cleaning pywal cache.
-wal -cq
+wal -qensRc
 
 echo Generating colors.
-wal -qensi "$(cat $HOME/.fehbg | awk -F\' '{print $6}' | grep .)"
+wal -qens --backend haishoku -i $(cat $HOME/.fehbg | tail -n1 | sed -e "s;\(.*\) '\(.*\)';\2;g")
 
 source $HOME/.cache/wal/colors.sh
 colordb="$HOME/.xrdb/$PRESETNAME"
@@ -110,22 +109,27 @@ xrdb $HOME/.Xresources
 xrdb -merge $HOME/.Xresources
 
 
-echo Generating Tint2 preset.
-tintyourday -p $(cat $HOME/.cache/.tintyesterday) --replace
+if [[ -f $HOME/.cache/.tintyesterday ]]; then
+	echo Generating Tint2 preset.
+	tintyourday -p $(cat $HOME/.cache/.tintyesterday) --replace
+fi
 
+if [[ -f /usr/share/themes/Yuune-lightdm/gtk-3.0/colors.css ]]; then
+	echo Generating Lightdm themes.
+	sudo cp "${wallpaper}" "/etc/lightdm/bg.jpg"
+	lightdm | sudo tee /usr/share/themes/Yuune-lightdm/gtk-3.0/colors.css >/dev/null
+fi
 
-echo Generating Lightdm themes.
-sudo cp "${wallpaper}" "/etc/lightdm/bg.jpg"
-lightdm | sudo tee /usr/share/themes/Yuune-lightdm/gtk-3.0/colors.css >/dev/null
+if [[ -f $HOME/.config/dunst/dunstrc ]]; then
+	echo Generating Dunst colorconfig.
+	sed -i -e "s;kground = \"\(.*\)\";kground = \"${foreground}\";g" $HOME/.config/dunst/dunstrc
+	sed -i -e "s;eground = \"\(.*\)\";eground = \"${background}\";g" $HOME/.config/dunst/dunstrc
+fi
 
-
-echo Generating Dunst colorconfig.
-sed -i -e "s;kground = \"\(.*\)\";kground = \"${foreground}\";g" $HOME/.config/dunst/dunstrc
-sed -i -e "s;eground = \"\(.*\)\";eground = \"${background}\";g" $HOME/.config/dunst/dunstrc
-
-echo Recolor Startpages
-sh $HOME/.startpages/get_color_from_xresources.sh
-
+if [[ -f $HOME/.startpages/get_color_from_xresources.sh ]]; then
+	echo Recolor Startpages
+	sh $HOME/.startpages/get_color_from_xresources.sh
+fi
 }
 
 pre_exec $@
