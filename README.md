@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://user-images.githubusercontent.com/9277632/36943758-510cade8-1fc1-11e8-8167-c0b7d221b385.png" width="400px">
+	<img src="https://user-images.githubusercontent.com/9277632/36943758-510cade8-1fc1-11e8-8167-c0b7d221b385.png" width="256px">
 </div>
 
 ## About
@@ -7,7 +7,7 @@ This repository serves as my way to help me setup and maintain my workspaces :)
 
 ## Disclaimer
 * Cherry-pick just what you want to keep your system clean. There's no stow, no ansible, or any auto-kind-of-things here, sorry :(
-* My setups are heavily depended on this script : `.bin/xrgc`. It basically used for reading colors from xrdb (.Xresource).
+* After PyWal, my setup also heavily depended on this script : `.bin/xrgc`. It basically used for reading colors from xrdb (.Xresource).
 
 ## Overview
 - App Launcher: `rofi`
