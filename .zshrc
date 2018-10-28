@@ -1,23 +1,19 @@
-# powered by grml-zsh configuration framework
+export EDITOR="vim"
+export ZPLUG_HOME=$HOME/.zplug
 
-EDITOR="vim"
-COMPDUMPFILE=$HOME/.cache/.zsh_compdump
-ZSHIGHLIGHT=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ ! -f $ZPLUG_HOME/init.zsh ]] && git clone https://github.com/zplug/zplug $ZPLUG_HOME
+source $ZPLUG_HOME/init.zsh
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+# for speed debug
+# zplug "paulmelnikow/zsh-startup-timer"
+zplug "b4b4r07/ultimate", as:theme
+zplug "hlissner/zsh-autopair", defer:2
+zplug 'zdharma/fast-syntax-highlighting', defer:2, hook-load:'FAST_HIGHLIGHT=()'
+zplug check || zplug install
+zplug load
 
-# setup zsh
-zstyle ':completion:*' insert-tab false
-zstyle ':prompt:grml:left:setup' items user
-zstyle ':prompt:grml:right:setup' items
-zstyle ':prompt:grml:left:items:user' pre  '%B%F{blue}'
-zstyle ':prompt:grml:left:items:user' post '%f do%b : '
-
-export EDITOR VISUAL="$EDITOR"
-export COMPDUMPFILE
-
-[[ -f "$ZSHIGHLIGHT" ]] && source $ZSHIGHLIGHT
+blanktab() { [[ $#BUFFER == 0 ]] && CURSOR=3 zle list-choices || zle expand-or-complete }
+zle -N blanktab && bindkey '^I' blanktab
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
-
 (cat ~/.cache/wal/sequences &)
