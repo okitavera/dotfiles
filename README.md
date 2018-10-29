@@ -1,34 +1,33 @@
-<div align="center">
-	<img src="https://user-images.githubusercontent.com/9277632/36943758-510cade8-1fc1-11e8-8167-c0b7d221b385.png" width="256px">
-</div>
-
-## About
+# Dotfiles
 This repository serves as my way to help me setup and maintain my workspaces :)
 
+
 ## Disclaimer
-* Cherry-pick just what you want to keep your system clean. There's no stow, no ansible, or any auto-kind-of-things here, sorry :(
-* After PyWal, my setup also heavily depended on this script : `.bin/xrgc`. It basically used for reading colors from xrdb (.Xresource).
+* Cherry-pick just what you want to keep your system clean.
+  There's no stow, no ansible, or any auto-kind-of-things here, sorry :(
+* After pywal, my setup is also depended on this script : `.bin/xrgc`.
+  It basically used for reading colors from xrdb (.Xresource).
+
 
 ## Overview
-- App Launcher: `rofi`
-- Music Player: `mpd` and `ncmpcpp`, sometimes `audacious`
-- Shell: `zsh`
-- Terminal Emulator: `rxvt-unicode`
-- Text Editor: `sublime-text-3`
-- Web Browser: `firefox`
-- Widgets: `conky`
-- Hotcorner launcher: `cornora`
+- App Launcher: [rofi](https://github.com/DaveDavenport/rofi)
+- Music Player: audacious or ncmpcpp
+- Shell: zsh with [zplug](https://github.com/zplug/zplug)
+- Terminal Emulator: [rxvt-unicode-pixbuf](https://aur.archlinux.org/packages/rxvt-unicode-pixbuf/)
+- Text Editor: vscode, vim
+- Widgets: conky
+- Lockscreen: [i3lock-color](https://github.com/PandorasFox/i3lock-color). the wrapper is on `.bin/lock`
+- Hotcorner launcher: [cornora](https://github.com/yuuune/cornora)
 
-## Additional Repository
 
-##### tint2 theme collections
-https://github.com/yuune/yuune-tint2-themes
+## Themes Repository
 
-##### openbox theme collections
-https://github.com/yuune/yuune-ob-themes
+[tint2](https://github.com/yuune/yuune-tint2-themes)
 
-##### xfwm4 theme collections
-https://github.com/yuune/yuune-xfwm-themes
+[openbox](https://github.com/yuune/yuune-ob-themes)
+
+[xfwm4](https://github.com/yuune/yuune-xfwm-themes)
+
 
 ## License
 
