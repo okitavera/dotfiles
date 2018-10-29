@@ -1,0 +1,5 @@
+/* Fix dark text input on newer firefox */
+input, textarea {
+    color: #222;
+    background: #eee;
+}
