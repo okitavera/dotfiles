@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+source $HOME/.cache/wal/colors.sh
+for colorizer in $(find $HOME/.themes -type f -name colorize.sh); do
+    $colorizer "$background" "$foreground"
+done
+xfwm4 --replace --daemon
+exit
