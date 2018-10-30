@@ -1,4 +1,4 @@
-
+---
 - name: update pacman database
   when: enable_pkg_update
   pacman:
