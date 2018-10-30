@@ -1,0 +1,33 @@
+
+- name: update pacman database
+  when: enable_pkg_update
+  pacman:
+    update_cache: yes
+
+- name: update arch packages
+  when: enable_pkg_upgrade
+  pacman:
+    upgrade: yes
+
+- name: manage packages in pacman_pkg
+  when: enable_pacman_pkg
+  with_dict: "{{ pacman_pkg }}"
+  pacman:
+    name: "{{ item.key }}"
+    state: "{{ item.value.state | default('latest') }}"
+
+- name: check aur helper
+  when: enable_aur_pkg
+  become_user: "{{ ansible_user_id }}"
+  aur:
+    name: trizen
+    use: makepkg
+    skip_installed: yes
+
+- name: manage packages in aur_pkg
+  when: enable_aur_pkg
+  become_user: "{{ ansible_user_id }}"
+  with_dict: "{{ aur_pkg }}"
+  aur:
+    name: "{{ item.key }}"
+    skip_installed: yes

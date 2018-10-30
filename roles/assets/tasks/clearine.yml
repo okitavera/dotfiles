@@ -1,0 +1,8 @@
+---
+- name: synchronize clearine
+  synchronize:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "{{ assets }}/.themes/clearine-white-icon", dest: "~/.themes/" }
+    - { src: "{{ assets }}/.config/clearine.conf", dest: "~/.config/" }

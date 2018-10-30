@@ -1,0 +1,12 @@
+---
+- name: synchronize windowchef setup
+  synchronize:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "{{ assets }}/.config/windowchef", dest: "~/.config/" }
+    - { src: "{{ assets }}/.config/sxhkd", dest: "~/.config/" }
+    - { src: "{{ assets }}/.config/ruler", dest: "~/.config/" }
+    - { src: "{{ assets }}/.config/polybar", dest: "~/.config/" }
+    - { src: "{{ assets }}/.config/lemonbar", dest: "~/.config/" }
+    - { src: "{{ assets }}/.config/mygtkmenu", dest: "~/.config/" }

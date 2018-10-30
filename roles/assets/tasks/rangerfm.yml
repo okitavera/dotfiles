@@ -1,0 +1,7 @@
+---
+- name: synchronize rangerfm
+  synchronize:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "{{ assets }}/.config/ranger", dest: "~/.config/" }

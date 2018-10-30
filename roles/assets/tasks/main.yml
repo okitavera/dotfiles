@@ -1,0 +1,33 @@
+---
+- name: synchronize main assets
+  synchronize:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "{{ assets }}/.aliases", dest: "~/" }
+    - { src: "{{ assets }}/.bin", dest: "~/" }
+    - { src: "{{ assets }}/.config/compton.conf", dest: "~/.config/" }
+    - { src: "{{ assets }}/.config/conky", dest: "~/.config/" }
+    - { src: "{{ assets }}/.config/fontconfig", dest: "~/.config/" }
+    - { src: "{{ assets }}/.config/wal", dest: "~/.config/" }
+    - { src: "{{ assets }}/.urxvt", dest: "~/" }
+    - { src: "{{ assets }}/.Xresources", dest: "~/" }
+    - { src: "{{ assets }}/.zshrc", dest: "~/" }
+
+- import_tasks: audio.yml
+  when: optional_assets.audio
+
+- import_tasks: clearine.yml
+  when: optional_assets.clearine
+
+- import_tasks: openbox.yml
+  when: optional_assets.openbox
+
+- import_tasks: rangerfm.yml
+  when: optional_assets.rangerfm
+
+- import_tasks: vim.yml
+  when: optional_assets.vim
+
+- import_tasks: windowchef.yml
+  when: optional_assets.windowchef

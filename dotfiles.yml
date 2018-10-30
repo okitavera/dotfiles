@@ -1,0 +1,5 @@
+- name: Bootstrap the dotfiles
+  hosts: localhost
+  roles:
+    - {role: systempackages}
+    - {role: assets}

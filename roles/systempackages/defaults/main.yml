@@ -1,0 +1,4 @@
+enable_pkg_update: yes
+enable_pkg_upgrade: yes
+enable_pacman_pkg: yes
+enable_aur_pkg: yes
