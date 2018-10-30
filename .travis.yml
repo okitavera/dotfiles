@@ -1,10 +1,8 @@
 ---
-sudo: required
-dist: trusty
+language: python
 
 install:
-  - sudo easy_install pip
-  - sudo pip install ansible
+  - pip install ansible
 
 script:
   - ansible-playbook dotfiles.yml -i hosts.local --syntax-check
