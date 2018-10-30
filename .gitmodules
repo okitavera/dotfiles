@@ -1,3 +1,3 @@
-[submodule "roles/systempackages/library/ansible-aur"]
-	path = roles/systempackages/library/ansible-aur
+[submodule "roles/packages/library/ansible-aur"]
+	path = roles/packages/library/ansible-aur
 	url = https://github.com/kewlfft/ansible-aur
