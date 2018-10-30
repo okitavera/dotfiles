@@ -13,6 +13,7 @@ enable_aur_pkg: yes
 
 # list of needed pacman packages
 pacman_pkg:
+  python-pywal:
   rsync:
   rxvt-unicode-terminfo:
   zsh:
