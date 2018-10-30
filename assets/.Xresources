@@ -20,11 +20,11 @@ URxvt*cursorBlink:        false
 URxvt.cursorUnderline:    true
 
 URxvt.perl-ext-common:    resize-font,ibeamcursor,leavecursor
-URxvt.iso14755: false
-URxvt.iso14755_52: false
+URxvt.iso14755:           false
+URxvt.iso14755_52:        false
 URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-equal:     resize-font:bigger
-URxvt.keysym.C-0:      	  resize-font:reset
+URxvt.keysym.C-0:         resize-font:reset
 URxvt.keysym.C-question:  resize-font:show
 
 rofi.font:                Product Sans Bold 8
