@@ -1,0 +1,16 @@
+---
+sudo: required
+dist: trusty
+
+install:
+  - sudo easy_install pip
+  - sudo pip install ansible
+
+script:
+  - ansible-playbook dotfiles.yml -i hosts.local --syntax-check
+  - ansible-playbook dotfiles.yml -i hosts.local --skip-tags="packages"
+  - >
+    ansible-playbook dotfiles.yml -i hosts.local --skip-tags="packages"
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
