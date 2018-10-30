@@ -25,7 +25,10 @@ Here is the list of apps that I use
 
 #### Okay, fine. I still want to install them
 
-* clone this repository
+* clone this repository with the submodules
+```bash
+$ git clone --recurse-submodules --depth 1 https://github.com/yuune/dotfiles
+```
 * edit and adjust the setup at `group_vars/local.yml`
 * run them in test-mode before to check the compatibility
 ```bash
