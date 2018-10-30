@@ -1,4 +1,8 @@
 # Dotfiles
+
+[![Build Status](https://travis-ci.com/yuune/dotfiles.svg?branch=master)](https://travis-ci.com/yuune/dotfiles)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 This repository serves as my way to help me setup and maintain my workspaces :)
 
 #### Disclaimer
