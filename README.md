@@ -12,19 +12,6 @@ yes you can install the whole things but I do not recommend it
 After pywal, my setup is also depended on this script : `.bin/xrgc`.
 It basically used for reading colors from xrdb (.Xresource). so be careful when pick something, maybe you need that script on your `$PATH`
 
-## Overview 
-
-Here is the list of apps that I use
-
-* App Launcher: [rofi](https://github.com/DaveDavenport/rofi)
-* Music Player: audacious or ncmpcpp
-* Shell: zsh with [zplug](https://github.com/zplug/zplug)
-* Terminal Emulator: [rxvt-unicode-pixbuf](https://aur.archlinux.org/packages/rxvt-unicode-pixbuf/)
-* Text Editor: vscode, vim
-* Widgets: conky
-* Lockscreen: [i3lock-color](https://github.com/PandorasFox/i3lock-color). the wrapper is on `.bin/lock`
-* Hotcorner launcher: [cornora](https://github.com/yuuune/cornora)
-
 ## Installation
 
 #### Okay, fine. I still want to install them
@@ -43,12 +30,56 @@ $ ansible-playbook dotfiles.yml -i hosts.local --ask-become-pass --check
 $ ansible-playbook dotfiles.yml -i hosts.local --ask-become-pass
 ```
 
+## Configurations overview
+
+```bash
+$ tree -a
+ ~/
+   ├─ .aliases # shell aliases
+   ├─ .bin
+   │  ├ ...
+   │  ├─ lock # i3lock-color wrapper script
+   │  └ ...
+   ├─ .config
+   │  ├─ audacious
+   │  ├─ autostart # several autostart desktopfiles for xfce4
+   │  ├─ clearine.conf
+   │  ├─ compton.conf
+   │  ├─ conky
+   │  ├─ fontconfig
+   │  ├─ lemonbar # used in some of my windowchef's preset
+   │  ├─ mygtkmenu # used in some of my windowchef's preset
+   │  ├─ obmenu-generator
+   │  ├─ openbox
+   │  ├─ polybar # used in some of my windowchef's preset
+   │  ├─ pulse
+   │  ├─ ranger
+   │  ├─ ruler # used in some of my windowchef's preset
+   │  ├─ sxhkd # used in some of my windowchef's preset
+   │  ├─ Thunar # thunar custom action
+   │  ├─ wal
+   │  │   └─ templates
+   │  │       └─ colors.Xresources # pywal color template for urxvt and rofi
+   │  └─ windowchef
+   ├─ .mozilla # some fixes for gtk dark themes
+   ├─ .mpd
+   ├─ .ncmpcpp
+   ├─ .themes # used in clearine
+   │  ├ ...
+   │  ├─ clearine-white-icon # theme for my clearine setup
+   │  └ ...
+   ├─ .urxvt
+   ├─ .vimrc
+   ├─ .xprofile
+   ├─ .Xresources
+   └─ .zshrc
+```
 ## Themes Repository
 
 Here is another things that I use in my machine, feel free to check it out.
-* [tint2 themes](https://github.com/yuune/yuune-tint2-themes)
-* [openbox themes](https://github.com/yuune/yuune-ob-themes)
-* [xfwm4 themes](https://github.com/yuune/yuune-xfwm-themes)
+  * [tint2 themes](https://github.com/yuune/yuune-tint2-themes)
+  * [openbox themes](https://github.com/yuune/yuune-ob-themes)
+  * [xfwm4 themes](https://github.com/yuune/yuune-xfwm-themes)
 
 
 ## License
