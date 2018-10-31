@@ -4,7 +4,20 @@
 # And you still not noticing me senpai...
 #
 
-PRESET="forest"
+get_color(){
+    xrgc $1 | sed -e 's/#//g'
+}
+
+border=10
+internal_border=7
+focused=$(get_color 0)
+unfocused=$(get_color 0)
+internal_focused=$(get_color bg)
+internal_unfocused=$(get_color bg)
+gaps=30
+gaps_grid=$((gaps / 2))
+group_total=4
+
 BAR="polybar"
 BAR_PRESET="yuubar"
 BAR_LOCATION="bottom" # (bottom/top)
@@ -28,7 +41,7 @@ sxhkd &
 ruler &
 
 # compositor
-compton &
+compton --dbus &
 
 # panel
 if [[ "$BAR" == "lemonbar" ]]; then
@@ -49,9 +62,6 @@ elif [[ "$BAR" == "polybar" ]]; then
 	polybar $BAR_PRESET &
 
 fi
-
-# retrieve preset
-source $XDG_CONFIG_HOME/windowchef/preset/$PRESET
 
 # apply
 waitron wm_config enable_borders true
