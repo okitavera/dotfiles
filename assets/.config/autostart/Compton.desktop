@@ -5,7 +5,6 @@ Type=Application
 Name=Compton
 Comment=Window Compositor
 Exec=compton --dbus
-OnlyShowIn=XFCE;
 StartupNotify=false
 Terminal=false
 Hidden=false

@@ -2,6 +2,4 @@ dunst -config ~/.config/dunst/dunstrc &
 gnome-settings-daemon &
 sh ~/.fehbg &
 tint2 &
-compton &
 sh ~/.config/openbox/applets &
-

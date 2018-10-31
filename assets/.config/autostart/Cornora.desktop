@@ -5,7 +5,6 @@ Type=Application
 Name=Cornora
 Comment=Hotcorner Daemon
 Exec=cornora -tl skippy-xd
-OnlyShowIn=XFCE;
 StartupNotify=false
 Terminal=false
 Hidden=false
