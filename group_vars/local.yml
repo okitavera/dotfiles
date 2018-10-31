@@ -14,12 +14,14 @@ enable_aur_pkg: yes
 # list of needed pacman packages
 pacman_pkg:
   python-pywal:
+  python2-xdg:
   rsync:
   rxvt-unicode-terminfo:
   zsh:
 
 # list of needed aur packages
 aur_pkg:
+  compton-tryone:
   rxvt-unicode-pixbuf:
   otf-takao:
   otf-fira-code:
