@@ -21,7 +21,7 @@ pacman_pkg:
 
 # list of needed aur packages
 aur_pkg:
-  compton-tryone:
+  compton-tryone-git:
   rxvt-unicode-pixbuf:
   otf-takao:
   otf-fira-code:
