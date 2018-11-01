@@ -27,7 +27,7 @@ URxvt.keysym.C-equal:     resize-font:bigger
 URxvt.keysym.C-0:         resize-font:reset
 URxvt.keysym.C-question:  resize-font:show
 
-rofi.font:                Product Sans Bold 8
+rofi.font:                Nimbus Sans Bold 8
 rofi.modi:                run
 rofi.lines:               1
 rofi.columns:             4

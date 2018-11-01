@@ -84,7 +84,7 @@ background = #000000
 opacity = 0
 text = #999999
 textShadow = black
-font = Liberation Sans
+font = Nimbus Sans
 
 [bindings]
 miwMouse1 = focus

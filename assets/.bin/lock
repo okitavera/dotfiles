@@ -30,11 +30,11 @@ runlock () {
         --line-uses-ring \
         --timestr="%I.%M" \
         --timecolor=fefefeff \
-        --time-font="Product Sans Thin" \
+        --time-font="Nimbus Sans Thin" \
         --timesize=80 \
         --datestr="%A, %b %d" \
         --datecolor=fefefeff \
-        --date-font="Product Sans" \
+        --date-font="Nimbus Sans" \
         --datesize=16 \
         --radius 20 --ring-width 15 \
         --indicator \

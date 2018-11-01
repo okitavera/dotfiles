@@ -6,7 +6,7 @@ conky.config = {
 	draw_outline = false,
 	draw_shades = false,
 	use_xft = true,
-	font = 'Noto Sans:bold:size=9',
+	font = 'Nimbus Sans:bold:size=9',
 	update_interval = 1,
 	gap_x = 100,
 	gap_y = 80,
@@ -36,7 +36,7 @@ ${endif}\
 ${image /tmp/container-dark -s 190x235}\
 ${image /tmp/coverbg-dark -s 190x190 -n}
 ${if_running mpd}${image /tmp/cover -s 190x190 -n}${endif}
-${if_running mpd}${else}${voffset -20}${alignc}${color1}${font Noto Sans:size=72}♫${font}${color}${voffset -72}${endif}
+${if_running mpd}${else}${voffset -20}${alignc}${color1}${font Nimbus Sans:size=72}♫${font}${color}${voffset -72}${endif}
 ${voffset 145}${alignc}\
 ${if_running mpd}\
 	${alignc}${mpd_artist 20}

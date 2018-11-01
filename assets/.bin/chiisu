@@ -11,7 +11,7 @@
 
 SCRW=$(xrandr --current | sed -n 's/.* connected \([0-9]*\)x\([0-9]*\)+.*/\1/p')
 SCRH=$(xrandr --current | sed -n 's/.* connected \([0-9]*\)x\([0-9]*\)+.*/\2/p')
-FN="Product Sans:bold:size=8"
+FN="Nimbus Sans:bold:size=8"
 W=150
 H=40
 X=100
