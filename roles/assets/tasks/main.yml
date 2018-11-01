@@ -11,6 +11,7 @@
     - { src: "{{ assets }}/.config/fontconfig", dest: "~/.config/" }
     - { src: "{{ assets }}/.config/wal", dest: "~/.config/" }
     - { src: "{{ assets }}/.config/autostart", dest: "~/.config/" }
+    - { src: "{{ assets }}/.config/skippy-xd", dest: "~/.config/" }
     - { src: "{{ assets }}/.urxvt", dest: "~/" }
     - { src: "{{ assets }}/.xprofile", dest: "~/" }
     - { src: "{{ assets }}/.Xresources", dest: "~/" }
