@@ -12,6 +12,7 @@
     - { src: "{{ assets }}/.config/wal", dest: "~/.config/" }
     - { src: "{{ assets }}/.config/autostart", dest: "~/.config/" }
     - { src: "{{ assets }}/.urxvt", dest: "~/" }
+    - { src: "{{ assets }}/.xprofile", dest: "~/" }
     - { src: "{{ assets }}/.Xresources", dest: "~/" }
     - { src: "{{ assets }}/.zshrc", dest: "~/" }
 
