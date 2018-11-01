@@ -1,5 +1,5 @@
 - name: Bootstrap the dotfiles
   hosts: localhost
   roles:
-    - {role: packages}
-    - {role: assets}
+    - {role: packages, tags: packages}
+    - {role: assets, tags: assets}
