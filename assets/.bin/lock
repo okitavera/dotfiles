@@ -1,13 +1,18 @@
 #!/bin/env bash
 #: yuune i3lock-color wrapper
-#: after changing wallpaper, run "lock reload" to redraw the new wallpaper
 
-wallpaper="/home/vera/Pictures/Cool Stuff/road.jpg"
+# wallpaper="/home/vera/Pictures/Cool Stuff/road.jpg"
+# or, get wallpaper variables from pywal
+eval $(cat $HOME/.cache/wal/colors.sh | grep ^wallpaper)
 
 tmpwall="/tmp/$USER-lock.png"
 eval $(xdotool getdisplaygeometry --shell)
 genwp () {
-    if [[ "$1" == "reload" ]]; then
+    # dynamic wallpaper reload
+    if [[ ! -f "/tmp/$USER-lock-wppath" ]]; then
+        echo "$wallpaper" > /tmp/$USER-lock-wppath
+    elif [[ "$wallpaper" != "$(cat /tmp/$USER-lock-wppath)" ]]; then
+        echo "$wallpaper" > /tmp/$USER-lock-wppath
         rm $tmpwall 2&>/dev/null
     fi
 
