@@ -14,7 +14,7 @@
 	<icon>wallpaper</icon>
 	<name>Set as wallpaper (pywal)</name>
 	<unique-id>1540672303177564-1</unique-id>
-	<command>wal --backend haishoku -i %f -o "$HOME/.bin/avrora-reload"</command>
+	<command>/usr/bin/wal -i %f -o "$HOME/.bin/avrora-reload"</command>
 	<description>Set as wallpaper with pywal</description>
 	<patterns>*</patterns>
 	<startup-notify/>
