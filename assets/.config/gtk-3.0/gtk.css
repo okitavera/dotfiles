@@ -1,0 +1,14 @@
+/* destroy any useless border */
+#whiskermenu-window * {
+    border: 0px solid transparent;
+}
+/* Application lists */
+#whiskermenu-window treeview {
+    background: transparent;
+    padding: 5px;
+}
+/* search box */
+#whiskermenu-window entry {
+    margin: 5px;
+    border-radius: 0;
+}
