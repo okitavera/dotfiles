@@ -7,23 +7,16 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
-Plug 'chriskempson/base16-vim'
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
-
 
 filetype plugin indent on
 
 syntax on
 set t_Co=256
-
-let g:lightline = {
-    \ 'colorscheme': 'seoul256',
-    \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '', 'right': '' }
-    \ }
 
 set laststatus=2
 set encoding=utf8
@@ -40,11 +33,14 @@ set mouse=a
 set list listchars=tab:»·,trail:·,nbsp:·
 set number
 set cursorline
+set nowrap
 
-colorscheme base16-default-dark
-hi EndOfBuffer ctermfg=BG
-hi LineNr term=bold cterm=NONE ctermfg=FG ctermbg=NONE
-hi CursorLine cterm=NONE ctermbg=235
-hi CursorLineNR cterm=NONE ctermbg=235 ctermfg=FG
+colorscheme wal
+
+hi EndOfBuffer ctermfg=NONE
+hi LineNr term=bold cterm=NONE ctermfg=7 ctermbg=NONE
+hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+hi CursorLineNR cterm=NONE ctermbg=9 ctermfg=NONE
+
 let &t_SI = "\<Esc>[5 q"
-
+let g:airline_powerline_fonts = 1
