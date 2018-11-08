@@ -13,6 +13,7 @@
     - { src: "{{ assets }}/.config/autostart", dest: "~/.config/" }
     - { src: "{{ assets }}/.config/skippy-xd", dest: "~/.config/" }
     - { src: "{{ assets }}/.config/Thunar", dest: "~/.config/" }
+    - { src: "{{ assets }}/.config/gtk-3.0", dest: "~/.config/" }
     - { src: "{{ assets }}/.urxvt", dest: "~/" }
     - { src: "{{ assets }}/.xprofile", dest: "~/" }
     - { src: "{{ assets }}/.Xresources", dest: "~/" }
