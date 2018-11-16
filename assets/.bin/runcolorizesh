@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/.cache/wal/colors.sh
 for colorizer in $(find $HOME/.themes -type f -name colorize.sh); do
+    chmod +x $colorizer
     $colorizer "$background" "$foreground" &
 done
 wait
