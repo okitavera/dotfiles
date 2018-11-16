@@ -88,8 +88,9 @@ our $SCHEMA = [
     {sep => undef},
 
     ## This option uses the default Openbox's "Exit" action
-    {exit => ['Exit', 'application-exit']},
+    # {exit => ['Exit', 'application-exit']},
 
-    ## This uses the 'oblogout' menu
-    # {item => ['oblogout', 'Exit', 'application-exit']},
+    {item => ['~/.bin/lock', 'Lock', 'application-exit']},
+
+    {item => ['clearine', 'Exit', 'application-exit']},
 ]
