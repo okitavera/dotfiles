@@ -25,20 +25,19 @@ own_window_transparent no
 own_window_argb_visual yes
 own_window_argb_value 255
 
-default_color c9c4d9
+default_color EFEFEF
 draw_borders no
 draw_shades no
-color1 17171d
 
 TEXT
-${exec convert -size 1x1 xc:#404040 jpg:/tmp/coverbg}\
-${exec convert -size 1x1 xc:#EFEFEF jpg:/tmp/container}\
+${exec convert -size 1x1 xc:#404040 jpg:/tmp/coverbg-dark}\
+${exec convert -size 1x1 xc:#606060 jpg:/tmp/container-dark}\
 ${if_running mpd}\
 	${exec exiftool -b -Picture "${HOME}/Music/$(mpc --format "%file%" current)" > /tmp/cover}\
 ${endif}\
-${image /tmp/container -s 190x235}\
-${image /tmp/coverbg -s 190x190 -n}
-${voffset 15}${alignc}${color1}${font DejaVu Sans:size=72}${if_match "${execi 1 cat /tmp/cover | wc -c}" < "10" }♫${endif}${font}${color}${voffset -87}
+${image /tmp/container-dark -s 190x235}\
+${image /tmp/coverbg-dark -s 190x190 -n}
+${voffset 15}${alignc}${font DejaVu Sans:size=72}${if_match "${execi 1 cat /tmp/cover | wc -c}" < "10" }♫${endif}${font}${voffset -87}
 ${if_running mpd}${image /tmp/cover -s 190x190 -p 0,0 -n}${endif}
 ${voffset 158}${alignc}\
 ${if_running mpd}\

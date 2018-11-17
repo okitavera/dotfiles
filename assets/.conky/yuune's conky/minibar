@@ -6,10 +6,10 @@ xftfont Nimbus Sans:bold:size=8
 xftalpha 1
 update_interval 1
 
-gap_x 0
-gap_y 20
+gap_x 50
+gap_y 50
 minimum_size 350 20
-alignment bottom_middle
+alignment bottom_right
 
 
 imlib_cache_size 0
@@ -32,10 +32,10 @@ draw_borders false
 color1 efefef
 
 TEXT
-${voffset 4}\
-${offset 20}\
 ${exec convert -size 1x1 xc:#c9c4d9 jpg:/tmp/coverbg}\
 ${image /tmp/coverbg -s 32x32 -p 20,-1 -n}\
+${offset 28}${font DejaVu Sans:size=12}${if_match "${execi 1 cat /tmp/cover | wc -c}" < "10" }♫${endif}${font}
+${voffset -14}${offset 20}\
 ${if_running mpd}\
 ${exec exiftool -b -Picture "${HOME}/Music/$(mpc --format "%file%" current)" > /tmp/cover}\
 ${image /tmp/cover -s 32x32 -p 20,-1 -n}\
