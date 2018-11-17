@@ -1,0 +1,52 @@
+background false
+
+use_xft true
+override_utf8_locale yes
+xftfont Nimbus Sans:bold:size=8
+xftalpha 1
+update_interval 1
+
+gap_x 0
+gap_y 20
+minimum_size 350 20
+alignment bottom_middle
+
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+out_to_console false
+out_to_stderr false
+
+own_window true
+own_window_class normal
+own_window_colour efefef
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_transparent no
+own_window_argb_visual yes
+own_window_argb_value 255
+
+default_color 66666f
+draw_borders false
+color1 efefef
+
+TEXT
+${voffset 4}\
+${offset 20}\
+${exec convert -size 1x1 xc:#c9c4d9 jpg:/tmp/coverbg}\
+${image /tmp/coverbg -s 32x32 -p 20,-1 -n}\
+${if_running mpd}\
+${exec exiftool -b -Picture "${HOME}/Music/$(mpc --format "%file%" current)" > /tmp/cover}\
+${image /tmp/cover -s 32x32 -p 20,-1 -n}\
+${endif}\
+${offset 45}${if_running mpd}\
+${mpd_artist 20} - ${mpd_title 100}\
+${else}\
+${alignc}MPD -${alignc}Not Running${voffset -72}\
+${endif}\
+${offset 10}•${offset 10}\
+${time %A %d}\
+${offset 10}•${offset 10}\
+${time %I}.${time %M %p}\
+${offset 20}

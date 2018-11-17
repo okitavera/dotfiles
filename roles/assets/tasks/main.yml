@@ -7,7 +7,7 @@
     - { src: "{{ assets }}/.aliases", dest: "~/" }
     - { src: "{{ assets }}/.bin", dest: "~/" }
     - { src: "{{ assets }}/.config/compton.conf", dest: "~/.config/" }
-    - { src: "{{ assets }}/.config/conky", dest: "~/.config/" }
+    - { src: "{{ assets }}/.conky", dest: "~/" }
     - { src: "{{ assets }}/.config/fontconfig", dest: "~/.config/" }
     - { src: "{{ assets }}/.config/wal", dest: "~/.config/" }
     - { src: "{{ assets }}/.config/autostart", dest: "~/.config/" }
