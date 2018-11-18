@@ -29,15 +29,17 @@ my $editor = $CONFIG->{editor};
 
 our $SCHEMA = [
 
-    #          COMMAND                 LABEL              ICON
-    {item => ['xdg-open .',       'File Manager', 'system-file-manager']},
+    {item => ['rofi -show run',            'Run Program',  'system-run']},
+
+    {sep => undef},
+
     {item => ['urxvt',            'Terminal',     'utilities-terminal']},
     {item => ['xdg-open http://', 'Web Browser',  'web-browser']},
-    {item => ['rofi -show run',            'Run command',  'system-run']},
+    {item => ['xdg-open ~/',      'File Manager', 'system-file-manager']},
+    {item => ['urxvt -e ncmpcpp', 'Music',        'utilities-terminal']},
 
-    {sep => 'Categories'},
+    {sep => undef},
 
-    #          NAME            LABEL                ICON
     {cat => ['utility',     'Accessories', 'applications-utilities']},
     {cat => ['development', 'Development', 'applications-development']},
     {cat => ['education',   'Education',   'applications-science']},
@@ -47,31 +49,17 @@ our $SCHEMA = [
     {cat => ['network',     'Network',     'applications-internet']},
     {cat => ['office',      'Office',      'applications-office']},
     {cat => ['other',       'Other',       'applications-other']},
+
+    {sep => undef},
+
     {cat => ['settings',    'Settings',    'applications-accessories']},
     {cat => ['system',      'System',      'applications-system']},
-
-    #                  LABEL          ICON
-    #{beg => ['My category',  'cat-icon']},
-    #          ... some items ...
-    #{end => undef},
-
-    #            COMMAND     LABEL        ICON
-    #{pipe => ['obbrowser', 'Disk', 'drive-harddisk']},
-
-    ## Generic advanced settings
-    #{sep       => undef},
-    #{obgenmenu => ['Openbox Settings', 'applications-engineering']},
-    #{sep       => undef},
-
-    ## Custom advanced settings
-    {sep => undef},
-    {beg => ['Advanced Settings', 'applications-engineering']},
+    {beg => ['WM Settings', 'applications-engineering']},
         {item => ['lxappearance',                        'Appearance', 'openbox']},
         {item => ["$editor ~/.config/openbox/autostart", 'Autostart',   'text-x-generic']},
-        {item => ['obconf',                              'WM Settings', 'openbox']},
-        {item => ["$editor ~/.config/openbox/rc.xml",    'WM Settings (text)', 'text-x-generic']},
-        {item => ['openbox --reconfigure',               'Reload', 'openbox']},
-        {beg => ['Obmenu', 'accessories-text-editor']},
+        {item => ['obconf',                              'Configuration', 'openbox']},
+        {item => ["$editor ~/.config/openbox/rc.xml",    'Configuration (text)', 'text-x-generic']},
+        {beg => ['Menu', 'accessories-text-editor']},
             {item => ["$editor ~/.config/obmenu-generator/schema.pl", 'Menu Schema', 'text-x-generic']},
             {item => ["$editor ~/.config/obmenu-generator/config.pl", 'Menu Config', 'text-x-generic']},
             {sep  => undef},
@@ -83,14 +71,12 @@ our $SCHEMA = [
             {sep  => undef},
             {item => ['obmenu-generator -d', 'Refresh cache', 'view-refresh']},
         {end => undef},
+        {item => ['openbox --reconfigure',               'Reload', 'openbox']},
     {end => undef},
 
     {sep => undef},
 
-    ## This option uses the default Openbox's "Exit" action
-    # {exit => ['Exit', 'application-exit']},
-
-    {item => ['~/.bin/lock', 'Lock', 'application-exit']},
+    {item => ['~/.bin/lock', 'Lock Screen', 'application-exit']},
 
     {item => ['clearine', 'Exit', 'application-exit']},
 ]
