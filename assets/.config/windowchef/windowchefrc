@@ -19,7 +19,7 @@ gaps_grid=$((gaps / 2))
 group_total=4
 
 BAR="polybar"
-BAR_PRESET="yuubar"
+BAR_PRESET="yuu-windowchef"
 BAR_LOCATION="bottom" # (bottom/top)
 
 export WM=windowchef
