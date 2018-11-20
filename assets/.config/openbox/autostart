@@ -1,5 +1,5 @@
 dunst -config ~/.config/dunst/dunstrc &
 gnome-settings-daemon &
 sh ~/.fehbg &
-tint2 &
+polybar yuu-openbox &
 sh ~/.config/openbox/applets &

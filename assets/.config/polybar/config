@@ -8,7 +8,7 @@ secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
 
 
-[bar/yuubar]
+[bar/yuu-windowchef]
 bottom = true
 width = 100%
 height = 40
@@ -33,21 +33,47 @@ font-3 = DejaVu:size=10
 modules-left = windowchef-listen xwindow
 modules-center = 
 modules-right = mpd filesystem memory cpu wlan battery date
-;wm-restack = bspwm
-;wm-restack = i3
-;override-redirect = true
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+
+[bar/yuu-openbox]
+bottom = true
+width = 100%
+height = 30
+offset-x = 0%
+offset-y = 0%
+radius = 0
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 7
+line-color = #f00
+border-size = 0
+border-color = #00000000
+padding-left = 10
+padding-right = 10
+module-margin-left = 2
+module-margin-right = 2
+font-0 = Nimbus Sans:bold:size=8
+font-1 = Takao明朝:bold:size=8
+font-2 = Wuncon Siji:size=8
+font-3 = DejaVu:size=8
+modules-left = ob-workspaces
+modules-center = 
+modules-right = mpd wlan battery date
+cursor-click = pointer
+cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:128:...%
 label-inactive = Windowchef
+
+[module/ob-xwindow]
+type = internal/xwindow
+label = %title:0:128:...%
+label-inactive = Openbox
 
 [module/filesystem]
 type = internal/fs
@@ -64,7 +90,7 @@ icon-stop = 
 icon-play = 
 icon-pause = 
 icon-next = 
-label-song-maxlen = 25
+label-song-maxlen = 50
 label-song-ellipsis = true
 
 
@@ -88,11 +114,11 @@ label = Mem %percentage_used%%
 type = internal/network
 interface = wlp1s0
 interval = 3.0
-format-connected = <ramp-signal> WLAN : <label-connected>
-label-connected = Connected
+format-connected = <ramp-signal>  <label-connected>
+label-connected = Ok
 format-disconnected =
 ;format-disconnected = <label-disconnected>
-;label-disconnected = %ifname% disconnected
+;label-disconnected = %ifname% X
 ;label-disconnected-foreground = ${colors.foreground-alt}
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -141,6 +167,13 @@ tail = false
 interval = 0.25
 click-left = kill -USR1 %pid%
 
+
+[module/ob-workspaces]
+type = custom/script
+exec = sh ~/.config/polybar/ob-workspaces
+tail = false
+interval = 0.25
+click-left = kill -USR1 %pid%
 
 [settings]
 screenchange-reload = true

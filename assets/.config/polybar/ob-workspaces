@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+bg=$(xrgc bg)
+c0=$(xrgc 2)
+c1=$(xrgc fg)
+
+desk=$(xdotool get_desktop)
+wsname=("ターミナル" "ミュージック" "ウェブ" "コード")
+echo -n "%{o$bg +o}%{u$bg  +u}"
+for index in {0..3}; do
+    if [[ "$desk" == "$index" ]]; then
+        echo -n "%{F$c1}"
+    else
+        echo -n "%{F$c0}"
+    fi
+    echo -n "  %{A:wmctrl -s $index:}"
+    echo -n "%{T4}${wsname[$index]}%{T-}"
+    echo -n "%{A}  %{F-}"
+done
+echo "%{+o}%{+u}%{O10}"
