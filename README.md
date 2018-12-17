@@ -1,6 +1,6 @@
 # Dotfiles
 
-[![Build Status](https://travis-ci.com/yuune/dotfiles.svg?branch=master)](https://travis-ci.com/yuune/dotfiles)
+[![Build Status](https://travis-ci.com/okitavera/dotfiles.svg?branch=master)](https://travis-ci.com/okitavera/dotfiles)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 This repository serves as my way to help me setup and maintain my workspaces :)
@@ -18,7 +18,7 @@ It basically used for reading colors from xrdb (.Xresource). so be careful when 
 
 * clone this repository with the submodules
 ```bash
-$ git clone --recurse-submodules --depth 1 https://github.com/yuune/dotfiles
+$ git clone --recurse-submodules --depth 1 https://github.com/okitavera/dotfiles
 ```
 * edit and adjust the setup at `group_vars/local.yml`
 * run them in test-mode before to check the compatibility
@@ -77,9 +77,9 @@ $ tree -a
 ## Themes Repository
 
 Here is another things that I use in my machine, feel free to check it out.
-  * [tint2 themes](https://github.com/yuune/yuune-tint2-themes)
-  * [openbox themes](https://github.com/yuune/yuune-ob-themes)
-  * [xfwm4 themes](https://github.com/yuune/yuune-xfwm-themes)
+  * [tint2 themes](https://github.com/okitavera/yuune-tint2-themes)
+  * [openbox themes](https://github.com/okitavera/yuune-ob-themes)
+  * [xfwm4 themes](https://github.com/okitavera/yuune-xfwm-themes)
 
 
 ## License
