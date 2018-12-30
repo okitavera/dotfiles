@@ -1,0 +1,16 @@
+---
+- name: Check firefox profiles.ini existency
+  stat:
+    path: "~/.mozilla/firefox/profiles.ini"
+  register: firefox
+
+- name: get firefox profile name
+  set_fact:
+    profile_name: "{{ lookup('ini', 'Path section=Profile0  file=' + firefox.stat.path) }}"
+  when: firefox.stat.exists == True
+
+- name: install Firefox Profiles Configs to {{ profile_name }}
+  synchronize:
+    src: "{{ assets }}/.mozilla/firefox/profile.default/"
+    dest: "~/.mozilla/firefox/{{ profile_name }}/"
+  when: firefox.stat.exists == True
