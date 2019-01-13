@@ -34,12 +34,10 @@ optional_assets:
   # clearine configurations
   clearine: yes
   # openbox configurations
-  openbox: no
+  openbox: yes
   # rangerfm configurations
-  rangerfm: no
+  rangerfm: yes
   # vim configurations
   vim: yes
   # windowchef configurations
-  windowchef: no
-
-
+  windowchef: yes
