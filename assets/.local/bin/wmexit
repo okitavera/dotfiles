@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 WM_NAME=$(wmctrl -m | awk '/Name: / {printf "%s\n", $NF}')
 
 case $WM_NAME in

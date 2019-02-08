@@ -10,7 +10,7 @@ This repository serves as my way to help me setup and maintain my workspaces :)
 Cherry-pick just what you want to keep your system clean, the main dotfiles is in `assets`.
 yes you can install the whole things but I do not recommend it
 
-After pywal, my setup is also depended on this script : `.bin/xrgc`.
+After pywal, my setup is also depended on this script : `.local/bin/xrgc`.
 It basically used for reading colors from xrdb (.Xresource). so be careful when pick something, maybe you need that script on your `$PATH`
 
 ## Installation
@@ -42,10 +42,9 @@ $ ansible-playbook dotfiles.yml -i hosts.local --ask-become-pass
 $ tree -a
  ~/
    ├─ .aliases # shell aliases
-   ├─ .bin
-   │  ├ ...
-   │  ├─ lock # i3lock-color wrapper script
-   │  └ ...
+   ├─ .local
+   │  ├─ bin
+   │  │   └─ lock # i3lock-color wrapper script
    ├─ .config
    │  ├─ audacious
    │  ├─ autostart # several autostart desktopfiles for xfce4

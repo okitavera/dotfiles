@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 MYGTKMENU=$HOME/.config/mygtkmenu
 
 CONF=$HOME/.config/mygtkmenu/config

@@ -76,7 +76,7 @@ our $SCHEMA = [
 
     {sep => undef},
 
-    {item => ['~/.bin/lock', 'Lock Screen', 'application-exit']},
+    {item => ['~/.local/bin/lock', 'Lock Screen', 'application-exit']},
 
     {item => ['clearine', 'Exit', 'application-exit']},
 ]

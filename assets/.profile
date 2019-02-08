@@ -1,4 +1,4 @@
-USER_PATH=("${HOME}/.bin"
+USER_PATH=("${HOME}/.local/bin"
            "${HOME}/.local/node/bin"
            "${HOME}/.local/android-studio/bin"
            "${HOME}/Android/Sdk/platform-tools/")

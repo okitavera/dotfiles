@@ -5,7 +5,7 @@
     dest: "{{ item.dest }}"
   with_items:
     - { src: "{{ assets }}/.aliases", dest: "~/" }
-    - { src: "{{ assets }}/.bin", dest: "~/" }
+    - { src: "{{ assets }}/.local", dest: "~/" }
     - { src: "{{ assets }}/.config/compton.conf", dest: "~/.config/" }
     - { src: "{{ assets }}/.conky", dest: "~/" }
     - { src: "{{ assets }}/.config/fontconfig", dest: "~/.config/" }

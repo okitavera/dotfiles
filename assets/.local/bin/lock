@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 #: yuune i3lock-color wrapper
 
 # wallpaper="/home/vera/Pictures/Cool Stuff/road.jpg"
