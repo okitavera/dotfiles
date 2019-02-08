@@ -16,7 +16,7 @@
     - { src: "{{ assets }}/.config/gtk-3.0", dest: "~/.config/" }
     - { src: "{{ assets }}/.npmrc", dest: "~/" }
     - { src: "{{ assets }}/.urxvt", dest: "~/" }
-    - { src: "{{ assets }}/.xprofile", dest: "~/" }
+    - { src: "{{ assets }}/.profile", dest: "~/" }
     - { src: "{{ assets }}/.Xresources", dest: "~/" }
     - { src: "{{ assets }}/.zshrc", dest: "~/" }
 

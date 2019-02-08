@@ -6,6 +6,7 @@
 This repository serves as my way to help me setup and maintain my workspaces :)
 
 #### Disclaimer
+
 Cherry-pick just what you want to keep your system clean, the main dotfiles is in `assets`.
 yes you can install the whole things but I do not recommend it
 
@@ -16,16 +17,21 @@ It basically used for reading colors from xrdb (.Xresource). so be careful when 
 
 #### Okay, fine. I still want to install them
 
-* clone this repository with the submodules
+- clone this repository with the submodules
+
 ```bash
 $ git clone --recurse-submodules --depth 1 https://github.com/okitavera/dotfiles
 ```
-* edit and adjust the setup at `group_vars/local.yml`
-* run them in test-mode before to check the compatibility
+
+- edit and adjust the setup at `group_vars/local.yml`
+- run them in test-mode before to check the compatibility
+
 ```bash
 $ ansible-playbook dotfiles.yml -i hosts.local --ask-become-pass --check
 ```
-* if it works well and you want to apply them to your home, run it for real
+
+- if it works well and you want to apply them to your home, run it for real
+
 ```bash
 $ ansible-playbook dotfiles.yml -i hosts.local --ask-become-pass
 ```
@@ -70,17 +76,18 @@ $ tree -a
    │  └ ...
    ├─ .urxvt
    ├─ .vimrc
-   ├─ .xprofile
+   ├─ .profile
    ├─ .Xresources
    └─ .zshrc
 ```
+
 ## Themes Repository
 
 Here is another things that I use in my machine, feel free to check it out.
-  * [tint2 themes](https://github.com/okitavera/yuune-tint2-themes)
-  * [openbox themes](https://github.com/okitavera/yuune-ob-themes)
-  * [xfwm4 themes](https://github.com/okitavera/yuune-xfwm-themes)
 
+- [tint2 themes](https://github.com/okitavera/yuune-tint2-themes)
+- [openbox themes](https://github.com/okitavera/yuune-ob-themes)
+- [xfwm4 themes](https://github.com/okitavera/yuune-xfwm-themes)
 
 ## License
 
