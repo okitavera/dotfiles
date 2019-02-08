@@ -3,19 +3,19 @@
 [![Build Status](https://travis-ci.com/okitavera/dotfiles.svg?branch=master)](https://travis-ci.com/okitavera/dotfiles)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-This repository serves as my way to help me setup and maintain my workspaces :)
+> This repository serves as my way to help myself set up and maintain my workspaces :)
 
 #### Disclaimer
 
-Cherry-pick just what you want to keep your system clean, the main dotfiles is in `assets`.
-yes you can install the whole things but I do not recommend it
+- Just cherry-pick what you want to keep your system clean, the main dotfiles is in `assets` folder.
+  You can install the whole things but I do not recommend it.
 
-After pywal, my setup is also depended on this script : `.local/bin/xrgc`.
-It basically used for reading colors from xrdb (.Xresource). so be careful when pick something, maybe you need that script on your `$PATH`
+- After pywal, my setup is also depends on this script : `.local/bin/xrgc`.
+  It basically used for reading colors from xrdb (`.Xresource`). so be careful when pick something, maybe you need that script on your `$PATH`
 
 ## Installation
 
-#### Okay, fine. I still want to install them
+> Okay, fine. I still want to install them
 
 - clone this repository with the submodules
 
@@ -27,13 +27,14 @@ $ git clone --recurse-submodules --depth 1 https://github.com/okitavera/dotfiles
 - run them in test-mode before to check the compatibility
 
 ```bash
-$ ansible-playbook dotfiles.yml -i hosts.local --ask-become-pass --check
+$ chmod +x deploy.sh
+$ ./deploy.sh --check
 ```
 
-- if it works well and you want to apply them to your home, run it for real
+- if it works well, you can run the script without `--check` parameter to apply them into your `$HOME` folder
 
 ```bash
-$ ansible-playbook dotfiles.yml -i hosts.local --ask-become-pass
+$ ./deploy.sh
 ```
 
 ## Configurations overview
