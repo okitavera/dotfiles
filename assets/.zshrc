@@ -1,6 +1,9 @@
 export EDITOR="vim"
 export ZPLUG_HOME=$HOME/.zplug
 
+# user profile
+source $HOME/.profile
+
 # zplug initialization
 [[ ! -f $ZPLUG_HOME/init.zsh ]] && git clone https://github.com/zplug/zplug $ZPLUG_HOME
 source $ZPLUG_HOME/init.zsh
@@ -41,4 +44,4 @@ zle -N blanktab && bindkey '^I' blanktab
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
 # finally. paint the terminal emulator!
-(cat ~/.cache/wal/sequences &)
+[[ -f ~/.cache/wal/sequences ]] && (cat ~/.cache/wal/sequences &)
