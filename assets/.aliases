@@ -2,8 +2,6 @@ uvim(){
 	urxvt -b 80 -e vim $@ &
 	disown
 }
-alias fastboot="sudo $(which fastboot)"
-alias adb="sudo $(which adb)"
 alias ll="ls --color=auto -la"
 alias lsport="sudo lsof -i"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"

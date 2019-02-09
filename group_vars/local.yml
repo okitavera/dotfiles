@@ -13,6 +13,7 @@ enable_aur_pkg: yes
 
 # list of needed pacman packages
 pacman_pkg:
+  android-udev:
   gsfonts: # for Nimbus-sans
   python-pywal:
   python2-xdg:
