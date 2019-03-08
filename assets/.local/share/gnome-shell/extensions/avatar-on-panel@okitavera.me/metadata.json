@@ -1,0 +1,6 @@
+{
+  "name": "Add Avatar To Panel",
+  "description": "Add Avatar Icon to the Panel",
+  "uuid": "avatar-on-panel@okitavera.me",
+  "shell-version": ["3.30.2"]
+}

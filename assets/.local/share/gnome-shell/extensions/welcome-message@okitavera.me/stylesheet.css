@@ -1,0 +1,20 @@
+.welcome-msg {
+  background-color: #333333;
+  font-family: Cantarell;
+  font-size: 36px;
+  color: #efefef;
+  padding: 0.5em;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.welcome-icon--wrapper {
+  background-color: #333333;
+  border-radius: 365px;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.75);
+}
+.welcome-icon {
+  background-size: contain;
+  border-radius: 365px;
+}

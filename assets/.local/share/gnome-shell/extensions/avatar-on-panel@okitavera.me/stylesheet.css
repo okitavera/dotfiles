@@ -1,0 +1,9 @@
+.avatar-indicator--wrapper {
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+.avatar-indicator {
+  border-radius: 360px;
+  background-size: contain;
+}
