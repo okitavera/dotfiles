@@ -56,6 +56,7 @@ const update = () => {
 };
 
 const enable = () => {
+  if (msg == null) init();
   Main.uiGroup.add_actor(msg),
     imports.ui.tweener.addTween(msg, {
       opacity: 0,
