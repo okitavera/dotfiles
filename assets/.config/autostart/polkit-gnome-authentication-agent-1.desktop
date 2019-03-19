@@ -2,7 +2,6 @@
 Name=PolicyKit Authentication Agent
 Comment=PolicyKit Authentication Agent
 Exec=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-Terminal=false
-StartupNotify=false
 Type=Application
-NoDisplay=true
+StartupNotify=false
+Terminal=false

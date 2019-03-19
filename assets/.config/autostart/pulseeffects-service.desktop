@@ -2,7 +2,6 @@
 Name=PulseEffects
 Comment=PulseEffects Service
 Exec=pulseeffects --gapplication-service
-Icon=pulseeffects
+Type=Application
 StartupNotify=false
 Terminal=false
-Type=Application
