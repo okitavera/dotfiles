@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=xrdb
 Comment=Restore X resource database
-Exec=xrdb -load $HOME/.Xresources
+Exec=xrdb -load .Xresources
 Type=Application
 StartupNotify=false
 Terminal=false
