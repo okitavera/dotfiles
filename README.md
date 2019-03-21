@@ -20,7 +20,7 @@
 - clone this repository with the submodules
 
 ```bash
-$ git clone --recurse-submodules --depth 1 https://github.com/okitavera/dotfiles
+$ git clone https://github.com/okitavera/dotfiles
 ```
 
 - edit and adjust the setup at `group_vars/local.yml`
@@ -31,7 +31,7 @@ $ chmod +x deploy.sh
 $ ./deploy.sh --check
 ```
 
-- if it works well, you can run the script without `--check` parameter to apply them into your `$HOME` folder
+- you can run the script without `--check` parameter to apply them into your `$HOME` folder
 
 ```bash
 $ ./deploy.sh
