@@ -1,5 +1,27 @@
 #!/usr/bin/env bash
-fun.firefox(){
+LIST=todo.dots.sh
+
+deploy(){
+  cR=`tput setaf 1`
+  c0=`tput sgr0`
+  if [[ ! -d $1 ]]
+  then
+    echo "deploy: directory ${cR}$1${c0} doesn't exist. exiting"
+    exit 1
+  fi
+  
+  mkdir -p $2
+  echo "deploy: ${cR}$1${c0}: checking conflicted files"
+  for file in `stow -n $1 -t $2 2>&1 | grep 'link nor' | sed -e 's/.*: //'`
+  do
+    echo "deploy: ${cR}$1${c0}: cleaning up $file"
+    rm $2/$file
+  done
+  echo "deploy: ${cR}$1${c0}: installing to $2"
+  stow $1 -t $2
+}
+
+dotfox(){
   if [[ ! -d firefox ]]
   then
     echo "directory firefox doesn't exist. exiting"
@@ -21,3 +43,5 @@ fun.firefox(){
   MOZ_PROFILE=`awk '/\[/{prefix=$0; next} $1{print prefix $0}' $1 | grep Path | sed -e 's/.*Path=//g'`
   cp -arpf firefox $HOME/.mozilla/firefox/$MOZ_PROFILE
 }
+
+source $LIST
