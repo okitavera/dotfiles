@@ -1,3 +1,0 @@
-[submodule "roles/packages/library/ansible-aur"]
-	path = roles/packages/library/ansible-aur
-	url = https://github.com/kewlfft/ansible-aur

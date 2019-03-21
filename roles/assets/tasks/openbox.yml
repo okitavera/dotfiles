@@ -1,9 +1,0 @@
----
-- name: synchronize openbox
-  synchronize:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-  with_items:
-    - { src: "{{ assets }}/.config/openbox", dest: "~/.config/" }
-    - { src: "{{ assets }}/.config/obmenu-generator", dest: "~/.config/" }
-    - { src: "{{ assets }}/.config/polybar", dest: "~/.config/" }

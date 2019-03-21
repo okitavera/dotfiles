@@ -1,0 +1,14 @@
+
+[audacious]
+enable_clipping_prevention=FALSE
+enable_replay_gain=FALSE
+output_bit_depth=0
+output_buffer_size=300
+
+[gtkui]
+column_widths=10,275,175,10,175,175,10,100,36,10,275,275,275,10,275
+player_x=516
+player_y=70
+
+[gtkui-layout]
+item_count=0
