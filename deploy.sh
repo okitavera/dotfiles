@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+git submodule update --init --recursive
 if [[ -z $(command -v ansible-playbook) ]];then
 	echo "ansible-playbook i's not installed. Aborting."
 	exit 1
