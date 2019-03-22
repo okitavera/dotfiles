@@ -8,3 +8,4 @@ deploy themes $HOME/.themes
 deploy bin $HOME/.local/bin
 deploy conky $HOME/.conky/okitavera-conky
 dotfox firefox $HOME/.mozilla/firefox/profiles.ini
+deploy vscode "$HOME/.config/Code - OSS/User"
