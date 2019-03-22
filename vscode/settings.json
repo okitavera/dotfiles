@@ -3,5 +3,6 @@
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
     "git.enableCommitSigning": true,
-
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false
 }
