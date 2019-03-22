@@ -2,4 +2,6 @@
     "editor.fontFamily": "'Dank Mono', monospace",
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
+    "git.enableCommitSigning": true,
+
 }
