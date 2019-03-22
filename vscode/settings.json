@@ -1,1 +1,4 @@
-{}
+{
+    "editor.fontFamily": "'Dank Mono', monospace",
+    "editor.fontLigatures": true,
+}
