@@ -30,6 +30,7 @@ dotfox(){
   
   if [[ ! -f $1 ]]
   then
+    echo "dotfox: no firefox profile detected, creating a new ones"
     mkdir -p $HOME/.mozilla/firefox/
     echo "[General]"              >$1
     echo "StartWithLastProfile=1" >>$1
@@ -41,6 +42,7 @@ dotfox(){
   fi
   
   MOZ_PROFILE=`awk '/\[/{prefix=$0; next} $1{print prefix $0}' $1 | grep Path | sed -e 's/.*Path=//g'`
+  echo "dotfox: copying modules to $HOME/.mozilla/firefox/$MOZ_PROFILE"
   cp -arpf firefox $HOME/.mozilla/firefox/$MOZ_PROFILE
 }
 
