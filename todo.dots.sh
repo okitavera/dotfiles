@@ -7,4 +7,4 @@ deploy gnome-extensions $HOME/.local/share/gnome-shell/extensions
 deploy themes $HOME/.themes
 deploy bin $HOME/.local/bin
 deploy conky $HOME/.conky/okitavera-conky
-dotfox $HOME/.mozilla/firefox/profiles.ini
+dotfox firefox $HOME/.mozilla/firefox/profiles.ini
