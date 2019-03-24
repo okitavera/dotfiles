@@ -8,4 +8,7 @@ deploy bin $HOME/.local/bin
 deploy conky $HOME/.conky/okitavera-conky
 dotfox firefox $HOME/.mozilla/firefox/profiles.ini
 deploy vscode "$HOME/.config/Code - OSS/User"
-SUDO=true deploy etc /etc
+
+#-- Dangerous section!
+#-- Disabled by default 
+# SUDO=true deploy etc /etc
