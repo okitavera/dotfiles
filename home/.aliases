@@ -1,6 +1,10 @@
 uvim(){
-	urxvt -b 80 -e vim $@ &
-	disown
+  urxvt -b 80 -e vim $@ &
+  disown
+}
+mkcd(){
+  mkdir -p "$1"
+  cd "$1"
 }
 alias ll="ls --color=auto -la"
 alias lsport="sudo lsof -i"
