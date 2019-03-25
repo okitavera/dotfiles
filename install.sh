@@ -12,3 +12,9 @@ deploy vscode "$HOME/.config/Code - OSS/User"
 #-- Dangerous section!
 #-- Disabled by default 
 # SUDO=true deploy etc /etc
+
+#-- Fonts
+for i in DankMono-Italic DankMono-Regular
+do
+    gpg --decrypt fonts/$i.gpg > $HOME/.fonts/${i}.ttf
+done
