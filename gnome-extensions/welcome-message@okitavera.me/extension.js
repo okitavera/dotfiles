@@ -6,7 +6,7 @@ let iconAva = null;
 let userData = null;
 const avatarSize = 92;
 
-const init = () => {
+function init() {
   let user = imports.gi.GLib.get_user_name();
   userData = imports.gi.AccountsService.UserManager.get_default().get_user(
     user
@@ -48,14 +48,14 @@ const init = () => {
     Main.layoutManager.primaryMonitor.height / 2 - msg.height
   );
   update();
-};
+}
 
-const update = () => {
+function update() {
   if (userData.get_icon_file() != null)
     iconAva.style = `background-image: url("${userData.get_icon_file()}");`;
-};
+}
 
-const enable = () => {
+function enable() {
   if (msg == null) init();
   Main.uiGroup.add_actor(msg),
     imports.ui.tweener.addTween(msg, {
@@ -65,11 +65,11 @@ const enable = () => {
       transition: "easeIn",
       onCompvare: disable
     });
-};
+}
 
-const disable = () => {
+function disable() {
   Main.uiGroup.remove_actor(msg);
   msg = null;
   iconAva = null;
   userData = null;
-};
+}

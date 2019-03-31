@@ -7,24 +7,26 @@ const userData = imports.gi.AccountsService.UserManager.get_default().get_user(
 let icon = null;
 let wrapper = null;
 
-var updateAva = () => {
+function update() {
   if (userData.get_icon_file() != null) {
     icon.style = `background-image: url("${userData.get_icon_file()}");`;
     icon.width = icon.height = Main.panel.actor.get_height() - 8;
   }
-};
+}
 
-var enable = () => {
+function enable() {
   icon = new St.Bin({ style_class: "avatar-indicator" });
-  userData.connect("notify::is-loaded", updateAva.bind(this));
-  userData.connect("changed", updateAva.bind(this));
+  userData.connect("notify::is-loaded", update.bind(this));
+  userData.connect("changed", update.bind(this));
   wrapper = new St.Bin({ style_class: "avatar-indicator--wrapper" });
   wrapper.add_actor(icon);
   Main.panel.statusArea.aggregateMenu._power.indicators.add_child(wrapper);
-  updateAva();
+  update();
 }
 
-var disable = () => {
+function disable() {
   Main.panel.statusArea.aggregateMenu._power.indicators.remove_child(wrapper);
   wrapper = null;
-};
+}
+
+function init() {}
