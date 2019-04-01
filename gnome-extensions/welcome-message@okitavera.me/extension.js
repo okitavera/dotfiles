@@ -56,15 +56,17 @@ function update() {
 }
 
 function enable() {
-  if (msg == null) init();
-  Main.uiGroup.add_actor(msg),
-    imports.ui.tweener.addTween(msg, {
-      opacity: 0,
-      time: 0.5,
-      delay: 2,
-      transition: "easeIn",
-      onCompvare: disable
-    });
+  if (global.display.focus_window == null) {
+    if (msg == null) init();
+    Main.uiGroup.add_actor(msg),
+      imports.ui.tweener.addTween(msg, {
+        opacity: 0,
+        time: 0.5,
+        delay: 2,
+        transition: "easeIn",
+        onCompvare: disable
+      });
+  }
 }
 
 function disable() {
