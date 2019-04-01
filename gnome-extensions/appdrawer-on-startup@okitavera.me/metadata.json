@@ -1,8 +1,0 @@
-{
-  "name": "App Drawer On Startup",
-  "description": "Open App Drawer On Startup",
-  "uuid": "appdrawer-on-startup@okitavera.me",
-  "shell-version": ["3.30.2"],
-  "url": "https://github.com/okitavera/dotfiles",
-  "version": 1
-}
