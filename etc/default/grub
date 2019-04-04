@@ -1,12 +1,12 @@
 # GRUB boot loader configuration
 
 # Specific kernel fix for Asus X505ZA
-X505ZA_CMDLINE="noapic idle=nomwait acpi=noirq"
+X505ZA_CMDLINE="idle=nomwait"
 
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="quiet rd.udev.log_priority=3 drm.edid_firmware=edid/vrr.bin $X505ZA_CMDLINE"
+GRUB_CMDLINE_LINUX_DEFAULT="drm.edid_firmware=edid/vrr.bin $X505ZA_CMDLINE"
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
