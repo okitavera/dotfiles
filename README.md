@@ -6,8 +6,7 @@
 
 #### Disclaimer
 
-- Just cherry-pick what you want to keep your system clean, the main dotfiles is in `assets` folder.
-  You can install the whole things but I do not recommend it.
+- Just cherry-pick what you want to keep your system clean. You can install the whole things but I do not recommend it.
 
 - After pywal, my setup is also depends on this script : `.local/bin/xrgc`.
   It basically used for reading colors from xrdb (`.Xresource`). so be careful when pick something, maybe you need that script on your `$PATH`
