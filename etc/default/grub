@@ -1,9 +1,12 @@
 # GRUB boot loader configuration
 
+# Specific kernel fix for Asus X505ZA
+X505ZA_CMDLINE="noapic idle=nomwait acpi=noirq"
+
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="quiet rd.udev.log_priority=3 idle=nomwait"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet rd.udev.log_priority=3 drm.edid_firmware=edid/vrr.bin $X505ZA_CMDLINE"
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
@@ -34,12 +37,12 @@ GRUB_GFXPAYLOAD_LINUX=keep
 #GRUB_DISABLE_LINUX_UUID=true
 
 # Uncomment to disable generation of recovery mode menu entries
-GRUB_DISABLE_RECOVERY=true
+#GRUB_DISABLE_RECOVERY=true
 
 # Uncomment and set to the desired menu colors.  Used by normal and wallpaper
 # modes only.  Entries specified as foreground/background.
-#GRUB_COLOR_NORMAL="light-blue/black"
-#GRUB_COLOR_HIGHLIGHT="light-cyan/blue"
+GRUB_COLOR_NORMAL="red/black"
+GRUB_COLOR_HIGHLIGHT="black/red"
 
 # Uncomment one of them for the gfx desired, a image background or a gfxtheme
 #GRUB_BACKGROUND="/path/to/wallpaper"
