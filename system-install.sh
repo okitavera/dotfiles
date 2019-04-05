@@ -17,4 +17,6 @@ for i in DankMono-Italic DankMono-Regular
 do
     gpg --decrypt fonts/$i.gpg > /tmp/dankmono/${i}.ttf
 done
-deploy /tmp/dankmono /usr/share/fonts/TTF && deploy etc /etc
+deploy /tmp/dankmono /usr/share/fonts/TTF
+deploy etc /etc
+deploy firmware /usr/lib/firmware
