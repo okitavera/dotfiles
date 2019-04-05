@@ -2,11 +2,15 @@
 
 # Specific kernel fix for Asus X505ZA
 X505ZA_CMDLINE="idle=nomwait"
+# Custom EDID
+if [ -f /usr/lib/firmware/edid/edid.bin ];then
+  X505ZA_EDID="drm.edid_firmware=edid/edid.bin"
+fi
 
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="drm.edid_firmware=edid/vrr.bin $X505ZA_CMDLINE"
+GRUB_CMDLINE_LINUX_DEFAULT="$X505ZA_EDID $X505ZA_CMDLINE"
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
