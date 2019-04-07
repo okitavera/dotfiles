@@ -14,8 +14,12 @@
 /* outline width (in pixels, set to 0 to disable outline drawing) */
 #define BAR_OUTLINE_WIDTH 0
 /* Amplify magnitude of the results each bar displays */
-#define AMP_STATIC 300
-#define AMPLIFY (AMP_STATIC-(mod(abs(idx),PI*2)*(PI*(AMP_STATIC/(PI*2.5)))))
+
+/* EDM-Style Amplifier */
+#define AMP 300
+#define AMPFREQ abs(idx) / (PI/1.2)
+#define AMPLIFY AMP - AMPFREQ * AMP
+
 /* Bar color */ 
 #define COLOR #A4906D
 /* Angle (in radians) for how much to rotate the visualizer */
