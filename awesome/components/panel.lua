@@ -111,3 +111,14 @@ awful.screen.connect_for_each_screen(function(scr)
     widget = wibox.container.margin
   }
 end)
+
+-- dynamic wibar corner radius
+client.connect_signal("property::maximized",function(c)
+  mywibar.shape = function(cr, w, h)
+    if not c.fullscreen and not c.maximized then
+      gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, beautiful.wibar_corner_radius or 10)
+    else
+      gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, 0)
+    end
+  end
+end)

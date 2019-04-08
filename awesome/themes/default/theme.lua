@@ -32,10 +32,7 @@ theme.border_radius = dpi(9)
 
 theme.titlebar_height = dpi(30)
 theme.wibar_height = dpi(30)
-
-theme.wibar_shape = function(cr, w, h)
-  gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, dpi(10))
-end
+theme.wibar_corner_radius = dpi(25)
 
 theme.titlebar_bg_focus = pywal.colors.bg .. "aa"
 theme.titlebar_bg_normal = pywal.colors.bg .. "aa"
