@@ -1,7 +1,24 @@
+local shapemanager = function(c)
+  local rad
+  if not c.fullscreen and not c.maximized then
+    rad = beautiful.border_radius
+  else
+    rad = 0
+  end
+  c.shape = function(cr, w, h)
+    gears.shape.rounded_rect(cr, w, h, rad)
+  end
+end
+
 client.connect_signal("manage", function(c)
   if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
     awful.placement.no_offscreen(c)
   end
+  shapemanager(c)
+end)
+
+client.connect_signal("property::maximized", function(c)
+  shapemanager(c)
 end)
 
 client.connect_signal("request::titlebars", function(c)
@@ -46,16 +63,3 @@ client.connect_signal("request::titlebars", function(c)
       layout = wibox.container.margin
     }
 end)
-
-client.connect_signal("manage", function(c, _)
-  local rad
-  if not c.fullscreen and not c.maximized then
-    rad = beautiful.border_radius
-  else
-    rad = 0
-  end
-  c.shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, rad)
-  end
-end)
-
