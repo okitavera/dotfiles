@@ -1,12 +1,10 @@
 local shapemanager = function(c)
-  local rad
-  if not c.fullscreen and not c.maximized then
-    rad = beautiful.border_radius
-  else
-    rad = 0
-  end
   c.shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, rad)
+    if not c.fullscreen and not c.maximized then
+      gears.shape.rounded_rect(cr, w, h, beautiful.border_radius or 10)
+    else
+      gears.shape.rounded_rect(cr, w, h, 0)
+    end
   end
 end
 
