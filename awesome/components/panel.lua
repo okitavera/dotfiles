@@ -113,12 +113,17 @@ awful.screen.connect_for_each_screen(function(scr)
 end)
 
 -- dynamic wibar corner radius
-client.connect_signal("property::maximized",function(c)
+local wibar_shapemanager = function(c)
   mywibar.shape = function(cr, w, h)
-    if not c.fullscreen and not c.maximized then
-      gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, beautiful.wibar_corner_radius or 10)
-    else
+    if c.fullscreen or c.maximized then
       gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, 0)
+    else
+      gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, beautiful.wibar_corner_radius or 10)
     end
   end
-end)
+end
+
+client.connect_signal("manage", function(c) wibar_shapemanager(c) end)
+client.connect_signal("request::geometry", function(c) wibar_shapemanager(c) end)
+client.connect_signal("request::activate", function(c) wibar_shapemanager(c) end)
+

@@ -14,10 +14,8 @@ client.connect_signal("manage", function(c)
   end
   shapemanager(c)
 end)
-
-client.connect_signal("property::maximized", function(c)
-  shapemanager(c)
-end)
+client.connect_signal("request::geometry", function(c) shapemanager(c) end)
+client.connect_signal("request::activate", function(c) shapemanager(c) end)
 
 client.connect_signal("request::titlebars", function(c)
     local buttons = gears.table.join(
