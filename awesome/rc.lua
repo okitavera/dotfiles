@@ -7,6 +7,7 @@ gears = require("gears")
 wibox = require("wibox")
 naughty = require("naughty")
 xresources = require("beautiful.xresources")
+lain = require("lain")
 
 -- setup global variables for later usage
 glob = {
@@ -20,14 +21,13 @@ glob = {
 -- initialize theme system
 beautiful.init(glob.aw_root.."/themes/default/theme.lua")
 
--- invoke autostart
-local autostart = glob.aw_root.."/autostart.sh"
-awful.spawn.easy_async("chmod +x ".. autostart, function()
-  awful.spawn.with_shell(autostart)
-end)
+-- invoke early autostart
+local autostart = glob.aw_root.."/autostart"
+awful.spawn.with_shell(autostart.."/early.sh")
 
 -- components
 utils = require("components.utils")
+dpi = require("components.utils").dpi
 
 -- keyboard and mouse
 bindings = require("components.bindings")
@@ -64,3 +64,6 @@ screen.connect_signal("property::geometry", utils.pywal.set_wallpaper)
 awful.screen.connect_for_each_screen(function(s)
   utils.pywal.set_wallpaper(s)
 end)
+
+-- invoke late autostart (for GUI apps)
+awful.spawn.with_shell(autostart.."/late.sh")
