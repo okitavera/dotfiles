@@ -20,12 +20,6 @@ local floating = 	{
     instance = {
       "pinentry"
     },
-    class = {
-      "feh"
-    },
-    name = {
-      "Event Tester"
-    },
     role = {
       "pop-up"
     }
@@ -51,5 +45,30 @@ local term = {
   properties = {size_hints_honor = false}
 }
 
+local media = {
+  rule_any = {
+    class = {
+      "feh",
+      "Viewnior",
+      "mpv",
+      "Gimp",
+      "Inkscape",  
+    }
+  },
+  properties = {
+    floating = true,
+    maximized = true
+  }
+}
 
-return { fallback, floating, nocsd, term }
+local dialog = {
+  rule = {
+    type = "dialog"
+  },
+  properties = {
+    floating = true,
+    placement = awful.placement.centered,
+  }
+}
+
+return { fallback, floating, nocsd, term, media, dialog }
