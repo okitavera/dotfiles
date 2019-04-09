@@ -22,8 +22,8 @@ glob = {
 beautiful.init(glob.aw_root.."/themes/default/theme.lua")
 
 -- invoke early autostart
-local autostart = glob.aw_root.."/autostart"
-awful.spawn.with_shell(autostart.."/early.sh")
+local autostart = require("autostart")
+autostart.invoke(autostart.early)
 
 -- components
 utils = require("components.utils")
@@ -66,4 +66,5 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 
 -- invoke late autostart (for GUI apps)
-awful.spawn.with_shell(autostart.."/late.sh")
+autostart.invoke(autostart.late)
+
