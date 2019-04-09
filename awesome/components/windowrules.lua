@@ -44,4 +44,12 @@ local nocsd =	{
   }
 }
 
-return { fallback, floating, nocsd }
+local term = {
+  rule = {
+    class = "URxvt"
+  },
+  properties = {size_hints_honor = false}
+}
+
+
+return { fallback, floating, nocsd, term }
