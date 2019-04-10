@@ -1,5 +1,5 @@
 local lain = require("lain")
-local panel = { item = {} }
+panel = { item = {} }
 
 awful.screen.connect_for_each_screen(function(scr)
   -- separator
@@ -27,7 +27,7 @@ awful.screen.connect_for_each_screen(function(scr)
     awful.button({}, 4, function(t) awful.tag.viewnext(t.screen) end),
     awful.button({}, 5, function(t) awful.tag.viewprev(t.screen) end)
   )
-  panel.item.taglist = awful.widget.taglist {
+  panel.taglist = awful.widget.taglist {
     screen = scr,
     buttons = btn_tag,
     filter = awful.widget.taglist.filter.all,
@@ -61,7 +61,7 @@ awful.screen.connect_for_each_screen(function(scr)
     awful.button({}, 4, function() awful.client.focus.byidx(1) end),
     awful.button({}, 5, function() awful.client.focus.byidx(-1) end)
   )
-  panel.item.tasklist = awful.widget.tasklist {
+  panel.tasklist = awful.widget.tasklist {
     screen = scr,
     filter = awful.widget.tasklist.filter.currenttags,
     buttons = btn_task,
@@ -92,37 +92,33 @@ awful.screen.connect_for_each_screen(function(scr)
   --  widget 
   --! FontAwesome icons
 
-  panel.item.vol = awful.widget.watch("ponymix get-volume", 1,
-    function(widget, stdout)
-      local vol = string.gsub(stdout, "\n", "")
-      widget:set_text(" " .. vol .. "%")
-    end)
+  panel.volume = require("widgets.ponymix")
+  panel.volume.update()
 
-  panel.item.bat = lain.widget.bat({
+  panel.battery = lain.widget.bat({
     settings = function()
       widget:set_markup(" " .. bat_now.perc .. "%")
     end
   })
+  panel.battery.update()
 
-  panel.item.bat.update()
-
-  panel.item.clock = wibox.widget.textclock("%I:%M %p")
+  panel.clock = wibox.widget.textclock("%I:%M %p")
 
   -- layouts
   panel.left = {
-    panel.item.clock,
+    panel.clock,
     panel.sep,
-    panel.item.taglist,
+    panel.taglist,
     layout = wibox.layout.align.horizontal
   }
   panel.middle = {
-    panel.item.tasklist,
+    panel.tasklist,
     layout = wibox.layout.align.horizontal
   }
   panel.right = {
-    panel.item.vol,
+    panel.volume.widget,
     panel.sep,
-    panel.item.bat.widget,
+    panel.battery.widget,
     layout = wibox.layout.fixed.horizontal
   }
 

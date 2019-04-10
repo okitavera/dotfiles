@@ -72,4 +72,22 @@ bindings.clientbuttons = gears.table.join(
   awful.button({"Mod3"}, 3, function(c) c:emit_signal("request::activate", "mouse_click", {raise = true}) awful.mouse.client.resize(c) end)
 )
 
+-- media button
+local ponymix = require("widgets.ponymix")
+local volume = function(method)
+  awful.spawn.easy_async("ponymix "..method.." 10 --max-volume 150", function()
+    ponymix.update()
+  end)
+end
+
+bindings.keys = gears.table.join(
+  bindings.keys,
+  awful.key({}, "XF86AudioRaiseVolume",
+    function() volume("increase") end,
+    {description = "increase volume", group = "media"} ),
+  awful.key({}, "XF86AudioLowerVolume",
+    function() volume("decrease") end,
+    {description = "decrease volume", group = "media"} )
+)
+    
 return bindings

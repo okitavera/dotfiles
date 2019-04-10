@@ -36,7 +36,6 @@ local menuschema = require("components.menuschema")
 local panel = require("components.panel")
 local windowrules = require("components.windowrules")
 local layouts = require("components.layouts")
-local ponymix = require("widgets.ponymix")
 
 -- setup global menu with menuschema
 glob.menu = awful.menu(menuschema)
@@ -54,9 +53,6 @@ require("components.clientsignal")
 -- register hotkeys and mouse
 root.keys(bindings.keys)
 root.buttons(bindings.mouse)
-
--- setup Standalone Widget
-ponymix { max_volume = 150, timeout = 0.25 }
 
 -- set waallpaper with pywal
 screen.connect_signal("property::geometry", utils.pywal.set_wallpaper)
