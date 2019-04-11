@@ -1,4 +1,3 @@
-local lain = require("lain")
 panel = { item = {} }
 
 awful.screen.connect_for_each_screen(function(scr)
@@ -95,11 +94,7 @@ awful.screen.connect_for_each_screen(function(scr)
   panel.volume = require("widgets.ponymix")
   panel.volume.update()
 
-  panel.battery = lain.widget.bat({
-    settings = function()
-      widget:set_markup(" " .. bat_now.perc .. "%")
-    end
-  })
+  panel.battery = require("widgets.upower")
   panel.battery.update()
 
   panel.clock = wibox.widget.textclock("%I:%M %p")
