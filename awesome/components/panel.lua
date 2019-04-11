@@ -95,7 +95,7 @@ awful.screen.connect_for_each_screen(function(scr)
     },
   }
 
-  --  widget 
+  --  widget
   --! FontAwesome icons
 
   panel.volume = require("widgets.ponymix")
@@ -154,7 +154,7 @@ local function wibar_shapemanager(c)
     if c.fullscreen or c.maximized then
       gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, 0)
     else
-      gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, 
+      gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true,
         beautiful.wibar_corner_radius or 10)
     end
   end

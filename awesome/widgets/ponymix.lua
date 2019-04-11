@@ -9,7 +9,7 @@ self.widget = awful.widget.watch("ponymix get-volume", 5,
 self.update = function()
   awful.spawn.easy_async("ponymix get-volume", function(out)
     local vol = string.gsub(out, "\n", "")
-    self.widget:set_text(" " .. vol .. "%")      
+    self.widget:set_text(" " .. vol .. "%")
   end)
 end
 

@@ -26,7 +26,7 @@ local self = {
 }
 
 if lfs.attributes(colorfile) then
-  self = dofile(colorfile)  
+  self = dofile(colorfile)
 end
 
 self.restore = function()

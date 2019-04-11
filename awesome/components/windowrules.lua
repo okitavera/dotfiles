@@ -53,7 +53,7 @@ local media = {
       "Viewnior",
       "mpv",
       "Gimp",
-      "Inkscape",  
+      "Inkscape",
     }
   },
   properties = {
