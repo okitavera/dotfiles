@@ -7,7 +7,6 @@ gears = require("gears")
 wibox = require("wibox")
 naughty = require("naughty")
 xresources = require("beautiful.xresources")
-lain = require("lain")
 
 -- setup global variables for later usage
 glob = {
