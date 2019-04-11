@@ -57,3 +57,13 @@ end)
 -- register client signals
 require("components.clientsignal")
 
+--[[
+  reload compton on every wallpaper changed
+  ----
+  this workaround is to force-update the "awesome.composite_manager_running" value
+  for true-transparency capability in wibox.drawable
+]]-- 
+
+awesome.connect_signal("wallpaper_changed", function()
+  awful.spawn.with_shell("pkill compton; compton")
+end)
