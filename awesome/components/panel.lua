@@ -1,6 +1,14 @@
+local lain = require("lain")
 local panel = { item = {} }
 
 awful.screen.connect_for_each_screen(function(scr)
+  -- separator
+  panel.sep = wibox.widget {
+    widget = wibox.widget.separator,
+    orientation = "vertical",
+    forced_width = dpi(10),
+    opacity = 0
+  }
   -- taglist a.k.a workspaces
   awful.tag({"ターミナル", "ミュージック", "ウェブ", "コード"}, scr, awful.layout.layouts[1])
   local btn_tag = gears.table.join(
@@ -80,14 +88,30 @@ awful.screen.connect_for_each_screen(function(scr)
       widget  = wibox.container.margin
     },
   }
-  -- bar clock
-  panel.item.clock = {
-    wibox.widget.textclock(" %I:%M %p "),
-    layout = wibox.layout.fixed.horizontal
-  }
+
+  --  widget 
+  --! FontAwesome icons
+
+  panel.item.vol = awful.widget.watch("ponymix get-volume", 1,
+    function(widget, stdout)
+      local vol = string.gsub(stdout, "\n", "")
+      widget:set_text(" " .. vol .. "%")
+    end)
+
+  panel.item.bat = lain.widget.bat({
+    settings = function()
+      widget:set_markup(" " .. bat_now.perc .. "%")
+    end
+  })
+
+  panel.item.bat.update()
+
+  panel.item.clock = wibox.widget.textclock("%I:%M %p")
 
   -- layouts
   panel.left = {
+    panel.item.clock,
+    panel.sep,
     panel.item.taglist,
     layout = wibox.layout.align.horizontal
   }
@@ -96,8 +120,10 @@ awful.screen.connect_for_each_screen(function(scr)
     layout = wibox.layout.align.horizontal
   }
   panel.right = {
-    panel.item.clock,
-    layout = wibox.layout.align.horizontal
+    panel.item.vol,
+    panel.sep,
+    panel.item.bat.widget,
+    layout = wibox.layout.fixed.horizontal
   }
 
   -- setup main wibar
@@ -112,8 +138,8 @@ awful.screen.connect_for_each_screen(function(scr)
       panel.right,
       layout = wibox.layout.align.horizontal
     },
-    left = 10,
-    right = 10,
+    left = 20,
+    right = 20,
     widget = wibox.container.margin
   }
 end)
