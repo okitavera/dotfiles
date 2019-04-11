@@ -5,4 +5,4 @@ Exec=compton --dbus
 Type=Application
 StartupNotify=false
 Terminal=false
-OnlyShownIn=Openbox;XFCE;
+OnlyShowIn=Openbox;XFCE;Awesome;
