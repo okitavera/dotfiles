@@ -97,6 +97,9 @@ awful.screen.connect_for_each_screen(function(scr)
   panel.battery = require("widgets.upower")
   panel.battery.update()
 
+  panel.xbacklight = require("widgets.xbacklight")
+  panel.xbacklight.update()
+
   panel.clock = wibox.widget.textclock("%I:%M %p")
 
   -- layouts
@@ -111,6 +114,9 @@ awful.screen.connect_for_each_screen(function(scr)
     layout = wibox.layout.align.horizontal
   }
   panel.right = {
+    panel.sep,
+    panel.xbacklight.widget,
+    panel.sep,
     panel.volume.widget,
     panel.sep,
     panel.battery.widget,

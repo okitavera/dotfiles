@@ -79,15 +79,29 @@ local volume = function(method)
     ponymix.update()
   end)
 end
+local xbacklight = require("widgets.xbacklight") 
+local brightness = function(method)
+  awful.spawn.easy_async("xbacklight -"..method.." 10", function()
+    xbacklight.update()
+  end)
+end
 
 bindings.keys = gears.table.join(
   bindings.keys,
+  -- Volume
   awful.key({}, "XF86AudioRaiseVolume",
     function() volume("increase") end,
     {description = "increase volume", group = "media"} ),
   awful.key({}, "XF86AudioLowerVolume",
     function() volume("decrease") end,
-    {description = "decrease volume", group = "media"} )
+    {description = "decrease volume", group = "media"} ),
+  -- Brightness
+  awful.key({}, "XF86MonBrightnessUp",
+    function() brightness("inc") end,
+    {description = "increase brightness", group = "media"} ),
+  awful.key({}, "XF86MonBrightnessDown",
+    function() brightness("dec") end,
+    {description = "decrease brightness", group = "media"} )
 )
     
 return bindings
