@@ -20,9 +20,8 @@ glob = {
 -- initialize theme system
 beautiful.init(glob.aw_root.."/themes/default/theme.lua")
 
--- invoke early autostart
-local autostart = require("autostart")
-autostart.invoke(autostart.early)
+-- invoke xdg autostart
+awful.spawn.once("dex --autostart --environment Awesome")
 
 -- components
 utils = require("components.utils")
@@ -59,7 +58,3 @@ screen.connect_signal("property::geometry", utils.pywal.set_wallpaper)
 awful.screen.connect_for_each_screen(function(s)
   utils.pywal.set_wallpaper(s)
 end)
-
--- invoke late autostart (for GUI apps)
-autostart.invoke(autostart.late)
-
