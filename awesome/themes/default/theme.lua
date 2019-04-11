@@ -4,29 +4,29 @@
 local theme = {}
 local gears = require("gears")
 local theme_assets = require("beautiful.theme_assets")
-local dpi = require("components.utils").dpi
-local pywal = require("components.utils").pywal
+local dpi = require("beautiful.xresources").apply_dpi
+local pywal = require("components.pywal")
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_configuration_dir() .. "/themes/"
 
 theme.wallpaper = pywal.wallpaper
 theme.font = "SFNS Display Bold 8"
 
-theme.bg_normal = pywal.colors.bg
-theme.bg_focus = pywal.colors.c1
-theme.bg_urgent = pywal.colors.c1
-theme.bg_minimize = pywal.colors.bg
-theme.bg_systray = pywal.colors.bg
+theme.bg_normal = pywal.background
+theme.bg_focus = pywal.color1
+theme.bg_urgent = pywal.color1
+theme.bg_minimize = pywal.background
+theme.bg_systray = pywal.background
 
 theme.fg_normal = "#aaaaaa"
-theme.fg_focus = pywal.colors.fg
-theme.fg_urgent = pywal.colors.fg
-theme.fg_minimize = pywal.colors.fg
+theme.fg_focus = pywal.foreground
+theme.fg_urgent = pywal.foreground
+theme.fg_minimize = pywal.foreground
 
 theme.useless_gap = dpi(10)
 theme.border_width = dpi(0)
-theme.border_normal = pywal.colors.bg
-theme.border_focus = pywal.colors.c1
+theme.border_normal = pywal.background
+theme.border_focus = pywal.color1
 theme.border_marked = "#91231c"
 theme.border_radius = dpi(9)
 
@@ -34,17 +34,17 @@ theme.titlebar_height = dpi(30)
 theme.wibar_height = dpi(30)
 theme.wibar_corner_radius = dpi(25)
 
-theme.titlebar_bg_focus = pywal.colors.bg .. "aa"
-theme.titlebar_bg_normal = pywal.colors.bg .. "aa"
+theme.titlebar_bg_focus = pywal.background .. "aa"
+theme.titlebar_bg_normal = pywal.background .. "aa"
 
 local taglist_square_size = dpi(0)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
-theme.tasklist_bg_normal = pywal.colors.fg .. "11"
-theme.tasklist_bg_minimize = pywal.colors.fg .. "11"
-theme.tasklist_bg_focus = pywal.colors.c1
-theme.tasklist_bg_urgent = pywal.colors.c1
+theme.tasklist_bg_normal = pywal.foreground .. "11"
+theme.tasklist_bg_minimize = pywal.foreground .. "11"
+theme.tasklist_bg_focus = pywal.color1
+theme.tasklist_bg_urgent = pywal.color1
 
 theme.menu_height = dpi(24)
 theme.menu_width = dpi(100)

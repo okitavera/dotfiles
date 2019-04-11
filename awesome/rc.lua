@@ -7,6 +7,7 @@ gears = require("gears")
 wibox = require("wibox")
 naughty = require("naughty")
 xresources = require("beautiful.xresources")
+dpi = xresources.apply_dpi
 
 -- setup global variables for later usage
 glob = {
@@ -24,8 +25,9 @@ beautiful.init(glob.aw_root.."/themes/default/theme.lua")
 awful.spawn.once("dex --autostart --environment Awesome")
 
 -- components
-utils = require("components.utils")
-dpi = require("components.utils").dpi
+
+--pywal
+pywal = require("components.pywal")
 
 -- keyboard and mouse
 bindings = require("components.bindings")
@@ -54,7 +56,7 @@ root.keys(bindings.keys)
 root.buttons(bindings.mouse)
 
 -- set waallpaper with pywal
-screen.connect_signal("property::geometry", utils.pywal.set_wallpaper)
+screen.connect_signal("property::geometry", pywal.set_wallpaper)
 awful.screen.connect_for_each_screen(function(s)
-  utils.pywal.set_wallpaper(s)
+  pywal.set_wallpaper(s)
 end)
