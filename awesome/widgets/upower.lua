@@ -10,7 +10,8 @@ local function get_percentage(out)
 end
 
 self.cmd = "upower -i /org/freedesktop/UPower/devices/battery_BAT0"
-self.widget = awful.widget.watch(self.cmd, 30, function(out)
+self.widget = awful.widget.watch(self.cmd, 30,
+  function(widget, out)
     widget:set_text(" " .. get_percentage(out) .. "%")
   end
 )
