@@ -1,16 +1,18 @@
 pcall(require, "luarocks.loader")
 
--- globalize system libs
-awful = require("awful")
-beautiful = require("beautiful")
-gears = require("gears")
-wibox = require("wibox")
-naughty = require("naughty")
-xresources = require("beautiful.xresources")
-dpi = xresources.apply_dpi
+local awful = require("awful")
+local beautiful = require("beautiful")
+local gears = require("gears")
+local wibox = require("wibox")
+local naughty = require("naughty")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
 
--- setup global variables for later usage
-glob = {
+-- register naughty error reporter
+require("components.reporter")
+
+-- setup global(rc) variables for later usage
+conf = {
   aw_root = awful.util.getdir("config"),
   editor = "code",
   terminal = "urxvt",
@@ -18,38 +20,29 @@ glob = {
   screenshot = "scrot"
 }
 
--- initialize theme system
-beautiful.init(glob.aw_root.."/themes/default/theme.lua")
+-- invoke xdg autostart ()
+if not conf.awesome_started then
+  awful.spawn("dex --autostart --environment Awesome", false)
+  conf.awesome_started = true
+end
 
--- invoke xdg autostart
-awful.spawn.once("dex --autostart --environment Awesome")
+-- initialize theme system and pywal
+local pywal = require("components.pywal")
+pywal.restore()
+beautiful.init(conf.aw_root.."/themes/default/theme.lua")
 
--- components
-
---pywal
-pywal = require("components.pywal")
-
--- keyboard and mouse
-bindings = require("components.bindings")
-
--- local components
+local bindings = require("components.bindings")
 local menuschema = require("components.menuschema")
 local panel = require("components.panel")
 local windowrules = require("components.windowrules")
 local layouts = require("components.layouts")
 
--- setup global menu with menuschema
-glob.menu = awful.menu(menuschema)
+-- setup conf.l menu with menuschema
+conf.menu = awful.menu(menuschema)
 
 -- setup window rules and layouts
 awful.rules.rules = windowrules
 awful.layout.layouts = layouts
-
--- register naughty error reporter
-require("components.reporter")
-
--- register client signals
-require("components.clientsignal")
 
 -- register hotkeys and mouse
 root.keys(bindings.keys)
@@ -60,3 +53,7 @@ screen.connect_signal("property::geometry", pywal.set_wallpaper)
 awful.screen.connect_for_each_screen(function(s)
   pywal.set_wallpaper(s)
 end)
+
+-- register client signals
+require("components.clientsignal")
+

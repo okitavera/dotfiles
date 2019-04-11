@@ -1,3 +1,10 @@
+local awful = require("awful")
+local beautiful = require("beautiful")
+local gears = require("gears")
+local wibox = require("wibox")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
+
 panel = { item = {} }
 
 awful.screen.connect_for_each_screen(function(scr)
@@ -142,7 +149,7 @@ awful.screen.connect_for_each_screen(function(scr)
 end)
 
 -- dynamic wibar corner radius
-local wibar_shapemanager = function(c)
+local function wibar_shapemanager(c)
   panel.main.shape = function(cr, w, h)
     if c.fullscreen or c.maximized then
       gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, 0)

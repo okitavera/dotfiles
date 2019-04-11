@@ -1,4 +1,9 @@
-local shapemanager = function(c)
+local awful = require("awful")
+local beautiful = require("beautiful")
+local gears = require("gears")
+local wibox = require("wibox")
+
+local function shapemanager(c)
   c.shape = function(cr, w, h)
     if not c.fullscreen and not c.maximized then
       gears.shape.rounded_rect(cr, w, h, beautiful.border_radius or 10)
@@ -16,7 +21,6 @@ client.connect_signal("manage", function(c)
 end)
 client.connect_signal("request::geometry", function(c) shapemanager(c) end)
 client.connect_signal("request::activate", function(c) shapemanager(c) end)
-
 client.connect_signal("request::titlebars", function(c)
     local buttons = gears.table.join(
       awful.button({},1,function()

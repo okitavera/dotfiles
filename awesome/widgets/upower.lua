@@ -1,7 +1,7 @@
 local awful = require("awful")
 local self = {}
 
-local get_percentage = function(out)
+local function get_percentage(out)
   for k, v in string.gmatch(out, '([%a]+[%a|-]+):%s*([%a|%d]+[,|%a|%d]-)') do
     if k == "percentage" then
       return tonumber(v)

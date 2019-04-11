@@ -1,5 +1,6 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
+local bindings = require("components.bindings")
 
 local fallback = {
   rule = {},

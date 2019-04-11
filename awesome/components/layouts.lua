@@ -1,4 +1,6 @@
-local layouts = {
+local awful = require("awful")
+
+local self = {
   awful.layout.suit.floating,
   awful.layout.suit.tile,
   awful.layout.suit.tile.left,
@@ -17,4 +19,4 @@ local layouts = {
   -- awful.layout.suit.corner.se,
 }
 
-return layouts
+return self
