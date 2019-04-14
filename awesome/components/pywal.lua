@@ -33,9 +33,9 @@ self.restore = function()
 	awful.spawn("wal -R", false)
 end
 
-self.set_wallpaper = function(screen)
+self.set_wallpaper = function()
   if lfs.attributes(self.wallpaper) then
-    gears.wallpaper.maximized(self.wallpaper, screen, true)
+    gears.wallpaper.maximized(self.wallpaper, nil, false)
   end
 end
 

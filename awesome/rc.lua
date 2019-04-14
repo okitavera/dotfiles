@@ -29,7 +29,8 @@ end
 -- initialize theme system and pywal
 local pywal = require("components.pywal")
 pywal.restore()
-beautiful.init(conf.aw_root.."/themes/default/theme.lua")
+local current_theme = conf.aw_root.."/themes/default/theme.lua"
+beautiful.init(current_theme)
 
 local bindings = require("components.bindings")
 local menuschema = require("components.menuschema")
@@ -59,8 +60,8 @@ root.buttons(bindings.mouse)
 
 -- set waallpaper with pywal
 screen.connect_signal("property::geometry", pywal.set_wallpaper)
-awful.screen.connect_for_each_screen(function(s)
-  pywal.set_wallpaper(s)
+awful.screen.connect_for_each_screen(function()
+  pywal.set_wallpaper()
 end)
 
 -- register client signals
@@ -75,4 +76,12 @@ require("components.clientsignal")
 
 awesome.connect_signal("wallpaper_changed", function()
   awful.spawn.with_shell("pkill compton; compton")
+end)
+
+-- custom signal for pywal
+awesome.connect_signal("pywal::apply", function()
+  package.loaded["components.pywal"] = nil
+  pywal = require("components.pywal")
+  pywal.set_wallpaper()
+  beautiful.init(current_theme)
 end)
