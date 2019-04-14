@@ -2,13 +2,14 @@
 log()(printf "${FUNCNAME[1]}: $1\n")
 deploy(){
   [[ -d "$1" ]] || { log "directory $1 doesn't exist. exiting"; exit 1; }
+  [[ -d "$2" ]] || mkdir -p "$2"
   log "copying modules $1 to $2"
   [[ "$SUDO" == "true" ]] && \
     sudo cp -af --preserve=mode "$1/." "$2" || cp -af --preserve=mode "$1/." "$2"
 }
 dotfox(){
   [[ -d "$1" ]] || { log "directory firefox doesn't exist. exiting"; exit 1; }
-  
+
   if [[ ! -f "$2" ]]; then
     log "no firefox profile detected, creating a new ones"
     mkdir -p $HOME/.mozilla/firefox/
@@ -21,7 +22,7 @@ dotfox(){
       "Path=00000001.default"\
       "Default=1" > $2
   fi
-  
+
   MOZ=`awk '/\[/{prefix=$0; next} $1{print prefix $0}' "$2" | grep Path | sed -e 's/.*Path=//g'`
   log "copying modules to $HOME/.mozilla/firefox/$MOZ"
   cp -af "$1/." $HOME/.mozilla/firefox/$MOZ
