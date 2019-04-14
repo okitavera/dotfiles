@@ -35,14 +35,23 @@ local bindings = require("components.bindings")
 local menuschema = require("components.menuschema")
 local panel = require("components.panel")
 local windowrules = require("components.windowrules")
-local layouts = require("components.layouts")
 
 -- setup conf.l menu with menuschema
 conf.menu = awful.menu(menuschema)
 
 -- setup window rules and layouts
 awful.rules.rules = windowrules
-awful.layout.layouts = layouts
+awful.layout.layouts = {
+  awful.layout.suit.floating,
+  awful.layout.suit.tile,
+  awful.layout.suit.tile.left,
+  awful.layout.suit.tile.bottom,
+  awful.layout.suit.tile.top,
+  awful.layout.suit.fair,
+  awful.layout.suit.fair.horizontal,
+  awful.layout.suit.max.fullscreen,
+  awful.layout.suit.max,
+}
 
 -- register hotkeys and mouse
 root.keys(bindings.keys)
