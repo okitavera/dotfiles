@@ -7,6 +7,6 @@ Profiles=profile-zero;
 
 [X-Action-Profile profile-zero]
 Folders=*;
-Exec=/usr/bin/wal -i %f -o "$HOME/.local/bin/runcolorizesh"
+Exec=sh -c "wal -i %f -o ~/.config/wal/post-launch.sh"
 Name=Set as Wallpaper with pywal
 MimeTypes=image/*;
