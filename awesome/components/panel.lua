@@ -114,7 +114,8 @@ awful.screen.connect_for_each_screen(function(scr)
     panel.clock,
     panel.sep,
     panel.taglist,
-    layout = wibox.layout.align.horizontal
+    panel.sep,
+    layout = wibox.layout.fixed.horizontal
   }
   panel.middle = {
     panel.tasklist,
