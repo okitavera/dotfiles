@@ -19,7 +19,7 @@ URxvt.internalBorder:     30
 URxvt*cursorBlink:        false
 URxvt.cursorUnderline:    true
 
-URxvt.perl-ext-common:    resize-font,ibeamcursor,leavecursor,matcher
+URxvt.perl-ext-common:    ibeamcursor,leavecursor,matcher
 URxvt.url-launcher:       firefox
 URxvt.matcher.button:     1
 URxvt.iso14755:           false

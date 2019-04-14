@@ -69,12 +69,8 @@ battery() {
 
 
 audio(){
-    value=$(pulsevol --current-volume)
-    device=$(pulsevol --current-card)
-    value="$value%"
-
+    value="$(ponymix get-volume)%"
     [[ "$value" = "0%" ]] && value="silent"
-    [[ "$value" = "100%" && "$device" == "$dac" ]] && value="Controlled by $dac_alias"; 
     echo -n "Audio: $value" | tr '[:lower:]' '[:upper:]'
 }
 

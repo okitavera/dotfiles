@@ -1,7 +1,3 @@
-uvim(){
-  urxvt -b 80 -e vim $@ &
-  disown
-}
 mkcd(){
   mkdir -p "$1"
   cd "$1"
@@ -13,4 +9,3 @@ alias {ed,emacs,nano,v,vi,vim}="vim"
 alias :q="exit"
 alias {yaourt,yay}="trizen"
 alias open="xdg-open"
-alias meow="cat"
