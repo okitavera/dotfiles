@@ -49,6 +49,18 @@ loadcfg(){
   read -p "Press [Enter] key to continue..." e
   printf "\033[1A\033[2K\n"
 }
+trizen_install(){
+  tempdir="/tmp/dotfiles-$USER/trizen"
+  command -v git >/dev/null || sudo pacman -S git
+  [[ -d "$tempdir" ]] && rm -rf "$tempdir"
+  mkdir -p "$tempdir"
+  git clone https://aur.archlinux.org/trizen.git "$tempdir"
+  command pushd "$tempdir" >/dev/null
+  makepkg -srif
+  command popd >/dev/null
+  rm -rf $tempdir
+  unset tempdir
+}
 
 echo "bootstrap script for okitavera's dotfiles"
 while true; do
@@ -56,12 +68,14 @@ cat <<EOF
 ---
 1: Install user dotfiles
 2: Install system dotfiles
+3: Install aur helper (trizen)
 *: Quit
 EOF
   read -p "choose > " choice
   case $choice in
     1) loadcfg user.conf ;;
     2) loadcfg system.conf ;;
+    3) trizen_install ;;
     *) exit 0;;
   esac
 done
