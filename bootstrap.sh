@@ -1,21 +1,18 @@
 #!/bin/bash
 SCRIPTPATH="$(readlink -f $0 | xargs dirname)"
 
-RED='\033[0;41;30m'
-STD='\033[0;0;39m'
-
-trap '' SIGINT SIGQUIT SIGTSTP
-log()(printf "${FUNCNAME[1]}: $1\n")
+log(){
+  printf "${FUNCNAME[1]}: $1\n"
+}
 deploy(){
+  [[ "$3" == "--sudo" ]] && PRESX="sudo" || PRESX=""
   [[ -d "$1" ]] || { log "directory $1 doesn't exist. exiting"; exit 1; }
-  [[ -d "$2" ]] || mkdir -p "$2"
+  [[ -d "$2" ]] || $PRESX mkdir -p "$2"
   log "copying modules $1 to $2"
-  [[ "$SUDO" == "true" ]] && \
-    sudo cp -af --preserve=mode "$1/." "$2" || cp -af --preserve=mode "$1/." "$2"
+  $PRESX cp -af --preserve=mode "$1/." "$2"
 }
 dotfox(){
   [[ -d "$1" ]] || { log "directory firefox doesn't exist. exiting"; exit 1; }
-
   if [[ ! -f "$2" ]]; then
     log "no firefox profile detected, creating a new ones"
     mkdir -p $HOME/.mozilla/firefox/
@@ -44,42 +41,27 @@ okitacheck(){
       exit 1
   fi
 }
-
-pause(){
+loadcfg(){
+  printf "\033[1A\033[2K---\n\n"
+  command pushd "$SCRIPTPATH" >/dev/null
+  source $1
+  command popd >/dev/null
   read -p "Press [Enter] key to continue..." e
+  printf "\033[1A\033[2K\n"
 }
 
-userdots(){
-  SUDO=false
-  pushd $SCRIPTPATH
-  source user.conf
-  popd
-}
-
-systemdots(){
-  SUDO=true
-  pushd $SCRIPTPATH
-  source system.conf
-  popd
-}
-
-choices(){
-	local choice
-	read -p "choose > " choice
-	case $choice in
-		1) userdots; pause ;;
-		2) systemdots; pause ;;
-		*) exit 0;;
-	esac
-}
-
-while true
-do
-	echo
-	echo "bootstrap script for okitavera's dotfiles"
-	echo "~~~~~~~~~~~~~~~~~~~~~"
-	echo "1: Install user dotfiles"
-	echo "2: Install system dotfiles"
-	echo "*: Quit"
-	choices
+echo "bootstrap script for okitavera's dotfiles"
+while true; do
+cat <<EOF
+---
+1: Install user dotfiles
+2: Install system dotfiles
+*: Quit
+EOF
+  read -p "choose > " choice
+  case $choice in
+    1) loadcfg user.conf ;;
+    2) loadcfg system.conf ;;
+    *) exit 0;;
+  esac
 done
