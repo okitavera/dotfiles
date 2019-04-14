@@ -28,6 +28,22 @@ local floating = 	{
   properties = {floating = true}
 }
 
+local max_normal = {
+  rule = {
+    type = "normal"
+  },
+  properties = {
+    maximized = function(c)
+      local avail = c.screen.geometry.height - beautiful.titlebar_height
+      if (c.height >= avail) or (c.width >= c.screen.geometry.width) then
+        return true
+      else
+        return false
+      end
+    end
+  }
+}
+
 local nocsd =	{
   rule_any = {
     type = {"normal", "dialog"}
@@ -72,4 +88,4 @@ local dialog = {
   }
 }
 
-return { fallback, floating, nocsd, term, media, dialog }
+return { fallback, max_normal, floating, nocsd, term, media, dialog }
