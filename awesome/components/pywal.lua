@@ -1,5 +1,4 @@
 local awful = require("awful")
-local beautiful = require("beautiful")
 local gears = require("gears")
 
 local colorfile = gears.filesystem.get_xdg_cache_home() .. "/wal/colors.lua"

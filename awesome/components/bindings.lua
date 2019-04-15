@@ -1,5 +1,4 @@
 local awful = require("awful")
-local beautiful = require("beautiful")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
@@ -29,9 +28,9 @@ self.keys = gears.table.join(
   awful.key({Mod, "Control"}, "k", function() awful.screen.focus_relative(-1) end, {description = "focus the previous screen", group = "screen"} ),
   awful.key({Mod}, "u", awful.client.urgent.jumpto, {description = "jump to urgent client", group = "client"}),
   awful.key({Mod}, "Tab", function() awful.client.focus.history.previous() if client.focus then client.focus:raise() end end, {description = "go back", group = "client"} ),
-  awful.key({Mod}, "Return", function() awful.spawn(conf.terminal) end, {description = "open a terminal", group = "launcher"} ),
+  awful.key({Mod}, "Return", function() awful.spawn(conf.app.term) end, {description = "open a terminal", group = "launcher"} ),
   awful.key({Mod, "Control"}, "r", awesome.restart, {description = "reload awesome", group = "awesome"}),
-  awful.key({Mod, "Shift"}, "q", function() awful.spawn(conf.logoutapp, false) end, {description = "quit awesome", group = "awesome"}),
+  awful.key({Mod, "Shift"}, "q", function() awful.spawn(conf.app.logout, false) end, {description = "quit awesome", group = "awesome"}),
   awful.key({Mod}, "l", function() awful.tag.incmwfact(0.05) end, {description = "increase master width factor", group = "layout"} ),
   awful.key({Mod}, "h", function() awful.tag.incmwfact(-0.05) end, {description = "decrease master width factor", group = "layout"} ),
   awful.key({Mod, "Shift"}, "h", function() awful.tag.incnmaster(1, nil, true) end, {description = "increase the number of master clients", group = "layout"} ),
@@ -41,8 +40,8 @@ self.keys = gears.table.join(
   awful.key({Mod}, "space", function() awful.layout.inc(1) end, {description = "select next", group = "layout"} ),
   awful.key({Mod, "Shift"}, "space", function() awful.layout.inc(-1) end, {description = "select previous", group = "layout"} ),
   awful.key({Mod, "Control"}, "n", function() local c = awful.client.restore() if c then c:emit_signal("request::activate", "key.unminimize", {raise = true}) end end, {description = "restore minimized", group = "client"} ),
-  awful.key({Mod}, "p", function() awful.spawn(conf.launcher, false) end, {description = "open launcher", group = "launcher"} ),
-  awful.key({}, "Print", function() awful.spawn(conf.screenshot, false) end, {description = "Screenshot", group = "launcher"} )
+  awful.key({Mod}, "p", function() awful.spawn(conf.app.launcher, false) end, {description = "open launcher", group = "launcher"} ),
+  awful.key({}, "Print", function() awful.spawn(conf.app.screenshot, false) end, {description = "Screenshot", group = "launcher"} )
 )
 
 self.clientkeys = gears.table.join(

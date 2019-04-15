@@ -1,24 +1,19 @@
 pcall(require, "luarocks.loader")
-
 local awful = require("awful")
 local beautiful = require("beautiful")
-local gears = require("gears")
-local wibox = require("wibox")
-local naughty = require("naughty")
-local xresources = require("beautiful.xresources")
-local dpi = xresources.apply_dpi
-
 -- register naughty error reporter
 require("components.reporter")
 
 -- setup global(rc) variables for later usage
 conf = {
   aw_root = awful.util.getdir("config"),
-  editor = "code",
-  terminal = "urxvt",
-  launcher = "rofi -show run",
-  screenshot = "scrot",
-  logoutapp = "clearine"
+  app = {
+    editor = "code",
+    term = "urxvt",
+    launcher = "rofi -show run",
+    screenshot = "scrot",
+    logout = "clearine"
+  }
 }
 
 -- invoke xdg autostart ()
@@ -37,7 +32,7 @@ local bindings = require("components.bindings")
 local menuschema = require("components.menuschema")
 local panel = require("components.panel")
 
--- setup conf.l menu with menuschema
+-- setup menu with menuschema
 conf.menu = awful.menu(menuschema)
 
 -- setup window rules and layouts
@@ -59,7 +54,6 @@ root.keys(bindings.keys)
 root.buttons(bindings.mouse)
 
 -- set waallpaper with pywal
-screen.connect_signal("property::geometry", pywal.set_wallpaper)
 awful.screen.connect_for_each_screen(function()
   pywal.set_wallpaper()
 end)
@@ -67,13 +61,7 @@ end)
 -- register client signals
 require("components.clientsignal")
 
---[[
-  reload compton on every wallpaper changed
-  ----
-  this workaround is to force-update the "awesome.composite_manager_running" value
-  for true-transparency capability in wibox.drawable
-]]--
-
+--reload compton on every wallpaper changed
 awesome.connect_signal("wallpaper_changed", function()
   awful.spawn.with_shell("pkill compton; compton")
 end)

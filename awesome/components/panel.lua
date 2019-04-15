@@ -11,7 +11,6 @@ awful.screen.connect_for_each_screen(function(scr)
   -- separator
   panel.sep = wibox.widget {
     widget = wibox.widget.separator,
-    orientation = "vertical",
     forced_width = dpi(10),
     opacity = 0
   }
@@ -40,11 +39,8 @@ awful.screen.connect_for_each_screen(function(scr)
     widget_template = {
       {
         {
-          {
-            id = "text_role",
-            widget = wibox.widget.textbox
-          },
-          layout = wibox.layout.fixed.horizontal
+          id = "text_role",
+          widget = wibox.widget.textbox
         },
         left = 10,
         right = 10,
@@ -107,11 +103,9 @@ awful.screen.connect_for_each_screen(function(scr)
   panel.xbacklight = require("widgets.xbacklight")
   panel.xbacklight.update()
 
-  panel.clock = wibox.widget.textclock("%I:%M %p")
-
   -- layouts
   panel.left = {
-    panel.clock,
+    wibox.widget.textclock("%I:%M %p"),
     panel.sep,
     panel.taglist,
     panel.sep,
