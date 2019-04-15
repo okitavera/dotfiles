@@ -12,11 +12,7 @@ return {
       keys = bindings.clientkeys,
       buttons = bindings.clientbuttons,
       screen = awful.screen.preferred,
-      placement = function(c)
-        awful.placement.centered(c)
-        awful.placement.no_overlap(c)
-        awful.placement.no_offscreen(c)
-      end
+      placement = awful.placement.no_overlap + awful.placement.no_offscreen
     }
   },
   {
@@ -59,6 +55,9 @@ return {
         "Inkscape",
       }
     },
+    except = {
+      type = "dialog"
+    },
     properties = {
       floating = true,
       maximized = true
@@ -82,10 +81,7 @@ return {
     },
     properties = {
       floating = true,
-      placement = function(c)
-        awful.placement.centered(c)
-        awful.placement.no_offscreen(c)
-      end
+      placement = awful.placement.centered
     }
   },
 }
