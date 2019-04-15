@@ -9,10 +9,8 @@ local self = {
     {"manual", conf.terminal .. " -e man awesome"},
     {"edit config", conf.editor .. " " .. awesome.conffile},
     {"restart", awesome.restart},
-    {"quit", function()
-      awesome.quit()
-    end},
-    {"open terminal", conf.terminal}
+    {"open terminal", conf.terminal},
+    {"logout", conf.logoutapp},
   }
 }
 

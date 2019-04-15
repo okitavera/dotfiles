@@ -31,7 +31,7 @@ self.keys = gears.table.join(
   awful.key({Mod}, "Tab", function() awful.client.focus.history.previous() if client.focus then client.focus:raise() end end, {description = "go back", group = "client"} ),
   awful.key({Mod}, "Return", function() awful.spawn(conf.terminal) end, {description = "open a terminal", group = "launcher"} ),
   awful.key({Mod, "Control"}, "r", awesome.restart, {description = "reload awesome", group = "awesome"}),
-  awful.key({Mod, "Shift"}, "q", awesome.quit, {description = "quit awesome", group = "awesome"}),
+  awful.key({Mod, "Shift"}, "q", function() awful.spawn(conf.logoutapp, false) end, {description = "quit awesome", group = "awesome"}),
   awful.key({Mod}, "l", function() awful.tag.incmwfact(0.05) end, {description = "increase master width factor", group = "layout"} ),
   awful.key({Mod}, "h", function() awful.tag.incmwfact(-0.05) end, {description = "decrease master width factor", group = "layout"} ),
   awful.key({Mod, "Shift"}, "h", function() awful.tag.incnmaster(1, nil, true) end, {description = "increase the number of master clients", group = "layout"} ),

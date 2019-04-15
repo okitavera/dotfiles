@@ -1,10 +1,9 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
 local gears = require("gears")
-local lfs = require("lfs")
 
 local colorfile = gears.filesystem.get_xdg_cache_home() .. "/wal/colors.lua"
-local self = {
+local self = dofile(colorfile) or {
 	foreground = "#f4ecdf",
 	background = "#14121b",
 	color0 = "#14121b",
@@ -25,16 +24,12 @@ local self = {
 	color15 = "#f4ecdf",
 }
 
-if lfs.attributes(colorfile) then
-  self = dofile(colorfile)
-end
-
 self.restore = function()
 	awful.spawn("wal -R", false)
 end
 
 self.set_wallpaper = function()
-  if lfs.attributes(self.wallpaper) then
+  if self.wallpaper then
     gears.wallpaper.maximized(self.wallpaper, nil, false)
   end
 end

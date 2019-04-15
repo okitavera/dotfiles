@@ -17,7 +17,8 @@ conf = {
   editor = "code",
   terminal = "urxvt",
   launcher = "rofi -show run",
-  screenshot = "scrot"
+  screenshot = "scrot",
+  logoutapp = "clearine"
 }
 
 -- invoke xdg autostart ()
@@ -35,13 +36,12 @@ beautiful.init(current_theme)
 local bindings = require("components.bindings")
 local menuschema = require("components.menuschema")
 local panel = require("components.panel")
-local windowrules = require("components.windowrules")
 
 -- setup conf.l menu with menuschema
 conf.menu = awful.menu(menuschema)
 
 -- setup window rules and layouts
-awful.rules.rules = windowrules
+awful.rules.rules = require("components.windowrules")
 awful.layout.layouts = {
   awful.layout.suit.floating,
   awful.layout.suit.tile,
