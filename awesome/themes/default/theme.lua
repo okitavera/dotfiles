@@ -62,4 +62,12 @@ theme.titlebar_maximized_button_focus_active = themes_path .. "default/titlebar/
 
 theme.icon_theme = nil
 
+theme.notification_border_width = 0
+theme.notification_bg = theme.bg_normal
+theme.notification_border_color = theme.bg_normal
+theme.notification_width = dpi(200)
+theme.notification_max_width = dpi(250)
+theme.notification_shape = function(cr, w, h)
+  gears.shape.rounded_rect(cr, w, h, 6)
+end
 return theme
