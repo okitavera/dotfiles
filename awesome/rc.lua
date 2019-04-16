@@ -11,7 +11,7 @@ conf = {
     editor = "code",
     term = "urxvt",
     launcher = "rofi -show run",
-    screenshot = "scrot",
+    screenshot = "chiisu",
     logout = "clearine"
   }
 }
