@@ -1,17 +1,15 @@
 local awful = require("awful")
-local self = {}
-
-self.cmd = "xbacklight -get"
-self.widget = awful.widget.watch(self.cmd, 60,
+local cmd = "xbacklight -get"
+local self = awful.widget.watch(cmd, 30,
   function(widget, out)
     local bright = string.gsub(out, "\n", "")
     widget:set_text(" "..bright .. "%")
   end
 )
-self.update = function()
-  awful.spawn.easy_async(self.cmd, function(out)
+function self:update()
+  awful.spawn.easy_async(cmd, function(out)
     local bright = string.gsub(out, "\n", "")
-    self.widget:set_text(" "..bright .. "%")
+    self:set_text(" "..bright .. "%")
   end)
 end
 

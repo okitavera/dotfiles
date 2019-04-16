@@ -9,7 +9,7 @@ panel = { item = {} }
 
 awful.screen.connect_for_each_screen(function(scr)
   -- separator
-  panel.sep = wibox.widget {
+  local SP = wibox.widget {
     widget = wibox.widget.separator,
     forced_width = dpi(10),
     opacity = 0
@@ -95,20 +95,12 @@ awful.screen.connect_for_each_screen(function(scr)
   --! FontAwesome icons
 
   panel.volume = require("widgets.ponymix")
-  panel.volume.update()
-
   panel.battery = require("widgets.upower")
-  panel.battery.update()
-
   panel.xbacklight = require("widgets.xbacklight")
-  panel.xbacklight.update()
 
   -- layouts
   panel.left = {
-    wibox.widget.textclock("%I:%M %p"),
-    panel.sep,
-    panel.taglist,
-    panel.sep,
+    wibox.widget.textclock("%I:%M %p"), SP, panel.taglist, SP,
     layout = wibox.layout.fixed.horizontal
   }
   panel.middle = {
@@ -116,12 +108,7 @@ awful.screen.connect_for_each_screen(function(scr)
     layout = wibox.layout.align.horizontal
   }
   panel.right = {
-    panel.sep,
-    panel.xbacklight.widget,
-    panel.sep,
-    panel.volume.widget,
-    panel.sep,
-    panel.battery.widget,
+    SP, panel.xbacklight, SP, panel.volume, SP, panel.battery,
     layout = wibox.layout.fixed.horizontal
   }
 
