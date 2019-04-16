@@ -54,7 +54,8 @@ self.clientkeys = gears.table.join(
   awful.key({Mod}, "n", function(c) c.minimized = true end, {description = "minimize", group = "client"} ),
   awful.key({Mod}, "m", function(c) c.maximized = not c.maximized c:raise() end, {description = "(un)maximize", group = "client"} ),
   awful.key({Mod, "Control"}, "m", function(c) c.maximized_vertical = not c.maximized_vertical c:raise() end, {description = "(un)maximize vertically", group = "client"} ),
-  awful.key({Mod, "Shift"}, "m", function(c) c.maximized_horizontal = not c.maximized_horizontal c:raise() end, {description = "(un)maximize horizontally", group = "client"} )
+  awful.key({Mod, "Shift"}, "m", function(c) c.maximized_horizontal = not c.maximized_horizontal c:raise() end, {description = "(un)maximize horizontally", group = "client"} ),
+  awful.key({Mod, "Control" }, "t", awful.titlebar.toggle, {description = "Toggle title bar", group = "Clients"})
 )
 for i = 1, 9 do
   self.keys = gears.table.join(
@@ -75,16 +76,14 @@ self.clientbuttons = gears.table.join(
 )
 
 -- media button
-local ponymix = require("widgets.ponymix")
 local function volume(method)
   awful.spawn.easy_async("ponymix "..method.." 10 --max-volume 150", function()
-    ponymix.update()
+  package.loaded["widgets.ponymix"]:update()
   end)
 end
-local xbacklight = require("widgets.xbacklight")
 local function brightness(method)
   awful.spawn.easy_async("xbacklight -"..method.." 10", function()
-    xbacklight.update()
+    package.loaded["widgets.xbacklight"]:update()
   end)
 end
 
