@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
-WM_NAME=$(wmctrl -m | awk '/Name: / {printf "%s\n", $NF}')
-
-case $WM_NAME in
+case $DESKTOP_SESSION in
 	"windowchef")
 		waitron wm_quit 0
 	;;
-	"Openbox")
+	"openbox")
 		openbox --exit
 	;;
-	"Xfwm4")
+	"xfwm4")
 		xfce4-session-logout -l
+	;;
+	"awesome")
+		echo "awesome.quit()" | awesome-client
+	;;
+	*)
+		pkill $DESKTOP_SESSION
 	;;
 esac
