@@ -9,3 +9,8 @@ alias {ed,emacs,nano,v,vi,vim}="vim"
 alias :q="exit"
 alias {yaourt,yay}="trizen"
 alias open="xdg-open"
+
+# android related aliases
+alias aroot="adb shell su -c"
+alias admesg="adb shell su -c dmesg"
+alias alog="adb logcat"
