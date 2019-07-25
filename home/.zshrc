@@ -1,5 +1,8 @@
 export EDITOR="vim"
 export ZPLUG_HOME=$HOME/.zplug
+# create fake KBUILD Information by default
+export KBUILD_BUILD_USER="vera"
+export KBUILD_BUILD_HOST="F.R.I.D.A.Y."
 
 # user profile
 source $HOME/.profile
