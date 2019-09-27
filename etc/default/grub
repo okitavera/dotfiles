@@ -2,7 +2,7 @@
 
 if cat /proc/cpuinfo | grep -i ryzen > /dev/null 2>&1; then
   # Specific kernel fix for Ryzen
-  ZEN_CMDLINE="idle=nomwait"
+  ZEN_CMDLINE="idle=nomwait processor.max_cstate=5"
 fi
 # Custom EDID
 if [ -f /usr/lib/firmware/edid/edid.bin ];then
