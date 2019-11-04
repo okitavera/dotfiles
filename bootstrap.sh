@@ -66,10 +66,10 @@ echo "bootstrap script for okitavera's dotfiles"
 while true; do
 cat <<EOF
 ---
-1: Install user dotfiles
-2: Install system dotfiles
-3: Install aur helper (trizen)
-*: Quit
+1: Deploy complete user configurations
+2: Deploy system-wide configurations
+3: Install AUR helper (trizen)
+*: quit
 EOF
   read -p "choose > " choice
   case $choice in
