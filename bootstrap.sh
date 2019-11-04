@@ -67,15 +67,17 @@ while true; do
 cat <<EOF
 ---
 1: Deploy complete user configurations
-2: Deploy system-wide configurations
-3: Install AUR helper (trizen)
+2: Deploy CLI-only user configurations
+3: Deploy system-wide configurations
+4: Install AUR helper (trizen)
 *: quit
 EOF
   read -p "choose > " choice
   case $choice in
     1) loadcfg user.conf ;;
-    2) loadcfg system.conf ;;
-    3) trizen_install ;;
+    2) loadcfg user-cli-only.conf ;;
+    3) loadcfg system.conf ;;
+    4) trizen_install ;;
     *) exit 0;;
   esac
 done
